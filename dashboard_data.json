@@ -1,8 +1,13 @@
 {
-  "lastUpdated": "2026-07-10T07:46:17.691Z",
+  "lastUpdated": "2026-07-10T07:50:13.082Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Okay 🫡",
+  "capabilities": {
+    "onsight": "23",
+    "flash": "21",
+    "redpoint": "23"
+  },
   "metrics": {
     "allTimeMeters": 3516,
     "allTimeRoutes": 196,
@@ -12,7 +17,7 @@
   "topTen": [
     {
       "routeName": "The Incredible Hulk",
-      "cragName": "The Sunbath",
+      "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "23",
       "gradeWeight": 275.1,
       "styleWeight": 3,
@@ -21,7 +26,7 @@
     },
     {
       "routeName": "Master Plan",
-      "cragName": "Masterplan Area",
+      "locationText": "Masterplan Area, Mount York",
       "gradeDisplay": "23",
       "gradeWeight": 275.1,
       "styleWeight": 1,
@@ -30,7 +35,7 @@
     },
     {
       "routeName": "Acceptably Cosmic",
-      "cragName": "Main Wall",
+      "locationText": "Main Wall, Centennial Glen",
       "gradeDisplay": "23",
       "gradeWeight": 275.1,
       "styleWeight": 1,
@@ -39,7 +44,7 @@
     },
     {
       "routeName": "Hang onto Yourself",
-      "cragName": "Little Triggers Wall",
+      "locationText": "Little Triggers Wall, The Main Wall",
       "gradeDisplay": "22",
       "gradeWeight": 258.7,
       "styleWeight": 3,
@@ -48,7 +53,7 @@
     },
     {
       "routeName": "Rocky Road",
-      "cragName": "Arrivals (Lower)",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "22",
       "gradeWeight": 258.7,
       "styleWeight": 3,
@@ -57,7 +62,7 @@
     },
     {
       "routeName": "Room With a View",
-      "cragName": "Main Cliff",
+      "locationText": "Main Cliff, Logan Brae",
       "gradeDisplay": "22",
       "gradeWeight": 258.7,
       "styleWeight": 1,
@@ -66,7 +71,7 @@
     },
     {
       "routeName": "Wok Hay",
-      "cragName": "The Sunbath",
+      "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "22",
       "gradeWeight": 258.7,
       "styleWeight": 1,
@@ -75,7 +80,7 @@
     },
     {
       "routeName": "Three Hour Commute",
-      "cragName": "Arrivals (Lower)",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "22",
       "gradeWeight": 258.7,
       "styleWeight": 1,
@@ -84,7 +89,7 @@
     },
     {
       "routeName": "Tree Beard",
-      "cragName": "Historic Wells",
+      "locationText": "Historic Wells",
       "gradeDisplay": "21",
       "gradeWeight": 241.7,
       "styleWeight": 3,
@@ -93,7 +98,7 @@
     },
     {
       "routeName": "Spoke to the Mountain, Listened to the Sea Extension",
-      "cragName": "Banksy Wall",
+      "locationText": "Banksy Wall, Bells Line Of Road",
       "gradeDisplay": "21",
       "gradeWeight": 241.7,
       "styleWeight": 3,
@@ -102,7 +107,7 @@
     }
   ],
   "funStats": {
-    "favoriteCrag": "The Sunbath",
+    "favoriteCrag": "Medlow Bath",
     "favoriteCragCount": 31,
     "preferredStyle": "Sport",
     "hardestSend": "Master Plan (Grade 23)",

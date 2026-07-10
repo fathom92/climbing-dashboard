@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T13:15:56.757Z",
+  "lastUpdated": "2026-07-10T19:08:57.903Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Satiated 😊🧗‍♂️",
@@ -10,8 +10,8 @@
       "dateLabel": "Sat, 11 July",
       "maxT": 12,
       "minT": -1,
-      "humidity": 97,
-      "gust": 41,
+      "humidity": 98,
+      "gust": 42,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
@@ -19,8 +19,8 @@
       "dateLabel": "Sun, 12 July",
       "maxT": 8,
       "minT": 3,
-      "humidity": 95,
-      "gust": 65,
+      "humidity": 96,
+      "gust": 64,
       "rain": "1.2",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     }

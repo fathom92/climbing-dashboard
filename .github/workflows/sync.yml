@@ -1,0 +1,31 @@
+name: Daily Climbing Metrics Sync
+
+on:
+  schedule:
+    - cron: '0 14 * * *' # Wakes up automatically at midnight local time AEST (14:00 UTC)
+  workflow_dispatch: # Allows you to manually click a button to force update whenever you want
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Set up Environment Node Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch and Compute Metrics
+        env:
+          THECRAG_USERNAME: ${{ secrets.THECRAG_USERNAME }}
+          THECRAG_API_KEY: ${{ secrets.THECRAG_API_KEY }}
+        run: node fetch_data.js
+
+      - name: Commit Updated Dashboard Data Back To Repo
+        run: |
+          git config --global user.name 'GitHub Actions Automation'
+          git config --global user.email 'actions@github.com'
+          git add dashboard_data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated daily stats refresh" && git push)

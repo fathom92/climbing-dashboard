@@ -63,7 +63,7 @@
             margin: -3rem auto 3rem auto;
             padding: 0 1rem;
             position: relative;
- z-index: 20;
+            z-index: 20;
         }
         
         .target-lead-banner {
@@ -278,7 +278,6 @@
             color: #f8fafc;
         }
         
-        /* Modern Native Stacked Grade Pyramid Styles */
         .pyramid-card {
             background: white;
             padding: 1.5rem;
@@ -289,7 +288,7 @@
         }
         .pyramid-chart {
             display: flex;
-            flex-direction: column-reverse; /* Stack grades ascending from bottom to top */
+            flex-direction: column-reverse; 
             gap: 4px;
             margin: 1.5rem 0 1rem 0;
         }
@@ -408,7 +407,7 @@
         .style-pill {
             display: inline-flex;
             align-items: center;
-            gap: 0.45rem; /* Enhanced padding parameters to perfectly align row items */
+            gap: 0.45rem; 
             font-size: 0.85rem;
             font-weight: 500;
             white-space: nowrap;
@@ -555,8 +554,6 @@
                 <span id="fun-attempt">Loading...</span>
                 <span class="sub-desc" id="fun-attempt-loc">-</span>
             </div>
-            
-            <!-- Localised Favourite Crag design structure updates safely deployed -->
             <div class="fun-card" style="border-left-color: #10b981;">
                 <label>🫶 Favourite Crag</label>
                 <span id="fun-crag">Loading...</span>
@@ -585,12 +582,9 @@
             </div>
         </div>
 
-        <!-- NEW: Native Geometric Stacked Grade Distribution Pyramid Module -->
         <div class="section-title">Grade Distribution Pyramid</div>
         <div class="pyramid-card">
-            <div class="pyramid-chart" id="pyramid-anchor">
-                <!-- Bars built dynamically via looping structures inside the JavaScript compilation passes -->
-            </div>
+            <div class="pyramid-chart" id="pyramid-anchor"></div>
             <div class="pyramid-legend">
                 <div class="legend-item"><div class="legend-color" style="background-color: #10b981;"></div>Onsight</div>
                 <div class="legend-item"><div class="legend-color" style="background-color: #f59e0b;"></div>Flash</div>
@@ -599,7 +593,12 @@
             </div>
         </div>
 
-        <!-- Uniform Table Columns implemented across both profile layout components -->
+        <!-- NEW: Dynamic Weekend Friction Forecasting Grid Block -->
+        <div class="section-title">Weekend Friction Forecast (Medlow Bath)</div>
+        <div class="grid-fun" id="weather-grid-anchor">
+            <!-- Rendered dynamically on page construction execution -->
+        </div>
+
         <div class="section-title">Notable Ascents</div>
         <div class="table-container">
             <table>
@@ -607,7 +606,7 @@
                     <tr>
                         <th style="width: 18%; text-align: center;">Grade</th>
                         <th style="width: 54%;">Route</th>
-                        <th style="width: 28%;">Send Status</th> 
+                        <th style="width: 28%; text-align: center;">Send Status</th> 
                     </tr>
                 </thead>
                 <tbody id="notable-body">
@@ -625,11 +624,11 @@
                     <tr>
                         <th style="width: 18%; text-align: center;">Grade</th>
                         <th style="width: 54%;">Route</th>
-                        <th style="width: 28%;">Send Status</th>
+                        <th style="width: 28%; text-align: center;">Send Status</th>
                     </tr>
                 </thead>
                 <tbody id="audit-log-body">
-                    <!-- Paginated client logs -->
+                    <!-- Paginated client rows -->
                 </tbody>
             </table>
             <div class="pagination-bar">
@@ -655,7 +654,7 @@
         if (cleanStyle === 'flash') return `<span class="style-pill"><span>⚡</span> Flash</span>`;
         if (cleanStyle === 'redpoint' || cleanStyle === 'pinkpoint') return `<span class="style-pill"><span>🔴</span> Redpoint</span>`;
         if (cleanStyle === 'hangdog') return `<span class="style-pill"><span>🐶</span> Hangdog</span>`;
-        if (cleanStyle === 'ascent') return `<span class="style-pill"><span>🧗</span> Ascent</span>`;
+        if (cleanStyle === 'ascent') return `<span class="style-pill"><span>攀</span> Ascent</span>`;
         return `<span class="style-pill"><span>🧱</span> ${styleName}</span>`;
     }
 
@@ -675,7 +674,7 @@
                     ${item.routeName}
                     <span class="route-subtext">${item.locationText} <span style="color:#94a3b8; font-weight:400; font-size:0.75rem; margin-left:2px;">( ${item.date} )</span></span>
                 </td>
-                <td>${styleWithIcon(item.styleDisplay)}</td>
+                <td style="text-align: center; display: flex; justify-content: center; border-bottom: none; padding-top: 1.1rem;">${styleWithIcon(item.styleDisplay)}</td>
             `;
             tbody.appendChild(row);
         });
@@ -727,12 +726,11 @@
                         ${climb.routeName}
                         <span class="route-subtext">${climb.locationText} <span style="color:#94a3b8; font-weight:400; font-size:0.75rem; margin-left:2px;">( ${climb.date} )</span></span>
                     </td>
-                    <td>${styleWithIcon(climb.style)}</td>
+                    <td style="text-align: center; display: flex; justify-content: center; border-bottom: none; padding-top: 1.1rem;">${styleWithIcon(climb.style)}</td>
                 `;
                 tbody.appendChild(row);
             });
 
-            // Symmetric text transformation alignment mapping inside the Favourite Crag node elements
             document.getElementById('fun-crag').innerText = data.funStats.favoriteCrag;
             document.getElementById('fun-crag-count').innerText = `${data.funStats.favoriteCragCount} sends`;
             
@@ -742,24 +740,35 @@
             document.getElementById('fun-g23-rate').innerText = `${data.metrics.dynamicRate}% Ratio`;
             document.getElementById('fun-g23-stats').innerText = `${data.metrics.dynamicSends} sends / ${data.metrics.dynamicAttempts} total entries`;
 
-            // Dynamic Native CSS Grade Distribution Pyramid Renderer Engine loops
+            // Build out the dynamic Weekend Weather elements
+            const wGrid = document.getElementById('weather-grid-anchor');
+            wGrid.innerHTML = '';
+            if (data.weekendWeather && data.weekendWeather.length > 0) {
+                data.weekendWeather.forEach(day => {
+                    const wCard = document.createElement('div');
+                    wCard.className = 'fun-card';
+                    wCard.style.borderLeftColor = '#0284c7';
+                    wCard.innerHTML = `
+                        <label>🍃 ${day.dateLabel}</label>
+                        <span>Max ${day.temp}°C</span>
+                        <span class="sub-desc" style="color: #0369a1; font-weight:600; margin-top:3px;">${day.frictionText}</span>
+                    `;
+                    wGrid.appendChild(wCard);
+                });
+            } else {
+                wGrid.innerHTML = `<div style="color:#94a3b8; font-size:0.85rem; padding-left:5px;">Forecast loading soon...</div>`;
+            }
+
             const pyramidContainer = document.getElementById('pyramid-anchor');
             pyramidContainer.innerHTML = '';
-            
             const maxVol = data.maxPyramidVolume || 1;
             
             for (let g = 10; g <= 26; g++) {
                 const stats = data.pyramid[g];
-                if (!stats || stats.total === 0) continue; // Skip displaying empty baseline grade brackets cleanly
+                if (!stats || stats.total === 0) continue;
                 
                 const pRow = document.createElement('div');
                 pRow.className = 'pyramid-row';
-                
-                // Calculate percentage weights relative to maximum bar width profiles
-                const pctOnsight = (stats.onsight / maxVol) * 100;
-                const pctFlash = (stats.flash / maxVol) * 100;
-                const pctRedpoint = (stats.redpoint / maxVol) * 100;
-                const pctOther = (stats.other / maxVol) * 100;
                 const wrapperTotalPct = (stats.total / maxVol) * 100;
 
                 pRow.innerHTML = `

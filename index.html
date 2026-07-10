@@ -182,7 +182,7 @@
             justify-content: space-between;
             font-size: 0.75rem;
             color: #64748b;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.2 flex;
         }
         .bar-bg {
             background: #e2e8f0;
@@ -593,10 +593,9 @@
             </div>
         </div>
 
-        <!-- NEW: Dynamic Weekend Friction Forecasting Grid Block -->
-        <div class="section-title">Weekend Friction Forecast (Medlow Bath)</div>
+        <div class="section-title">Weekend Friction Forecast (The Blueys)</div>
         <div class="grid-fun" id="weather-grid-anchor">
-            <!-- Rendered dynamically on page construction execution -->
+            <!-- Rendered dynamically -->
         </div>
 
         <div class="section-title">Notable Ascents</div>
@@ -628,7 +627,7 @@
                     </tr>
                 </thead>
                 <tbody id="audit-log-body">
-                    <!-- Paginated client rows -->
+                    <!-- Paginated elements -->
                 </tbody>
             </table>
             <div class="pagination-bar">
@@ -740,7 +739,6 @@
             document.getElementById('fun-g23-rate').innerText = `${data.metrics.dynamicRate}% Ratio`;
             document.getElementById('fun-g23-stats').innerText = `${data.metrics.dynamicSends} sends / ${data.metrics.dynamicAttempts} total entries`;
 
-            // Build out the dynamic Weekend Weather elements
             const wGrid = document.getElementById('weather-grid-anchor');
             wGrid.innerHTML = '';
             if (data.weekendWeather && data.weekendWeather.length > 0) {
@@ -750,8 +748,9 @@
                     wCard.style.borderLeftColor = '#0284c7';
                     wCard.innerHTML = `
                         <label>🍃 ${day.dateLabel}</label>
-                        <span>Max ${day.temp}°C</span>
-                        <span class="sub-desc" style="color: #0369a1; font-weight:600; margin-top:3px;">${day.frictionText}</span>
+                        <span>${day.minT}°C to ${day.maxT}°C</span>
+                        <span class="sub-desc" style="margin-top:2px; color:#64748b;">💧 Humid: ${day.humidity}% • 🌧️ Rain: ${day.rain}mm • 💨 Gusts: ${day.gust}km/h</span>
+                        <span class="sub-desc" style="color: #0369a1; font-weight:700; margin-top:4px; font-size:0.8rem;">${day.frictionText}</span>
                     `;
                     wGrid.appendChild(wCard);
                 });

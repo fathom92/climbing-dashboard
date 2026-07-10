@@ -9,7 +9,6 @@ async function main() {
     process.exit(1);
   }
 
-  // Target theCrag logbook ascents endpoint using credentials
   const url = `https://www.thecrag.com/api/logbook/ascents?user=${username}&key=${apiKey}`;
   
   try {
@@ -18,40 +17,34 @@ async function main() {
     
     const data = await response.json();
     
-    // Safety check for empty or malformed API arrays
-    const ascents = data.ascents || [];
-    const currentYear = new Date().getFullYear();
+    // DIAGNOSTIC LOGS: This prints the structure of the data to your GitHub Actions tab
+    console.log("--- RAW API STRUCTURE START ---");
+    console.log("Keys available at the top level:", Object.keys(data));
     
-    let totalMetersThisYear = 0;
-    let totalCountThisYear = 0;
-
-    ascents.forEach(ascent => {
-      if (!ascent.date) return;
-      
-      const ascentYear = new Date(ascent.date).getFullYear();
-      
-      if (ascentYear === currentYear) {
-        // Only tally metrics if a valid height number is present
-        if (ascent.height && !isNaN(ascent.height)) {
-          totalMetersThisYear += parseFloat(ascent.height);
+    // Look for arrays inside the data
+    for (const key in data) {
+      if (Array.isArray(data[key])) {
+        console.log(`Found an array named '${key}' with ${data[key].length} items.`);
+        if (data[key].length > 0) {
+          console.log("Sample item from this array:", JSON.stringify(data[key][0], null, 2));
         }
-        totalCountThisYear++;
       }
-    });
+    }
+    console.log("--- RAW API STRUCTURE END ---");
 
-    // Output a clean JSON data payload for the frontend website to read
+    // Standard fallback fallback logic so the site doesn't break while debugging
     const resultPayload = {
       lastUpdated: new Date().toISOString(),
-      year: currentYear,
-      totalMeters: Math.round(totalMetersThisYear),
-      totalClimbs: totalCountThisYear
+      year: new Date().getFullYear(),
+      totalMeters: 0,
+      totalClimbs: 0,
+      debugMessage: "Checking logs for data structure..."
     };
 
     fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-    console.log("Successfully compiled annual metrics:", resultPayload);
 
   } catch (error) {
-    console.error("Failed executing data sync processing:", error);
+    console.error("Failed executing diagnostic run:", error);
     process.exit(1);
   }
 }

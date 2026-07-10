@@ -63,7 +63,7 @@
             margin: -3rem auto 3rem auto;
             padding: 0 1rem;
             position: relative;
-            z-index: 20;
+ z-index: 20;
         }
         
         .target-lead-banner {
@@ -236,6 +236,7 @@
             color: #64748b;
             font-weight: 400;
             margin-top: 0.1rem;
+            line-height: 1.3;
         }
         
         .cpr-bubble {
@@ -277,6 +278,79 @@
             color: #f8fafc;
         }
         
+        /* Modern Native Stacked Grade Pyramid Styles */
+        .pyramid-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 2.5rem;
+        }
+        .pyramid-chart {
+            display: flex;
+            flex-direction: column-reverse; /* Stack grades ascending from bottom to top */
+            gap: 4px;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .pyramid-row {
+            display: flex;
+            align-items: center;
+        }
+        .pyramid-grade-label {
+            width: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #475569;
+            text-align: right;
+            padding-right: 12px;
+        }
+        .pyramid-bar-wrapper {
+            flex-grow: 1;
+            background-color: #f1f5f9;
+            height: 18px;
+            border-radius: 3px;
+            display: flex;
+            overflow: hidden;
+            max-width: 85%;
+        }
+        .p-bar {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        .p-bar.onsight { background-color: #10b981; }
+        .p-bar.flash { background-color: #f59e0b; }
+        .p-bar.redpoint { background-color: #ef4444; }
+        .p-bar.other { background-color: #cbd5e1; }
+        
+        .pyramid-row-total {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-left: 8px;
+        }
+        .pyramid-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #475569;
+            margin-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 0.75rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
         .section-title {
             font-size: 1.25rem;
             color: #0f172a;
@@ -331,14 +405,19 @@
             min-width: 24px;
         }
         
-        /* Flex Alignment Box for Inline Emoji Layout */
         .style-pill {
             display: inline-flex;
             align-items: center;
-            gap: 0.35rem;
+            gap: 0.45rem; /* Enhanced padding parameters to perfectly align row items */
             font-size: 0.85rem;
             font-weight: 500;
             white-space: nowrap;
+            line-height: 1;
+        }
+        .style-pill span {
+            font-size: 1rem;
+            display: inline-block;
+            line-height: 1;
         }
         
         .pagination-bar {
@@ -385,7 +464,6 @@
             padding-top: 1.25rem;
         }
         
-        /* Mobile Precision Responsive Layout Overrides */
         @media (max-width: 600px) {
             .cpr-row { flex-direction: column; gap: 0.5rem; }
             .target-flex-header { flex-direction: column; text-align: center; gap: 1rem; }
@@ -395,7 +473,8 @@
             table { font-size: 0.825rem; }
             th, td { padding: 0.6rem 0.4rem; }
             .route-subtext { font-size: 0.7rem; }
-            .style-pill { gap: 0.15rem; font-size: 0.8rem; }
+            .style-pill { gap: 0.25rem; font-size: 0.8rem; }
+            .pyramid-bar-wrapper { max-width: 70%; }
         }
     </style>
 </head>
@@ -476,9 +555,12 @@
                 <span id="fun-attempt">Loading...</span>
                 <span class="sub-desc" id="fun-attempt-loc">-</span>
             </div>
+            
+            <!-- Localised Favourite Crag design structure updates safely deployed -->
             <div class="fun-card" style="border-left-color: #10b981;">
-                <label>Favorite Crag</label>
+                <label>🫶 Favourite Crag</label>
                 <span id="fun-crag">Loading...</span>
+                <span class="sub-desc" id="fun-crag-count">-</span>
             </div>
         </div>
 
@@ -503,15 +585,29 @@
             </div>
         </div>
 
+        <!-- NEW: Native Geometric Stacked Grade Distribution Pyramid Module -->
+        <div class="section-title">Grade Distribution Pyramid</div>
+        <div class="pyramid-card">
+            <div class="pyramid-chart" id="pyramid-anchor">
+                <!-- Bars built dynamically via looping structures inside the JavaScript compilation passes -->
+            </div>
+            <div class="pyramid-legend">
+                <div class="legend-item"><div class="legend-color" style="background-color: #10b981;"></div>Onsight</div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #f59e0b;"></div>Flash</div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #ef4444;"></div>Redpoint</div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #cbd5e1;"></div>Other</div>
+            </div>
+        </div>
+
+        <!-- Uniform Table Columns implemented across both profile layout components -->
         <div class="section-title">Notable Ascents</div>
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 18%;">Grade</th>
-                        <th style="width: 54%;">Route & Location</th>
-                        <th style="width: 28%;">Type</th> 
-                        <th style="width: 0px; display: none;">Date</th>
+                        <th style="width: 18%; text-align: center;">Grade</th>
+                        <th style="width: 54%;">Route</th>
+                        <th style="width: 28%;">Send Status</th> 
                     </tr>
                 </thead>
                 <tbody id="notable-body">
@@ -527,14 +623,13 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 18%;">Grade</th>
-                        <th style="width: 54%;">Route Name & Location</th>
-                        <th style="width: 28%;">Log Type</th>
-                        <th style="width: 0px; display: none;">Date</th>
+                        <th style="width: 18%; text-align: center;">Grade</th>
+                        <th style="width: 54%;">Route</th>
+                        <th style="width: 28%;">Send Status</th>
                     </tr>
                 </thead>
                 <tbody id="audit-log-body">
-                    <!-- Dynamic client-side rows -->
+                    <!-- Paginated client logs -->
                 </tbody>
             </table>
             <div class="pagination-bar">
@@ -556,12 +651,12 @@
 
     function styleWithIcon(styleName) {
         const cleanStyle = styleName.toLowerCase().replace(/\s/g, '');
-        if (cleanStyle === 'onsight') return `<span class="style-pill">👁️ Onsight</span>`;
-        if (cleanStyle === 'flash') return `<span class="style-pill">⚡ Flash</span>`;
-        if (cleanStyle === 'redpoint' || cleanStyle === 'pinkpoint') return `<span class="style-pill">🔴 Redpoint</span>`;
-        if (cleanStyle === 'hangdog') return `<span class="style-pill">🐶 Hangdog</span>`;
-        if (cleanStyle === 'ascent') return `<span class="style-pill">攀 Ascent</span>`;
-        return `<span class="style-pill">🧱 ${styleName}</span>`;
+        if (cleanStyle === 'onsight') return `<span class="style-pill"><span>👁️</span> Onsight</span>`;
+        if (cleanStyle === 'flash') return `<span class="style-pill"><span>⚡</span> Flash</span>`;
+        if (cleanStyle === 'redpoint' || cleanStyle === 'pinkpoint') return `<span class="style-pill"><span>🔴</span> Redpoint</span>`;
+        if (cleanStyle === 'hangdog') return `<span class="style-pill"><span>🐶</span> Hangdog</span>`;
+        if (cleanStyle === 'ascent') return `<span class="style-pill"><span>🧗</span> Ascent</span>`;
+        return `<span class="style-pill"><span>🧱</span> ${styleName}</span>`;
     }
 
     function renderAuditTable() {
@@ -578,7 +673,7 @@
                 <td style="text-align: center;"><span class="grade-badge">${item.gradeDisplay}</span></td>
                 <td style="font-weight: 600; color: #1e293b;">
                     ${item.routeName}
-                    <span class="route-subtext">${item.locationText} <span style="color:#94a3b8; font-weight:400; font-size:0.75rem; margin-left:2px;">(${item.date})</span></span>
+                    <span class="route-subtext">${item.locationText} <span style="color:#94a3b8; font-weight:400; font-size:0.75rem; margin-left:2px;">( ${item.date} )</span></span>
                 </td>
                 <td>${styleWithIcon(item.styleDisplay)}</td>
             `;
@@ -630,19 +725,55 @@
                     <td style="text-align: center;"><span class="grade-badge">${climb.gradeDisplay}</span></td>
                     <td style="font-weight: 600; color: #1e293b;">
                         ${climb.routeName}
-                        <span class="route-subtext">${climb.locationText} <span style="color:#94a3b8; font-weight:400; font-size:0.75rem; margin-left:2px;">(${climb.date})</span></span>
+                        <span class="route-subtext">${climb.locationText} <span style="color:#94a3b8; font-weight:400; font-size:0.75rem; margin-left:2px;">( ${climb.date} )</span></span>
                     </td>
                     <td>${styleWithIcon(climb.style)}</td>
                 `;
                 tbody.appendChild(row);
             });
 
-            document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} sends)`;
+            // Symmetric text transformation alignment mapping inside the Favourite Crag node elements
+            document.getElementById('fun-crag').innerText = data.funStats.favoriteCrag;
+            document.getElementById('fun-crag-count').innerText = `${data.funStats.favoriteCragCount} sends`;
+            
             document.getElementById('fun-attempt').innerText = data.funStats.hardestAttempt;
             document.getElementById('fun-attempt-loc').innerText = data.funStats.hardestAttemptLocation;
 
             document.getElementById('fun-g23-rate').innerText = `${data.metrics.dynamicRate}% Ratio`;
             document.getElementById('fun-g23-stats').innerText = `${data.metrics.dynamicSends} sends / ${data.metrics.dynamicAttempts} total entries`;
+
+            // Dynamic Native CSS Grade Distribution Pyramid Renderer Engine loops
+            const pyramidContainer = document.getElementById('pyramid-anchor');
+            pyramidContainer.innerHTML = '';
+            
+            const maxVol = data.maxPyramidVolume || 1;
+            
+            for (let g = 10; g <= 26; g++) {
+                const stats = data.pyramid[g];
+                if (!stats || stats.total === 0) continue; // Skip displaying empty baseline grade brackets cleanly
+                
+                const pRow = document.createElement('div');
+                pRow.className = 'pyramid-row';
+                
+                // Calculate percentage weights relative to maximum bar width profiles
+                const pctOnsight = (stats.onsight / maxVol) * 100;
+                const pctFlash = (stats.flash / maxVol) * 100;
+                const pctRedpoint = (stats.redpoint / maxVol) * 100;
+                const pctOther = (stats.other / maxVol) * 100;
+                const wrapperTotalPct = (stats.total / maxVol) * 100;
+
+                pRow.innerHTML = `
+                    <div class="pyramid-grade-label">${g}</div>
+                    <div class="pyramid-bar-wrapper" style="width: ${Math.max(wrapperTotalPct, 8)}%;">
+                        <div class="p-bar onsight" style="width: ${(stats.onsight / stats.total) * 100}%;"></div>
+                        <div class="p-bar flash" style="width: ${(stats.flash / stats.total) * 100}%;"></div>
+                        <div class="p-bar redpoint" style="width: ${(stats.redpoint / stats.total) * 100}%;"></div>
+                        <div class="p-bar other" style="width: ${(stats.other / stats.total) * 100}%;"></div>
+                    </div>
+                    <div class="pyramid-row-total">${stats.total}</div>
+                `;
+                pyramidContainer.appendChild(pRow);
+            }
 
             globalAuditRecords = data.auditLog || [];
             renderAuditTable();

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T09:31:56.182Z",
+  "lastUpdated": "2026-07-10T09:43:02.140Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Satiated 😊🧗‍♂️",
@@ -8,13 +8,21 @@
   "weekendWeather": [
     {
       "dateLabel": "Sat, 11 July",
-      "temp": 12,
-      "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
+      "maxT": 12,
+      "minT": 0,
+      "humidity": 100,
+      "gust": 39,
+      "rain": "0.0",
+      "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sun, 12 July",
-      "temp": 8,
-      "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
+      "maxT": 8,
+      "minT": 3,
+      "humidity": 91,
+      "gust": 67,
+      "rain": "0.7",
+      "frictionText": "Frost Bitey 🥶 (Numb Fingers)"
     }
   ],
   "metrics": {

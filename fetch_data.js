@@ -21,18 +21,13 @@ async function main() {
   let currentPage = 1;
   let keepFetching = true;
 
-  console.log("Starting multi-page API harvest...");
-
   while (keepFetching) {
     const url = `https://www.thecrag.com/api/logbook/ascents?user=${username}&key=${apiKey}&perPage=100&page=${currentPage}`;
-    
     try {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      
       const root = await response.json();
       const pageAscents = (root.data && root.data.ascents) || [];
-      
       if (pageAscents.length === 0) {
         keepFetching = false;
       } else {
@@ -47,9 +42,11 @@ async function main() {
 
   const currentYear = new Date().getFullYear();
   let allTimeMeters = 0;
-  let allTimeRoutes = 0;
+  let allTimeLogs = 0;
+  let allTimeSuccesses = 0;
   let currentYearMeters = 0;
-  let currentYearRoutes = 0;
+  let currentYearLogs = 0;
+  let currentYearSuccesses = 0;
   
   let qualifyingSends = [];
   const cragCounts = {};
@@ -86,13 +83,21 @@ async function main() {
     }
     if (isNaN(heightValue)) heightValue = 0;
 
-    // EFFORT RECOVERY: Sum vertical meters and total counts across ALL logs (including failed attempts)
+    // Tally absolute volume metrics
     allTimeMeters += heightValue;
-    allTimeRoutes++;
+    allTimeLogs++;
 
     if (ascentYear === currentYear) {
       currentYearMeters += heightValue;
-      currentYearRoutes++;
+      currentYearLogs++;
+    }
+
+    // Tally structural success metrics
+    if (successfulStyles.includes(tickStyle)) {
+      allTimeSuccesses++;
+      if (ascentYear === currentYear) {
+        currentYearSuccesses++;
+      }
     }
 
     const cragLocationName = extractCragName(ascent.route.urlAncestorStub);
@@ -191,7 +196,8 @@ async function main() {
     }
   }
 
-  const countryCount = uniqueCountries.size === 0 ? 1 : uniqueCountries.size;
+  const allTimeSuccessRate = allTimeLogs > 0 ? Math.round((allTimeSuccesses / allTimeLogs) * 100) : 0;
+  const yearSuccessRate = currentYearLogs > 0 ? Math.round((currentYearSuccesses / currentYearLogs) * 100) : 0;
 
   const resultPayload = {
     lastUpdated: new Date().toISOString(),
@@ -205,9 +211,13 @@ async function main() {
     },
     metrics: {
       allTimeMeters: Math.round(allTimeMeters),
-      allTimeRoutes: allTimeRoutes,
+      allTimeRoutes: allTimeLogs,
+      allTimeSuccesses: allTimeSuccesses,
+      allTimeSuccessRate: allTimeSuccessRate,
       yearMeters: Math.round(currentYearMeters),
-      yearRoutes: currentYearRoutes
+      yearRoutes: currentYearLogs,
+      yearSuccesses: currentYearSuccesses,
+      yearSuccessRate: yearSuccessRate
     },
     topTen: topTenSends,
     funStats: {
@@ -215,12 +225,12 @@ async function main() {
       favoriteCragCount: maxCragCount,
       preferredStyle: favDiscipline.charAt(0).toUpperCase() + favDiscipline.slice(1),
       hardestSend: `${hardestName} (Grade ${hardestGrade})`,
-      countriesCount: countryCount
+      countriesCount: uniqueCountries.size === 0 ? 1 : uniqueCountries.size
     }
   };
 
   fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-  console.log("Global volume calculations optimized.");
+  console.log("Analytics engines fully calibrated.");
 }
 
 main();

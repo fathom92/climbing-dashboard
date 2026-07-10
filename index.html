@@ -11,39 +11,103 @@
             background-color: #f8fafc;
             color: #1e293b;
             margin: 0;
-            padding: 3rem 1rem;
+            padding: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        header {
+        
+        .hero-banner {
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 4rem 1rem 6rem 1rem;
             text-align: center;
-            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
         }
-        header h1 {
+        .hero-banner h1 {
             margin: 0 0 0.75rem 0;
-            color: #0f172a;
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 800;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.03em;
+            position: relative;
+            z-index: 10;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .status-bar {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             display: inline-flex;
             gap: 1.5rem;
             padding: 0.6rem 1.5rem;
             border-radius: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 0.9rem;
+            position: relative;
+            z-index: 10;
         }
+        .status-bar strong {
+            color: #60a5fa;
+        }
+        .mountain-skyline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 110px;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.25;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -3rem auto 3rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 20;
+        }
+        
+        .target-lead-banner {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border: 1px solid #fca5a5;
+            border-left: 6px solid #ef4444;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .target-lead-banner .info label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.075em;
+            color: #b91c1c;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .target-lead-banner .info span {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: #991b1b;
+            letter-spacing: -0.02em;
+        }
+        .target-lead-banner .timeline-badge {
+            background: #ef4444;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+        }
+
         .grid-main {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-bottom: 1.5rem;
-            margin-top: 1rem;
         }
         .card {
             background: white;
@@ -65,18 +129,12 @@
             color: #1e293b;
             margin-bottom: 0.25rem;
         }
-        .card .main-stat strong {
-            color: #2563eb;
-        }
         .card .sub-stat {
             font-size: 0.95rem;
             color: #64748b;
             border-top: 1px solid #f1f5f9;
             padding-top: 0.5rem;
             margin-top: 0.5rem;
-        }
-        .card .sub-stat strong {
-            color: #0f172a;
         }
         .progress-container {
             margin-top: 0.5rem;
@@ -104,9 +162,10 @@
         .bar-fill.everest {
             background: #3b82f6;
         }
+        
         .grid-fun {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 2rem;
         }
@@ -114,10 +173,11 @@
             background: #ffffff;
             padding: 1rem;
             border-radius: 12px;
-            border-left: 3px solid #10b981;
+            border-left: 4px solid #10b981;
             box-shadow: 0 2px 8px rgba(0,0,0,0.01);
             border: 1px solid #e2e8f0;
-            border-left-width: 4px;
+            flex: 1;
+            min-width: 220px;
         }
         .fun-card label {
             display: block;
@@ -139,6 +199,7 @@
             font-weight: 400;
             margin-top: 0.1rem;
         }
+        
         .cpr-bubble {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             color: white;
@@ -177,10 +238,11 @@
             font-weight: 800;
             color: #f8fafc;
         }
+        
         .section-title {
             font-size: 1.25rem;
             color: #0f172a;
-            margin: 2rem 0 0.75rem 0;
+            margin: 2.5rem 0 0.75rem 0;
             font-weight: 700;
         }
         .table-container {
@@ -223,6 +285,43 @@
             font-size: 0.85rem;
             font-weight: 500;
         }
+        
+        /* Interactive Pagination Elements */
+        .pagination-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+        .page-btn {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.15s ease;
+        }
+        .page-btn:hover:not(:disabled) {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+            color: #1e293b;
+        }
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .page-indicator {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
         .footer {
             text-align: center;
             font-size: 0.75rem;
@@ -233,137 +332,206 @@
         }
         @media (max-width: 600px) {
             .cpr-row { flex-direction: column; gap: 0.5rem; }
-            .grid-fun { grid-template-columns: 1fr; }
+            .target-lead-banner { flex-direction: column; text-align: center; gap: 1rem; }
+            .hero-banner h1 { font-size: 2.25rem; }
+            .grid-fun { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
+    <div class="hero-banner">
         <h1>Joe's Climbing Highlights</h1>
         <div class="status-bar">
             <div class="status-item">Days Since Last Climb: <strong id="days-count">—</strong></div>
-            <div class="status-item">Mood: <span id="mood-label">Initializing...</span></div>
+            <div class="status-item">Mood: <span id="mood-label">-</span></div>
         </div>
-    </header>
+        <svg class="mountain-skyline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="none">
+            <path fill="#ffffff" d="M0,200 L120,130 L260,175 L390,90 L520,140 L710,40 L880,120 L1020,70 L1180,150 L1320,85 L1440,140 L1440,200 Z"></path>
+            <path fill="#ffffff" opacity="0.4" d="M0,200 L180,110 L340,160 L490,75 L680,130 L840,55 L1060,145 L1240,90 L1440,165 L1440,200 Z"></path>
+        </svg>
+    </div>
 
-    <div class="grid-main">
-        <div class="card">
-            <h2>Vertical Distance</h2>
-            <div class="main-stat" id="stat-year-meters">0m</div>
-            <div class="sub-stat">All-Time Cumulative: <strong id="stat-all-meters">0m</strong></div>
-            
-            <!-- Everest Benchmark Progress Tracker -->
-            <div class="progress-container">
-                <div class="progress-label">
-                    <span>Everest Ascent Scaling (8,848m)</span>
-                    <span id="everest-value">0%</span>
-                </div>
-                <div class="bar-bg">
-                    <div class="bar-fill everest" id="everest-bar"></div>
-                </div>
+    <div class="container">
+        
+        <div class="target-lead-banner">
+            <div class="info">
+                <label>🎯 Automated Target Project</label>
+                <span>Project Grade <span id="target-grade-num">24</span></span>
             </div>
+            <div class="timeline-badge">Timeline: Oct – Dec 2026</div>
         </div>
-        <div class="card">
-            <h2>Routes Logged</h2>
-            <div class="main-stat" id="stat-year-routes">0</div>
-            <div class="sub-stat">All-Time Total: <strong id="stat-all-routes">0</strong></div>
-            
-            <!-- Send Efficiency Progress Tracker -->
-            <div class="progress-container">
-                <div class="progress-label">
-                    <span>Send Efficiency (All Ticks)</span>
-                    <span id="efficiency-value">0%</span>
-                </div>
-                <div class="bar-bg">
-                    <div class="bar-fill" id="efficiency-bar"></div>
+
+        <div class="grid-main">
+            <div class="card">
+                <h2>Vertical Distance</h2>
+                <div class="main-stat" id="stat-year-meters">0m</div>
+                <div class="sub-stat">All-Time Cumulative: <strong id="stat-all-meters">0m</strong></div>
+                
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span id="everest-lap-title">Everest Ascent Scaling (8,848m)</span>
+                        <span id="everest-value">0%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill everest" id="everest-bar"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Re-anchored Profile Trivia Grid right below the main cards -->
-    <div class="grid-fun">
-        <div class="fun-card" style="border-left-color: #10b981;">
-            <label>Favorite Crag</label>
-            <span id="fun-crag">Loading...</span>
-        </div>
-        <div class="fun-card" style="border-left-color: #8b5cf6;">
-            <label>Countries Explored</label>
-            <span id="fun-countries">Loading...</span>
-        </div>
-        <div class="fun-card" style="border-left-color: #f59e0b;">
-            <label>🐶 Hardest Attempt</label>
-            <span id="fun-attempt">Loading...</span>
-            <span class="sub-desc" id="fun-attempt-loc">-</span>
-        </div>
-        <div class="fun-card" style="border-left-color: #3b82f6;">
-            <label>🔥 Grade 23 Conversion</label>
-            <span id="fun-g23-rate">0% Ratio</span>
-            <span class="sub-desc" id="fun-g23-stats">0 sends / 0 total logs</span>
-        </div>
-        <div class="fun-card" style="border-left-color: #ef4444; background-color: #fff5f5; grid-column: span 1;">
-            <label style="color: #b91c1c;">🎯 Automated Target</label>
-            <span style="font-size: 1.1rem; color: #991b1b;">Project Grade <span id="target-grade-num">24</span></span>
-            <span class="sub-desc" style="color: #dc2626; font-weight: 600;">Timeline: Oct – Dec 2026</span>
-        </div>
-    </div>
-
-    <!-- Unified CPR Block Container Component -->
-    <div class="cpr-bubble">
-        <h2>Climber Performance Rating (CPR)</h2>
-        <div class="cpr-row">
-            <div class="cpr-item">
-                <span>👁️</span>
-                <label>Max Onsight:</label>
-                <span id="cap-onsight">—</span>
-            </div>
-            <div class="cpr-item">
-                <span>⚡</span>
-                <label>Max Flash:</label>
-                <span id="cap-flash">—</span>
-            </div>
-            <div class="cpr-item">
-                <span>🔴</span>
-                <label>Max Redpoint:</label>
-                <span id="cap-redpoint">—</span>
+            <div class="card">
+                <h2>Routes Logged</h2>
+                <div class="main-stat" id="stat-year-routes">0</div>
+                <div class="sub-stat">All-Time Total: <strong id="stat-all-routes">0</strong></div>
+                
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Send Efficiency (All Ticks)</span>
+                        <span id="efficiency-value">0%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="efficiency-bar"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="section-title">Notable Ascents</div>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 50px; text-align: center;">Rank</th>
-                    <th>Route & Location</th>
-                    <th style="width: 80px;">Grade</th>
-                    <th style="width: 110px;">Style</th>
-                    <th style="width: 80px; text-align: right;">Date</th>
-                </tr>
-            </thead>
-            <tbody id="notable-body">
-                <tr>
-                    <td colspan="5" style="text-align: center; color: #94a3b8;">Processing logs...</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div class="grid-fun">
+            <div class="fun-card" style="border-left-color: #3b82f6;">
+                <label id="fun-g23-title">🔥 Grade 23 Conversion</label>
+                <span id="fun-g23-rate">0% Ratio</span>
+                <span class="sub-desc" id="fun-g23-stats">0 sends / 0 total logs</span>
+            </div>
+            <div class="fun-card" style="border-left-color: #f59e0b;">
+                <label>🐶 Hardest Attempt</label>
+                <span id="fun-attempt">Loading...</span>
+                <span class="sub-desc" id="fun-attempt-loc">-</span>
+            </div>
+            <div class="fun-card" style="border-left-color: #10b981;">
+                <label>Favorite Crag</label>
+                <span id="fun-crag">Loading...</span>
+            </div>
+            <div class="fun-card" style="border-left-color: #8b5cf6;">
+                <label>Countries Explored</label>
+                <span id="fun-countries">Loading...</span>
+            </div>
+        </div>
 
-    <div class="footer">
-        Automated data connection via theCrag API Key • Sync timestamp: <span id="sync-stamp">-</span>
+        <div class="cpr-bubble">
+            <h2>Climber Performance Rating (CPR)</h2>
+            <div class="cpr-row">
+                <div class="cpr-item">
+                    <span>👁️</span>
+                    <label>Max Onsight:</label>
+                    <span id="cap-onsight">—</span>
+                </div>
+                <div class="cpr-item">
+                    <span>⚡</span>
+                    <label>Max Flash:</label>
+                    <span id="cap-flash">—</span>
+                </div>
+                <div class="cpr-item">
+                    <span>🔴</span>
+                    <label>Max Redpoint:</label>
+                    <span id="cap-redpoint">—</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Notable Ascents</div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50px; text-align: center;">Rank</th>
+                        <th>Route & Location</th>
+                        <th style="width: 80px;">Grade</th>
+                        <th style="width: 110px;">Type</th> <!-- REPLACEMENT: Updated header descriptor title cleanly -->
+                        <th style="width: 80px; text-align: right;">Date</th>
+                    </tr>
+                </thead>
+                <tbody id="notable-body">
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #94a3b8;">Processing logs...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- NEW: Chronological Logbook Timeline Grid Pipeline Component -->
+        <div class="section-title">Recent Activity History Log</div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Route Name & Location</th>
+                        <th style="width: 80px;">Grade</th>
+                        <th style="width: 140px;">Log Type</th>
+                        <th style="width: 80px; text-align: right;">Date</th>
+                    </tr>
+                </thead>
+                <tbody id="audit-log-body">
+                    <!-- Loaded dynamically via JavaScript pagination mapping -->
+                </tbody>
+            </table>
+            <div class="pagination-bar">
+                <button class="page-btn" id="btn-prev" onclick="changePage(-1)">← Previous</button>
+                <div class="page-indicator" id="page-num-display">Page 1 of 5</div>
+                <button class="page-btn" id="btn-next" onclick="changePage(1)">Next →</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            Automated data connection via theCrag API Key • Sync timestamp: <span id="sync-stamp">-</span>
+        </div>
     </div>
-</div>
 
 <script>
+    let globalAuditRecords = [];
+    let auditCurrentPage = 1;
+    const recordsPerPage = 10;
+
     function styleWithIcon(styleName) {
         const cleanStyle = styleName.toLowerCase().replace(/\s/g, '');
         if (cleanStyle === 'onsight') return `<span class="style-pill">👁️ Onsight</span>`;
         if (cleanStyle === 'flash') return `<span class="style-pill">⚡ Flash</span>`;
         if (cleanStyle === 'redpoint' || cleanStyle === 'pinkpoint') return `<span class="style-pill">🔴 Redpoint</span>`;
-        return styleName;
+        if (cleanStyle === 'hangdog') return `<span class="style-pill">🐶 Hangdog</span>`;
+        if (cleanStyle === 'ascent') return `<span class="style-pill">🧗 Ascent</span>`;
+        return `<span class="style-pill">🧱 ${styleName}</span>`;
+    }
+
+    // Interactive Front-End JavaScript Pagination Engine
+    function renderAuditTable() {
+        const tbody = document.getElementById('audit-log-body');
+        tbody.innerHTML = '';
+
+        const startIdx = (auditCurrentPage - 1) * recordsPerPage;
+        const endIdx = startIdx + recordsPerPage;
+        const pageItems = globalAuditRecords.slice(startIdx, endIdx);
+
+        pageItems.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td style="font-weight: 500; color: #334155;">
+                    ${item.routeName}
+                    <span class="route-subtext">${item.locationText}</span>
+                </td>
+                <td><span class="grade-badge">${item.gradeDisplay}</span></td>
+                <td>${styleWithIcon(item.styleDisplay)}</td>
+                <td style="color: #64748b; text-align: right; font-size: 0.85rem;">${item.date}</td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        // Toggle state parameters on action control links
+        document.getElementById('btn-prev').disabled = (auditCurrentPage === 1);
+        document.getElementById('btn-next').disabled = (auditCurrentPage === Math.ceil(globalAuditRecords.length / recordsPerPage));
+        document.getElementById('page-num-display').innerText = `Page ${auditCurrentPage} of ${Math.ceil(globalAuditRecords.length / recordsPerPage)}`;
+    }
+
+    function changePage(direction) {
+        auditCurrentPage += direction;
+        renderAuditTable();
     }
 
     fetch('./dashboard_data.json')
@@ -378,11 +546,10 @@
             document.getElementById('stat-all-meters').innerText = `${data.metrics.allTimeMeters.toLocaleString()}m`;
             document.getElementById('stat-all-routes').innerText = data.metrics.allTimeLogs.toLocaleString();
 
-            // Everest Progress Bar
+            document.getElementById('everest-lap-title').innerText = `Everest Scaling (Lap #${data.metrics.everestLap})`;
             document.getElementById('everest-value').innerText = `${data.metrics.everestPercent}%`;
             document.getElementById('everest-bar').style.width = `${data.metrics.everestPercent}%`;
 
-            // Efficiency Progress Bar
             document.getElementById('efficiency-value').innerText = `${data.metrics.allTimeSuccessRate}%`;
             document.getElementById('efficiency-bar').style.width = `${data.metrics.allTimeSuccessRate}%`;
 
@@ -390,8 +557,8 @@
             document.getElementById('cap-flash').innerText = data.capabilities.flash;
             document.getElementById('cap-redpoint').innerText = data.capabilities.redpoint;
 
-            // Target Grade calculation assignment
             document.getElementById('target-grade-num').innerText = data.targetGrade;
+            document.getElementById('fun-g23-title').innerText = `🔥 Grade ${data.breakthroughGrade} Conversion`;
 
             const tbody = document.getElementById('notable-body');
             tbody.innerHTML = '';
@@ -414,13 +581,15 @@
             document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} sends)`;
             document.getElementById('fun-countries').innerText = `${data.funStats.countriesCount} ${data.funStats.countriesCount === 1 ? 'Country' : 'Countries'}`;
             
-            // Hardest Attempt tracking output
             document.getElementById('fun-attempt').innerText = data.funStats.hardestAttempt;
             document.getElementById('fun-attempt-loc').innerText = data.funStats.hardestAttemptLocation;
 
-            // Grade 23 Specific metrics translation
-            document.getElementById('fun-g23-rate').innerText = `${data.metrics.grade23Rate}% Success`;
-            document.getElementById('fun-g23-stats').innerText = `${data.metrics.grade23Sends} sends / ${data.metrics.grade23Attempts} total entries`;
+            document.getElementById('fun-g23-rate').innerText = `${data.metrics.dynamicRate}% Ratio`;
+            document.getElementById('fun-g23-stats').innerText = `${data.metrics.dynamicSends} sends / ${data.metrics.dynamicAttempts} total entries`;
+
+            // Pipe historical payload items to pagination runtime values
+            globalAuditRecords = data.auditLog || [];
+            renderAuditTable();
 
             const stamp = new Date(data.lastUpdated).toLocaleDateString(undefined, {
                 month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'

@@ -1,24 +1,21 @@
 {
-  "lastUpdated": "2026-07-10T08:16:18.994Z",
+  "lastUpdated": "2026-07-10T08:31:05.335Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
-  "mood": "Okay 🫡",
+  "mood": "Satiated 😊🧗‍♂️",
   "targetGrade": 24,
-  "capabilities": {
-    "onsight": "23",
-    "flash": "21",
-    "redpoint": "23"
-  },
+  "breakthroughGrade": 23,
   "metrics": {
     "allTimeMeters": 3516,
     "allTimeLogs": 196,
     "allTimeSuccessRate": 76,
+    "everestLap": 1,
     "everestPercent": 40,
     "yearMeters": 1428,
     "yearRoutes": 74,
-    "grade23Rate": 23,
-    "grade23Sends": 3,
-    "grade23Attempts": 13
+    "dynamicRate": 23,
+    "dynamicSends": 3,
+    "dynamicAttempts": 13
   },
   "topTen": [
     {
@@ -31,6 +28,15 @@
       "date": "Jul 26"
     },
     {
+      "routeName": "Acceptably Cosmic",
+      "locationText": "Main Wall, Centennial Glen",
+      "gradeDisplay": "23",
+      "gradeWeight": 275.1,
+      "styleWeight": 1,
+      "style": "Red point",
+      "date": "Jan 26"
+    },
+    {
       "routeName": "Master Plan",
       "locationText": "Masterplan Area, Mount York",
       "gradeDisplay": "23",
@@ -40,13 +46,13 @@
       "date": "Dec 25"
     },
     {
-      "routeName": "Acceptably Cosmic",
-      "locationText": "Main Wall, Centennial Glen",
-      "gradeDisplay": "23",
-      "gradeWeight": 275.1,
-      "styleWeight": 1,
-      "style": "Red point",
-      "date": "Jan 26"
+      "routeName": "Rocky Road",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
+      "gradeDisplay": "22",
+      "gradeWeight": 258.7,
+      "styleWeight": 3,
+      "style": "Onsight",
+      "date": "Apr 26"
     },
     {
       "routeName": "Hang onto Yourself",
@@ -58,12 +64,21 @@
       "date": "Mar 26"
     },
     {
-      "routeName": "Rocky Road",
+      "routeName": "Three Hour Commute",
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "22",
       "gradeWeight": 258.7,
-      "styleWeight": 3,
-      "style": "Onsight",
+      "styleWeight": 1,
+      "style": "Red point",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Wok Hay",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "22",
+      "gradeWeight": 258.7,
+      "styleWeight": 1,
+      "style": "Red point",
       "date": "Apr 26"
     },
     {
@@ -76,42 +91,381 @@
       "date": "Mar 26"
     },
     {
-      "routeName": "Wok Hay",
+      "routeName": "Chasing Amy",
+      "locationText": "Chasing Amy Wall, Porters Pass",
+      "gradeDisplay": "21",
+      "gradeWeight": 241.7,
+      "styleWeight": 3,
+      "style": "Onsight",
+      "date": "Jun 26"
+    },
+    {
+      "routeName": "Cherry",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "21",
+      "gradeWeight": 241.7,
+      "styleWeight": 3,
+      "style": "Onsight",
+      "date": "Jun 26"
+    }
+  ],
+  "auditLog": [
+    {
+      "routeName": "Radioactive Man",
       "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "22",
-      "gradeWeight": 258.7,
-      "styleWeight": 1,
-      "style": "Red point",
+      "gradeDisplay": "20",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Spook Eyes (Direct)",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "19",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "The Incredible Hulk",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "23",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Friendly Fallout",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "16",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Three Sheets to the Wind",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "10",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Chasing Amy",
+      "locationText": "Chasing Amy Wall, Porters Pass",
+      "gradeDisplay": "21",
+      "styleDisplay": "Onsight",
+      "date": "Jun 26"
+    },
+    {
+      "routeName": "Dinosaur Gully",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "19",
+      "styleDisplay": "Onsight",
+      "date": "Jun 26"
+    },
+    {
+      "routeName": "Cherry",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "21",
+      "styleDisplay": "Onsight",
+      "date": "Jun 26"
+    },
+    {
+      "routeName": "Fabulous Muppet Show Direct Start",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "21",
+      "styleDisplay": "Red point",
+      "date": "Jun 26"
+    },
+    {
+      "routeName": "Fabulous Muppet Show",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "Jun 26"
+    },
+    {
+      "routeName": "Vintage Cuvée",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "Jun 26"
+    },
+    {
+      "routeName": "Green Frogs and Liver",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "18",
+      "styleDisplay": "Red point",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Runnel Wall",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "10",
+      "styleDisplay": "Onsight",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Sister Moon",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "21",
+      "styleDisplay": "Red point",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Brother Sun",
+      "locationText": "Alfords Point Main Area, Sutherland",
+      "gradeDisplay": "21",
+      "styleDisplay": "Red point",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Captain Pugwash",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "13",
+      "styleDisplay": "Onsight",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Three Sheets to the Wind",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "10",
+      "styleDisplay": "Onsight",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Whale of a Time",
+      "locationText": "Whale of a Time Wall, Wollongong",
+      "gradeDisplay": "16",
+      "styleDisplay": "Onsight",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Whale Watchers",
+      "locationText": "Whale of a Time Wall, Wollongong",
+      "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Anthracite",
+      "locationText": "Kenny's Wall, Wollongong",
+      "gradeDisplay": "20",
+      "styleDisplay": "Onsight",
+      "date": "May 26"
+    },
+    {
+      "routeName": "Jingle Bells",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
+      "gradeDisplay": "21",
+      "styleDisplay": "Onsight",
       "date": "Apr 26"
     },
     {
       "routeName": "Three Hour Commute",
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "22",
-      "gradeWeight": 258.7,
-      "styleWeight": 1,
-      "style": "Red point",
+      "styleDisplay": "Red point",
       "date": "Apr 26"
     },
     {
-      "routeName": "Tree Beard",
-      "locationText": "Historic Wells",
-      "gradeDisplay": "21",
-      "gradeWeight": 241.7,
-      "styleWeight": 3,
-      "style": "Onsight",
-      "date": "Dec 25"
+      "routeName": "Rocky Road",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
+      "gradeDisplay": "22",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
     },
     {
-      "routeName": "Spoke to the Mountain, Listened to the Sea Extension",
-      "locationText": "Banksy Wall, Bells Line Of Road",
+      "routeName": "Who the Fuck is Keith",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "21",
-      "gradeWeight": 241.7,
-      "styleWeight": 3,
-      "style": "Onsight",
-      "date": "Jan 26"
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Jigger Jeff",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
+      "gradeDisplay": "23",
+      "styleDisplay": "Hang dog",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Belayer's Root",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
+      "gradeDisplay": "19",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Cock Blocker",
+      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
+      "gradeDisplay": "21",
+      "styleDisplay": "Red point",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Araldite",
+      "locationText": "The Blowhole, Blow Hole",
+      "gradeDisplay": "20",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Duckling",
+      "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
+      "gradeDisplay": "20",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Duck Tits",
+      "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
+      "gradeDisplay": "21",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Holelipstick Hippy",
+      "locationText": "The Blowhole, Blow Hole",
+      "gradeDisplay": "25",
+      "styleDisplay": "Hang dog",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Poultry in Motion",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "19",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Until Death Do Us Part",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "12",
+      "styleDisplay": "Flash",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Pasado Mañana Extension",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "15",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Unknown 2",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "20",
+      "styleDisplay": "Red point",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Megalong Goodhas",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "13",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Wok Hay",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "22",
+      "styleDisplay": "Red point",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Viper",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "21",
+      "styleDisplay": "Red point",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "High Society",
+      "locationText": "Mezzaluna Area, Blaxland Gully",
+      "gradeDisplay": "18",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Murmel Snooze",
+      "locationText": "Mezzaluna Area, Blaxland Gully",
+      "gradeDisplay": "20",
+      "styleDisplay": "Red point",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Funkytown",
+      "locationText": "Historic Wells",
+      "gradeDisplay": "20",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Bless Its Pointed Little Head",
+      "locationText": "Historic Wells",
+      "gradeDisplay": "21",
+      "styleDisplay": "Hang dog",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Use the Fork Luke",
+      "locationText": "Historic Wells",
+      "gradeDisplay": "19",
+      "styleDisplay": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Alive 'n' Kicking",
+      "locationText": "Historic Wells",
+      "gradeDisplay": "23",
+      "styleDisplay": "Hang dog",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Hang onto Yourself",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "gradeDisplay": "22",
+      "styleDisplay": "Onsight",
+      "date": "Mar 26"
+    },
+    {
+      "routeName": "Mike and Lorna go to Town",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "gradeDisplay": "19",
+      "styleDisplay": "Red point",
+      "date": "Mar 26"
+    },
+    {
+      "routeName": "Dr Do Little",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "gradeDisplay": "21",
+      "styleDisplay": "Red point",
+      "date": "Mar 26"
+    },
+    {
+      "routeName": "Major Tom",
+      "locationText": "Jean Genie Area, Bardens Gully",
+      "gradeDisplay": "23",
+      "styleDisplay": "Hang dog",
+      "date": "Mar 26"
+    },
+    {
+      "routeName": "Scheme of Things",
+      "locationText": "Jean Genie Area, Bardens Gully",
+      "gradeDisplay": "23",
+      "styleDisplay": "Hang dog",
+      "date": "Mar 26"
+    },
+    {
+      "routeName": "Empty Chairs",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "19",
+      "styleDisplay": "Onsight",
+      "date": "Mar 26"
     }
   ],
+  "capabilities": {
+    "onsight": "23",
+    "flash": "21",
+    "redpoint": "23"
+  },
   "funStats": {
     "favoriteCrag": "Medlow Bath",
     "favoriteCragCount": 31,

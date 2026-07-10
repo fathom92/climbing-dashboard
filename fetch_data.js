@@ -40,6 +40,9 @@ async function main() {
     }
   }
 
+  // Sort ALL entries chronologically (newest first) to accurately capture your latest activity profile
+  allAscents.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   const currentYear = new Date().getFullYear();
   let allTimeMeters = 0;
   let allTimeLogs = 0;
@@ -56,11 +59,6 @@ async function main() {
   let hardestSendNum = 0;
   let mostRecentAscentDate = null;
 
-  // Grade 23 calculation buckets
-  let grade23TotalAttempts = 0;
-  let grade23CleanSends = 0;
-
-  // Hardest attempt tracking variables
   let hardestAttemptWeight = 0;
   let hardestAttemptRouteName = 'None';
   let hardestAttemptCragName = 'N/A';
@@ -71,6 +69,27 @@ async function main() {
     flash: { score: 0, label: 'N/A' },
     redpoint: { score: 0, label: 'N/A' }
   };
+
+  // First pass: dynamic breakthrough threshold extraction
+  allAscents.forEach(ascent => {
+    if (!ascent.route || !ascent.tick) return;
+    const tickStyle = (ascent.tick.label || '').toLowerCase();
+    const successfulStyles = ['onsight', 'flash', 'redpoint', 'pinkpoint'];
+    const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade ? parseFloat(ascent.cpr.base.internalGrade) : 0;
+    const numericalGrade = ascent.route.grade ? parseInt(ascent.route.grade) : 0;
+
+    if (successfulStyles.includes(tickStyle) && internalSortGrade > hardestSendWeight) {
+      hardestSendWeight = internalSortGrade;
+      hardestSendNum = numericalGrade;
+    }
+  });
+
+  const breakthroughGrade = hardestSendNum > 0 ? hardestSendNum : 23;
+  let dynamicTotalAttempts = 0;
+  let dynamicCleanSends = 0;
+
+  // Build out layout timeline tracking objects for the audit history log pool
+  let auditHistoryLogPool = [];
 
   allAscents.forEach(ascent => {
     if (!ascent.date || !ascent.route) return;
@@ -91,7 +110,6 @@ async function main() {
     }
     if (isNaN(heightValue)) heightValue = 0;
 
-    // Sum overall career efforts across all types
     allTimeMeters += heightValue;
     allTimeLogs++;
 
@@ -119,32 +137,35 @@ async function main() {
       uniqueCountries.add('Australia');
     }
     
-    const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade 
-      ? parseFloat(ascent.cpr.base.internalGrade) 
-      : 0;
-      
+    const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade ? parseFloat(ascent.cpr.base.internalGrade) : 0;
     const numericalGrade = ascent.route.grade ? parseInt(ascent.route.grade) : 0;
 
-    // Track Grade 23 specific conversion stats
-    if (numericalGrade === 23) {
-      grade23TotalAttempts++;
-      if (successfulStyles.includes(tickStyle)) {
-        grade23CleanSends++;
-      }
+    if (numericalGrade === breakthroughGrade) {
+      dynamicTotalAttempts++;
+      if (successfulStyles.includes(tickStyle)) dynamicCleanSends++;
     }
 
-    // Track hardest logged send profile
-    if (successfulStyles.includes(tickStyle) && internalSortGrade > hardestSendWeight) {
-      hardestSendWeight = internalSortGrade;
-      hardestSendNum = numericalGrade;
-    }
-
-    // Track hardest overall attempt (any style that isn't a clean send)
     if (!successfulStyles.includes(tickStyle) && internalSortGrade > hardestAttemptWeight) {
       hardestAttemptWeight = internalSortGrade;
       hardestAttemptRouteName = ascent.route.name || 'Unknown Route';
       hardestAttemptCragName = combinedLocation;
       hardestAttemptGradeLabel = ascent.route.grade || 'N/A';
+    }
+
+    const shortDate = ascentDateObj.toLocaleDateString('en-US', {
+      month: 'short',
+      year: '2-digit'
+    }).replace(',', '');
+
+    // Compile tracking array for the Audit Log (Grabs the last 50 chronological logbook elements)
+    if (auditHistoryLogPool.length < 50) {
+      auditHistoryLogPool.push({
+        routeName: ascent.route.name || 'Unknown Route',
+        locationText: combinedLocation,
+        gradeDisplay: ascent.route.grade || 'N/A',
+        styleDisplay: ascent.tick.name || ascent.tick.label || 'Attempt',
+        date: shortDate
+      });
     }
 
     if (successfulStyles.includes(tickStyle)) {
@@ -160,11 +181,6 @@ async function main() {
         peakCapability[capKey].label = ascent.route.grade || 'N/A';
       }
 
-      const shortDate = ascentDateObj.toLocaleDateString('en-US', {
-        month: 'short',
-        year: '2-digit'
-      }).replace(',', '');
-
       qualifyingSends.push({
         routeName: ascent.route.name || 'Unknown Route',
         locationText: combinedLocation,
@@ -177,15 +193,14 @@ async function main() {
     }
   });
 
+  // Re-sort your qualifying sends purely by difficulty grade weight for the Notable table
   qualifyingSends.sort((a, b) => {
     if (b.gradeWeight !== a.gradeWeight) return b.gradeWeight - a.gradeWeight;
     return b.styleWeight - a.styleWeight;
   });
   
   const topTenSends = qualifyingSends.slice(0, 10);
-
-  // Define dynamic target destination metrics based on career high numbers
-  const targetProjectGrade = hardestSendNum > 0 ? hardestSendNum + 1 : 24;
+  const targetProjectGrade = breakthroughGrade + 1;
   
   let daysSinceLastClimb = '—';
   let moodText = 'Unknown 🤷‍♂️';
@@ -196,7 +211,7 @@ async function main() {
     daysSinceLastClimb = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
     if (daysSinceLastClimb < 3) moodText = "Ecstatic! 🧗‍♂️🔥";
-    else if (daysSinceLastClimb < 7) moodText = "Okay 🫡";
+    else if (daysSinceLastClimb < 7) moodText = "Satiated 😊🧗‍♂️"; // REPLACEMENT: Dynamic mood upgrade applied safely
     else if (daysSinceLastClimb < 30) moodText = "Itching to get back on the wall 🦎🧗";
     else moodText = "Must be dead 💀⚰️";
   }
@@ -211,11 +226,12 @@ async function main() {
   }
 
   const allTimeSuccessRate = allTimeLogs > 0 ? Math.round((allTimeSuccesses / allTimeLogs) * 100) : 0;
-  const grade23SuccessRate = grade23TotalAttempts > 0 ? Math.round((grade23CleanSends / grade23TotalAttempts) * 100) : 0;
+  const dynamicSuccessRate = dynamicTotalAttempts > 0 ? Math.round((dynamicCleanSends / dynamicTotalAttempts) * 100) : 0;
   
-  // Everest target conversion comparison calculations
   const everestHeight = 8848;
-  const everestProgress = Math.min(Math.round((allTimeMeters / everestHeight) * 100), 100);
+  const currentLapNumber = Math.floor(allTimeMeters / everestHeight) + 1;
+  const remainderMeters = allTimeMeters % everestHeight;
+  const everestProgressPercent = Math.round((remainderMeters / everestHeight) * 100);
 
   const resultPayload = {
     lastUpdated: new Date().toISOString(),
@@ -223,23 +239,26 @@ async function main() {
     daysSinceLastClimb: daysSinceLastClimb,
     mood: moodText,
     targetGrade: targetProjectGrade,
+    breakthroughGrade: breakthroughGrade,
+    metrics: {
+      allTimeMeters: Math.round(allTimeMeters),
+      allTimeLogs: allTimeLogs,
+      allTimeSuccessRate: allTimeSuccessRate,
+      everestLap: currentLapNumber,
+      everestPercent: everestProgressPercent,
+      yearMeters: Math.round(currentYearMeters),
+      yearRoutes: currentYearLogs,
+      dynamicRate: dynamicSuccessRate,
+      dynamicSends: dynamicCleanSends,
+      dynamicAttempts: dynamicTotalAttempts
+    },
+    topTen: topTenSends,
+    auditLog: auditHistoryLogPool, // Pack the clean array of the last 50 historical events
     capabilities: {
       onsight: peakCapability.onsight.label,
       flash: peakCapability.flash.label,
       redpoint: peakCapability.redpoint.label
     },
-    metrics: {
-      allTimeMeters: Math.round(allTimeMeters),
-      allTimeLogs: allTimeLogs,
-      allTimeSuccessRate: allTimeSuccessRate,
-      everestPercent: everestProgress,
-      yearMeters: Math.round(currentYearMeters),
-      yearRoutes: currentYearLogs,
-      grade23Rate: grade23SuccessRate,
-      grade23Sends: grade23CleanSends,
-      grade23Attempts: grade23TotalAttempts
-    },
-    topTen: topTenSends,
     funStats: {
       favoriteCrag: favCrag,
       favoriteCragCount: maxCragCount,
@@ -250,7 +269,7 @@ async function main() {
   };
 
   fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-  console.log("Upgraded structural telemetry assets compiled.");
+  console.log("Multi-table pagination dataset artifacts generated.");
 }
 
 main();

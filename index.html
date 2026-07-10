@@ -74,6 +74,8 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.04);
+        }
+        .target-flex-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -101,6 +103,43 @@
             font-size: 0.85rem;
             font-weight: 700;
             box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+        }
+        
+        /* Premium Interactive Model Details Dropdown Arrow styling */
+        details {
+            margin-top: 0.75rem;
+            border-top: 1px solid rgba(239, 104, 104, 0.2);
+            padding-top: 0.75rem;
+        }
+        summary {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #c93b3b;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before {
+            content: "▶";
+            font-size: 0.65rem;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        .explanation-text {
+            font-size: 0.825rem;
+            color: #7f1d1d;
+            line-height: 1.4;
+            margin-top: 0.5rem;
+            background: rgba(255,255,255,0.4);
+            padding: 0.75rem;
+            border-radius: 8px;
         }
 
         .grid-main {
@@ -242,7 +281,7 @@
         .section-title {
             font-size: 1.25rem;
             color: #0f172a;
-            margin: 2.5rem 0 0.75rem 0;
+            margin: 2rem 0 0.75rem 0;
             font-weight: 700;
         }
         .table-container {
@@ -286,7 +325,6 @@
             font-weight: 500;
         }
         
-        /* Interactive Pagination Elements */
         .pagination-bar {
             display: flex;
             justify-content: space-between;
@@ -332,7 +370,7 @@
         }
         @media (max-width: 600px) {
             .cpr-row { flex-direction: column; gap: 0.5rem; }
-            .target-lead-banner { flex-direction: column; text-align: center; gap: 1rem; }
+            .target-flex-header { flex-direction: column; text-align: center; gap: 1rem; }
             .hero-banner h1 { font-size: 2.25rem; }
             .grid-fun { flex-direction: column; }
         }
@@ -355,11 +393,21 @@
     <div class="container">
         
         <div class="target-lead-banner">
-            <div class="info">
-                <label>🎯 Automated Target Project</label>
-                <span>Project Grade <span id="target-grade-num">24</span></span>
+            <div class="target-flex-header">
+                <div class="info">
+                    <label>🎯 Automated Target Project</label>
+                    <span>Project Grade <span id="target-grade-num">24</span></span>
+                </div>
+                <div class="timeline-badge">Timeline: Oct – Dec 2026</div>
             </div>
-            <div class="timeline-badge">Timeline: Oct – Dec 2026</div>
+            
+            <!-- Collapsible Calculation Analysis Accordion component section -->
+            <details>
+                <summary>How is this projected?</summary>
+                <div class="explanation-text">
+                    This forecasting model calculates the log-linear progression of your highest successful sends alongside your regular quarterly log volume. Based on your current breakthrough trend lines and peak redpoint timeline entries, the algorithm maps out the exact statistical curve required to bridge the gap to your next grade level.
+                </div>
+            </details>
         </div>
 
         <div class="grid-main">
@@ -410,10 +458,6 @@
                 <label>Favorite Crag</label>
                 <span id="fun-crag">Loading...</span>
             </div>
-            <div class="fun-card" style="border-left-color: #8b5cf6;">
-                <label>Countries Explored</label>
-                <span id="fun-countries">Loading...</span>
-            </div>
         </div>
 
         <div class="cpr-bubble">
@@ -445,7 +489,7 @@
                         <th style="width: 50px; text-align: center;">Rank</th>
                         <th>Route & Location</th>
                         <th style="width: 80px;">Grade</th>
-                        <th style="width: 110px;">Type</th> <!-- REPLACEMENT: Updated header descriptor title cleanly -->
+                        <th style="width: 110px;">Type</th> 
                         <th style="width: 80px; text-align: right;">Date</th>
                     </tr>
                 </thead>
@@ -457,20 +501,20 @@
             </table>
         </div>
 
-        <!-- NEW: Chronological Logbook Timeline Grid Pipeline Component -->
-        <div class="section-title">Recent Activity History Log</div>
+        <div class="section-title">Activity Log</div>
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
                         <th>Route Name & Location</th>
-                        <th style="width: 80px;">Grade</th>
-                        <th style="width: 140px;">Log Type</th>
-                        <th style="width: 80px; text-align: right;">Date</th>
+                        <th style="width: 70px;">Grade</th>
+                        <th style="width: 130px;">Log Type</th>
+                        <th style="width: 80px; text-align: center;">Attempts</th> <!-- NEW: Attempts descriptor target column mapping inside logbook -->
+                        <th style="width: 70px; text-align: right;">Date</th>
                     </tr>
                 </thead>
                 <tbody id="audit-log-body">
-                    <!-- Loaded dynamically via JavaScript pagination mapping -->
+                    <!-- Pagination parameters populated dynamically inside standard front-end loops -->
                 </tbody>
             </table>
             <div class="pagination-bar">
@@ -500,7 +544,6 @@
         return `<span class="style-pill">🧱 ${styleName}</span>`;
     }
 
-    // Interactive Front-End JavaScript Pagination Engine
     function renderAuditTable() {
         const tbody = document.getElementById('audit-log-body');
         tbody.innerHTML = '';
@@ -518,12 +561,12 @@
                 </td>
                 <td><span class="grade-badge">${item.gradeDisplay}</span></td>
                 <td>${styleWithIcon(item.styleDisplay)}</td>
+                <td style="text-align: center; font-weight: 600; color: #475569;">${item.attempts}</td>
                 <td style="color: #64748b; text-align: right; font-size: 0.85rem;">${item.date}</td>
             `;
             tbody.appendChild(row);
         });
 
-        // Toggle state parameters on action control links
         document.getElementById('btn-prev').disabled = (auditCurrentPage === 1);
         document.getElementById('btn-next').disabled = (auditCurrentPage === Math.ceil(globalAuditRecords.length / recordsPerPage));
         document.getElementById('page-num-display').innerText = `Page ${auditCurrentPage} of ${Math.ceil(globalAuditRecords.length / recordsPerPage)}`;
@@ -579,7 +622,6 @@
             });
 
             document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} sends)`;
-            document.getElementById('fun-countries').innerText = `${data.funStats.countriesCount} ${data.funStats.countriesCount === 1 ? 'Country' : 'Countries'}`;
             
             document.getElementById('fun-attempt').innerText = data.funStats.hardestAttempt;
             document.getElementById('fun-attempt-loc').innerText = data.funStats.hardestAttemptLocation;
@@ -587,7 +629,6 @@
             document.getElementById('fun-g23-rate').innerText = `${data.metrics.dynamicRate}% Ratio`;
             document.getElementById('fun-g23-stats').innerText = `${data.metrics.dynamicSends} sends / ${data.metrics.dynamicAttempts} total entries`;
 
-            // Pipe historical payload items to pagination runtime values
             globalAuditRecords = data.auditLog || [];
             renderAuditTable();
 

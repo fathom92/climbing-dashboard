@@ -40,7 +40,6 @@ async function main() {
     }
   }
 
-  // Sort ALL entries chronologically (newest first) to accurately capture your latest activity profile
   allAscents.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const currentYear = new Date().getFullYear();
@@ -53,7 +52,6 @@ async function main() {
   
   let qualifyingSends = [];
   const cragCounts = {};
-  const uniqueCountries = new Set();
   
   let hardestSendWeight = 0;
   let hardestSendNum = 0;
@@ -70,7 +68,6 @@ async function main() {
     redpoint: { score: 0, label: 'N/A' }
   };
 
-  // First pass: dynamic breakthrough threshold extraction
   allAscents.forEach(ascent => {
     if (!ascent.route || !ascent.tick) return;
     const tickStyle = (ascent.tick.label || '').toLowerCase();
@@ -88,7 +85,6 @@ async function main() {
   let dynamicTotalAttempts = 0;
   let dynamicCleanSends = 0;
 
-  // Build out layout timeline tracking objects for the audit history log pool
   let auditHistoryLogPool = [];
 
   allAscents.forEach(ascent => {
@@ -130,12 +126,6 @@ async function main() {
     if (cragLocationName) {
       cragCounts[cragLocationName] = (cragCounts[cragLocationName] || 0) + 1;
     }
-
-    if (ascent.route.ancestors && ascent.route.ancestors.country) {
-      uniqueCountries.add(ascent.route.ancestors.country);
-    } else if (ascent.route.urlAncestorStub && ascent.route.urlAncestorStub.startsWith('australia')) {
-      uniqueCountries.add('Australia');
-    }
     
     const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade ? parseFloat(ascent.cpr.base.internalGrade) : 0;
     const numericalGrade = ascent.route.grade ? parseInt(ascent.route.grade) : 0;
@@ -157,13 +147,16 @@ async function main() {
       year: '2-digit'
     }).replace(',', '');
 
-    // Compile tracking array for the Audit Log (Grabs the last 50 chronological logbook elements)
+    // Extract logged attempt iterations cleanly, fall back to 1 for quick execution ticks
+    const explicitAttempts = ascent.attempts || (successfulStyles.includes(tickStyle) ? 1 : '—');
+
     if (auditHistoryLogPool.length < 50) {
       auditHistoryLogPool.push({
         routeName: ascent.route.name || 'Unknown Route',
         locationText: combinedLocation,
         gradeDisplay: ascent.route.grade || 'N/A',
         styleDisplay: ascent.tick.name || ascent.tick.label || 'Attempt',
+        attempts: explicitAttempts,
         date: shortDate
       });
     }
@@ -193,7 +186,6 @@ async function main() {
     }
   });
 
-  // Re-sort your qualifying sends purely by difficulty grade weight for the Notable table
   qualifyingSends.sort((a, b) => {
     if (b.gradeWeight !== a.gradeWeight) return b.gradeWeight - a.gradeWeight;
     return b.styleWeight - a.styleWeight;
@@ -211,7 +203,7 @@ async function main() {
     daysSinceLastClimb = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
     if (daysSinceLastClimb < 3) moodText = "Ecstatic! 🧗‍♂️🔥";
-    else if (daysSinceLastClimb < 7) moodText = "Satiated 😊🧗‍♂️"; // REPLACEMENT: Dynamic mood upgrade applied safely
+    else if (daysSinceLastClimb < 7) moodText = "Satiated 😊🧗‍♂️"; 
     else if (daysSinceLastClimb < 30) moodText = "Itching to get back on the wall 🦎🧗";
     else moodText = "Must be dead 💀⚰️";
   }
@@ -253,7 +245,7 @@ async function main() {
       dynamicAttempts: dynamicTotalAttempts
     },
     topTen: topTenSends,
-    auditLog: auditHistoryLogPool, // Pack the clean array of the last 50 historical events
+    auditLog: auditHistoryLogPool, 
     capabilities: {
       onsight: peakCapability.onsight.label,
       flash: peakCapability.flash.label,
@@ -263,13 +255,12 @@ async function main() {
       favoriteCrag: favCrag,
       favoriteCragCount: maxCragCount,
       hardestAttempt: `${hardestAttemptRouteName} (Grade ${hardestAttemptGradeLabel})`,
-      hardestAttemptLocation: hardestAttemptCragName,
-      countriesCount: uniqueCountries.size === 0 ? 1 : uniqueCountries.size
+      hardestAttemptLocation: hardestAttemptCragName
     }
   };
 
   fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-  console.log("Multi-table pagination dataset artifacts generated.");
+  console.log("Audit log attempts configuration deployed.");
 }
 
 main();

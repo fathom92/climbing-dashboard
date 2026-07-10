@@ -1,17 +1,11 @@
 const fs = require('fs');
 
-// Helper function to extract a clean crag name from the URL stub path
 function extractCragName(urlStub) {
   if (!urlStub) return 'Unknown Crag';
   const parts = urlStub.split('/');
   if (parts.length === 0) return 'Unknown Crag';
-  // Grab the last element (e.g., 'blaxland-gully')
   const rawStub = parts[parts.length - 1];
-  // Convert hyphens to spaces and capitalize words cleanly
-  return rawStub
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  return rawStub.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
 async function main() {
@@ -82,6 +76,9 @@ async function main() {
     if (!mostRecentAscentDate || ascentDateObj > mostRecentAscentDate) {
       mostRecentAscentDate = ascentDateObj;
     }
+
+    const tickStyle = (ascent.tick && ascent.tick.label || '').toLowerCase();
+    const successfulStyles = ['onsight', 'flash', 'redpoint', 'pinkpoint'];
     
     let heightValue = 0;
     if (ascent.route.height && Array.isArray(ascent.route.height)) {
@@ -89,6 +86,7 @@ async function main() {
     }
     if (isNaN(heightValue)) heightValue = 0;
 
+    // EFFORT RECOVERY: Sum vertical meters and total counts across ALL logs (including failed attempts)
     allTimeMeters += heightValue;
     allTimeRoutes++;
 
@@ -97,14 +95,9 @@ async function main() {
       currentYearRoutes++;
     }
 
-    // Resolve structural wall location vs general overarching Crag location
-    const wallName = ascent.route.ancestors && ascent.route.ancestors.parent ? ascent.route.ancestors.parent.name : '';
     const cragLocationName = extractCragName(ascent.route.urlAncestorStub);
-    
-    // Combine them cleanly for display (e.g., "Mezzaluna Area, Blaxland Gully")
-    const combinedLocation = wallName && wallName !== cragLocationName 
-      ? `${wallName}, ${cragLocationName}` 
-      : cragLocationName;
+    const wallName = ascent.route.ancestors && ascent.route.ancestors.parent ? ascent.route.ancestors.parent.name : '';
+    const combinedLocation = wallName && wallName !== cragLocationName ? `${wallName}, ${cragLocationName}` : cragLocationName;
 
     if (cragLocationName) {
       cragCounts[cragLocationName] = (cragCounts[cragLocationName] || 0) + 1;
@@ -118,21 +111,18 @@ async function main() {
     } else if (ascent.route.urlAncestorStub && ascent.route.urlAncestorStub.startsWith('australia')) {
       uniqueCountries.add('Australia');
     }
-
-    const tickStyle = (ascent.tick && ascent.tick.label || '').toLowerCase();
-    const validStyles = ['onsight', 'flash', 'redpoint', 'pinkpoint'];
     
     const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade 
       ? parseFloat(ascent.cpr.base.internalGrade) 
       : 0;
 
-    if (validStyles.includes(tickStyle) && internalSortGrade > hardestScore) {
+    if (successfulStyles.includes(tickStyle) && internalSortGrade > hardestScore) {
       hardestScore = internalSortGrade;
       hardestName = ascent.route.name;
       hardestGrade = ascent.route.grade || 'N/A';
     }
 
-    if (validStyles.includes(tickStyle)) {
+    if (successfulStyles.includes(tickStyle)) {
       let styleTier = 1;
       if (tickStyle === 'flash') styleTier = 2;
       if (tickStyle === 'onsight') styleTier = 3;
@@ -145,7 +135,6 @@ async function main() {
         peakCapability[capKey].label = ascent.route.grade || 'N/A';
       }
 
-      // Convert exact date to custom Month-YY string formatting (e.g. "Jun 26")
       const shortDate = ascentDateObj.toLocaleDateString('en-US', {
         month: 'short',
         year: '2-digit'
@@ -163,7 +152,6 @@ async function main() {
     }
   });
 
-  // Strict sorting: Grade difficulty takes full priority, style tier is secondary tie-breaker
   qualifyingSends.sort((a, b) => {
     if (b.gradeWeight !== a.gradeWeight) return b.gradeWeight - a.gradeWeight;
     return b.styleWeight - a.styleWeight;
@@ -232,7 +220,7 @@ async function main() {
   };
 
   fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-  console.log("Geographic data tree parsing successful.");
+  console.log("Global volume calculations optimized.");
 }
 
 main();

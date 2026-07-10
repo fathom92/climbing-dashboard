@@ -14,109 +14,121 @@
             padding: 3rem 1rem;
         }
         .container {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
         }
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
         header h1 {
-            margin: 0 0 1rem 0;
+            margin: 0 0 0.75rem 0;
             color: #0f172a;
-            font-size: 2.75rem;
+            font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: -0.025em;
         }
         .status-bar {
             background: #ffffff;
             display: inline-flex;
-            gap: 2rem;
-            padding: 0.75rem 2rem;
+            gap: 1.5rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
             border: 1px solid #e2e8f0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         .status-item strong {
             color: #2563eb;
         }
         .grid-main {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
             margin-top: 1rem;
         }
         .card {
             background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            padding: 1.5rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             border: 1px solid #e2e8f0;
         }
         .card h2 {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: #64748b;
-            margin: 0 0 1rem 0;
+            margin: 0 0 0.75rem 0;
         }
         .card .main-stat {
-            font-size: 2.25rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #1e293b;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
         .card .main-stat strong {
             color: #2563eb;
         }
         .card .sub-stat {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: #64748b;
             border-top: 1px solid #f1f5f9;
-            padding-top: 0.75rem;
-            margin-top: 0.75rem;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
         }
         .card .sub-stat strong {
             color: #0f172a;
         }
-        .grid-caps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        .cap-card {
-            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+        .cpr-bubble {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
             color: white;
             padding: 1.25rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.1);
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+            margin-bottom: 2.5rem;
+            border: 1px solid #334155;
         }
-        .cap-card label {
-            display: block;
+        .cpr-bubble h2 {
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #93c5fd;
-            margin-bottom: 0.25rem;
+            letter-spacing: 0.075em;
+            color: #94a3b8;
+            margin: 0 0 1rem 0;
+            text-align: center;
+            font-weight: 700;
         }
-        .cap-card span {
-            font-size: 1.75rem;
+        .cpr-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .cpr-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cpr-item label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+        .cpr-item span {
+            font-size: 1.35rem;
             font-weight: 800;
+            color: #f8fafc;
         }
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: #0f172a;
-            margin: 3rem 0 1rem 0;
+            margin: 2rem 0 0.75rem 0;
             font-weight: 700;
         }
         .table-container {
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             border: 1px solid #e2e8f0;
             overflow: hidden;
         }
@@ -124,67 +136,74 @@
             width: 100%;
             border-collapse: collapse;
             text-align: left;
+            font-size: 0.9rem;
         }
         th, td {
-            padding: 1.2rem 1rem;
+            padding: 0.8rem 1rem;
             border-bottom: 1px solid #f1f5f9;
         }
         th {
             background-color: #f8fafc;
             font-weight: 600;
             color: #475569;
-            font-size: 0.9rem;
         }
         .route-subtext {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.775rem;
             color: #64748b;
-            font-weight: 400;
-            margin-top: 0.2rem;
+            margin-top: 0.1rem;
         }
         .rank-badge {
-            background: #eff6ff;
-            color: #1d4ed8;
-            padding: 0.25rem 0.6rem;
-            border-radius: 8px;
+            color: #64748b;
+            font-weight: 700;
+        }
+        .grade-badge {
+            background: #f1f5f9;
+            color: #334155;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
             font-weight: 700;
             font-size: 0.85rem;
         }
+        .style-pill {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
         .grid-fun {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 0.75rem;
         }
         .fun-card {
             background: #ffffff;
-            padding: 1.25rem;
-            border-radius: 12px;
-            border-left: 4px solid #10b981;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid #10b981;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.01);
         }
         .fun-card label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             color: #64748b;
             margin-bottom: 0.25rem;
         }
         .fun-card span {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #0f172a;
         }
         .footer {
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #94a3b8;
-            margin-top: 5rem;
+            margin-top: 4rem;
             border-top: 1px solid #e2e8f0;
-            padding-top: 1.5rem;
+            padding-top: 1.25rem;
         }
         @media (max-width: 600px) {
-            .grid-caps { grid-template-columns: 1fr; }
+            .cpr-row { flex-direction: column; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -212,18 +231,24 @@
         </div>
     </div>
 
-    <div class="grid-caps">
-        <div class="cap-card" style="background: linear-gradient(135deg, #065f46, #047857);">
-            <label>Max Onsight Capability</label>
-            <span id="cap-onsight">Grade —</span>
-        </div>
-        <div class="cap-card" style="background: linear-gradient(135deg, #b45309, #d97706);">
-            <label>Max Flash Capability</label>
-            <span id="cap-flash">Grade —</span>
-        </div>
-        <div class="cap-card" style="background: linear-gradient(135deg, #1e3a8a, #1e40af);">
-            <label>Max Redpoint Capability</label>
-            <span id="cap-redpoint">Grade —</span>
+    <div class="cpr-bubble">
+        <h2>Climber Performance Rating (CPR)</h2>
+        <div class="cpr-row">
+            <div class="cpr-item">
+                <span>👁️</span>
+                <label>Max Onsight:</label>
+                <span id="cap-onsight">—</span>
+            </div>
+            <div class="cpr-item">
+                <span>⚡</span>
+                <label>Max Flash:</label>
+                <span id="cap-flash">—</span>
+            </div>
+            <div class="cpr-item">
+                <span>🔴</span>
+                <label>Max Redpoint:</label>
+                <span id="cap-redpoint">—</span>
+            </div>
         </div>
     </div>
 
@@ -232,11 +257,11 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: 70px;">Rank</th>
-                    <th>Route Name & Location</th>
-                    <th>Grade</th>
-                    <th>Style</th>
-                    <th>Date</th>
+                    <th style="width: 50px; text-align: center;">Rank</th>
+                    <th>Route & Location</th>
+                    <th style="width: 80px;">Grade</th>
+                    <th style="width: 110px;">Style</th>
+                    <th style="width: 80px; text-align: right;">Date</th>
                 </tr>
             </thead>
             <tbody id="notable-body">
@@ -250,7 +275,7 @@
     <div class="section-title">Profile Trivia</div>
     <div class="grid-fun">
         <div class="fun-card" style="border-left-color: #3b82f6;">
-            <label>Hardest Logged Send</label>
+            <label>Hardest Send</label>
             <span id="fun-hardest">Loading...</span>
         </div>
         <div class="fun-card" style="border-left-color: #10b981;">
@@ -273,21 +298,29 @@
 </div>
 
 <script>
+    function styleWithIcon(styleName) {
+        const cleanStyle = styleName.toLowerCase().replace(/\s/g, '');
+        if (cleanStyle === 'onsight') return `<span class="style-pill">👁️ Onsight</span>`;
+        if (cleanStyle === 'flash') return `<span class="style-pill">⚡ Flash</span>`;
+        if (cleanStyle === 'redpoint' || cleanStyle === 'pinkpoint') return `<span class="style-pill">🔴 Redpoint</span>`;
+        return styleName;
+    }
+
     fetch('./dashboard_data.json')
         .then(res => res.json())
         .then(data => {
             document.getElementById('days-count').innerText = data.daysSinceLastClimb;
             document.getElementById('mood-label').innerText = data.mood;
 
-            document.getElementById('stat-year-meters').innerHTML = `<strong>${data.metrics.yearMeters.toLocaleString()}m</strong> <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">climbed in ${data.currentYear}</span>`;
-            document.getElementById('stat-year-routes').innerHTML = `<strong>${data.metrics.yearRoutes.toLocaleString()}</strong> <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">sends in ${data.currentYear}</span>`;
+            document.getElementById('stat-year-meters').innerHTML = `<strong>${data.metrics.yearMeters.toLocaleString()}m</strong> <span style="font-size: 1.1rem; font-weight:400; color:#64748b;">climbed in ${data.currentYear}</span>`;
+            document.getElementById('stat-year-routes').innerHTML = `<strong>${data.metrics.yearRoutes.toLocaleString()}</strong> <span style="font-size: 1.1rem; font-weight:400; color:#64748b;">sends in ${data.currentYear}</span>`;
             
             document.getElementById('stat-all-meters').innerText = `${data.metrics.allTimeMeters.toLocaleString()}m`;
             document.getElementById('stat-all-routes').innerText = data.metrics.allTimeRoutes.toLocaleString();
 
-            document.getElementById('cap-onsight').innerText = `Grade ${data.capabilities.onsight}`;
-            document.getElementById('cap-flash').innerText = `Grade ${data.capabilities.flash}`;
-            document.getElementById('cap-redpoint').innerText = `Grade ${data.capabilities.redpoint}`;
+            document.getElementById('cap-onsight').innerText = data.capabilities.onsight;
+            document.getElementById('cap-flash').innerText = data.capabilities.flash;
+            document.getElementById('cap-redpoint').innerText = data.capabilities.redpoint;
 
             const tbody = document.getElementById('notable-body');
             tbody.innerHTML = '';
@@ -295,14 +328,14 @@
             data.topTen.forEach((climb, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><span class="rank-badge">#${index + 1}</span></td>
-                    <td style="font-weight: 600; color: #2563eb;">
+                    <td style="text-align: center;"><span class="rank-badge">#${index + 1}</span></td>
+                    <td style="font-weight: 600; color: #1e293b;">
                         ${climb.routeName}
                         <span class="route-subtext">${climb.locationText}</span>
                     </td>
-                    <td><strong>${climb.gradeDisplay}</strong></td>
-                    <td>${climb.style}</td>
-                    <td style="color: #64748b; font-size: 0.9rem; font-transform: capitalize;">${climb.date}</td>
+                    <td><span class="grade-badge">${climb.gradeDisplay}</span></td>
+                    <td>${styleWithIcon(climb.style)}</td>
+                    <td style="color: #64748b; text-align: right; font-size: 0.85rem;">${climb.date}</td>
                 `;
                 tbody.appendChild(row);
             });

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T08:31:05.335Z",
+  "lastUpdated": "2026-07-10T08:48:31.239Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Satiated 😊🧗‍♂️",
@@ -115,6 +115,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "20",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jul 26"
     },
     {
@@ -122,6 +123,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jul 26"
     },
     {
@@ -129,6 +131,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "23",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jul 26"
     },
     {
@@ -136,6 +139,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "16",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jul 26"
     },
     {
@@ -143,6 +147,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "10",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jul 26"
     },
     {
@@ -150,6 +155,7 @@
       "locationText": "Chasing Amy Wall, Porters Pass",
       "gradeDisplay": "21",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jun 26"
     },
     {
@@ -157,6 +163,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jun 26"
     },
     {
@@ -164,6 +171,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "21",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jun 26"
     },
     {
@@ -171,6 +179,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Jun 26"
     },
     {
@@ -178,6 +187,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "17",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jun 26"
     },
     {
@@ -185,6 +195,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "17",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Jun 26"
     },
     {
@@ -192,6 +203,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "18",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -199,6 +211,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "10",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -206,6 +219,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -213,6 +227,7 @@
       "locationText": "Alfords Point Main Area, Sutherland",
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -220,6 +235,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "13",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -227,6 +243,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "10",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -234,6 +251,7 @@
       "locationText": "Whale of a Time Wall, Wollongong",
       "gradeDisplay": "16",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -241,6 +259,7 @@
       "locationText": "Whale of a Time Wall, Wollongong",
       "gradeDisplay": "17",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -248,6 +267,7 @@
       "locationText": "Kenny's Wall, Wollongong",
       "gradeDisplay": "20",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "May 26"
     },
     {
@@ -255,6 +275,7 @@
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "21",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -262,6 +283,7 @@
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "22",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -269,6 +291,7 @@
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "22",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -276,6 +299,7 @@
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "21",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -283,6 +307,7 @@
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "23",
       "styleDisplay": "Hang dog",
+      "attempts": "—",
       "date": "Apr 26"
     },
     {
@@ -290,6 +315,7 @@
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -297,6 +323,7 @@
       "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -304,6 +331,7 @@
       "locationText": "The Blowhole, Blow Hole",
       "gradeDisplay": "20",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -311,6 +339,7 @@
       "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
       "gradeDisplay": "20",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -318,6 +347,7 @@
       "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
       "gradeDisplay": "21",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -325,6 +355,7 @@
       "locationText": "The Blowhole, Blow Hole",
       "gradeDisplay": "25",
       "styleDisplay": "Hang dog",
+      "attempts": "—",
       "date": "Apr 26"
     },
     {
@@ -332,6 +363,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -339,6 +371,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "12",
       "styleDisplay": "Flash",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -346,6 +379,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "15",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -353,6 +387,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "20",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -360,6 +395,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "13",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -367,6 +403,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "22",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -374,6 +411,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -381,6 +419,7 @@
       "locationText": "Mezzaluna Area, Blaxland Gully",
       "gradeDisplay": "18",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -388,6 +427,7 @@
       "locationText": "Mezzaluna Area, Blaxland Gully",
       "gradeDisplay": "20",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -395,6 +435,7 @@
       "locationText": "Historic Wells",
       "gradeDisplay": "20",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -402,6 +443,7 @@
       "locationText": "Historic Wells",
       "gradeDisplay": "21",
       "styleDisplay": "Hang dog",
+      "attempts": "—",
       "date": "Apr 26"
     },
     {
@@ -409,6 +451,7 @@
       "locationText": "Historic Wells",
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Apr 26"
     },
     {
@@ -416,6 +459,7 @@
       "locationText": "Historic Wells",
       "gradeDisplay": "23",
       "styleDisplay": "Hang dog",
+      "attempts": "—",
       "date": "Apr 26"
     },
     {
@@ -423,6 +467,7 @@
       "locationText": "Little Triggers Wall, The Main Wall",
       "gradeDisplay": "22",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Mar 26"
     },
     {
@@ -430,6 +475,7 @@
       "locationText": "Little Triggers Wall, The Main Wall",
       "gradeDisplay": "19",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Mar 26"
     },
     {
@@ -437,6 +483,7 @@
       "locationText": "Little Triggers Wall, The Main Wall",
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
+      "attempts": 1,
       "date": "Mar 26"
     },
     {
@@ -444,6 +491,7 @@
       "locationText": "Jean Genie Area, Bardens Gully",
       "gradeDisplay": "23",
       "styleDisplay": "Hang dog",
+      "attempts": "—",
       "date": "Mar 26"
     },
     {
@@ -451,6 +499,7 @@
       "locationText": "Jean Genie Area, Bardens Gully",
       "gradeDisplay": "23",
       "styleDisplay": "Hang dog",
+      "attempts": "—",
       "date": "Mar 26"
     },
     {
@@ -458,6 +507,7 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
+      "attempts": 1,
       "date": "Mar 26"
     }
   ],
@@ -470,7 +520,6 @@
     "favoriteCrag": "Medlow Bath",
     "favoriteCragCount": 31,
     "hardestAttempt": "Smoked Mussels (Grade 26)",
-    "hardestAttemptLocation": "Wave Wall, Centennial Glen",
-    "countriesCount": 1
+    "hardestAttemptLocation": "Wave Wall, Centennial Glen"
   }
 }

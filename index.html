@@ -105,7 +105,6 @@
             box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
         }
         
-        /* Premium Interactive Model Details Dropdown Arrow styling */
         details {
             margin-top: 0.75rem;
             border-top: 1px solid rgba(239, 104, 104, 0.2);
@@ -296,10 +295,16 @@
             border-collapse: collapse;
             text-align: left;
             font-size: 0.9rem;
+            table-layout: fixed;
         }
         th, td {
-            padding: 0.8rem 1rem;
+            padding: 0.8rem 0.75rem;
             border-bottom: 1px solid #f1f5f9;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            word-break: break-word;
+            vertical-align: middle;
         }
         th {
             background-color: #f8fafc;
@@ -308,21 +313,32 @@
         }
         .route-subtext {
             display: block;
-            font-size: 0.775rem;
+            font-size: 0.75rem;
             color: #64748b;
             margin-top: 0.1rem;
+            font-weight: 400;
+            line-height: 1.2;
         }
         .grade-badge {
-            background: #f1f5f9;
-            color: #334155;
-            padding: 0.2rem 0.5rem;
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 0.25rem 0.5rem;
             border-radius: 6px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.85rem;
+            display: inline-block;
+            text-align: center;
+            min-width: 24px;
         }
+        
+        /* Flex Alignment Box for Inline Emoji Layout */
         .style-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
             font-size: 0.85rem;
             font-weight: 500;
+            white-space: nowrap;
         }
         
         .pagination-bar {
@@ -368,11 +384,18 @@
             border-top: 1px solid #e2e8f0;
             padding-top: 1.25rem;
         }
+        
+        /* Mobile Precision Responsive Layout Overrides */
         @media (max-width: 600px) {
             .cpr-row { flex-direction: column; gap: 0.5rem; }
             .target-flex-header { flex-direction: column; text-align: center; gap: 1rem; }
-            .hero-banner h1 { font-size: 2.25rem; }
+            .hero-banner h1 { font-size: 2.15rem; }
             .grid-fun { flex-direction: column; }
+            
+            table { font-size: 0.825rem; }
+            th, td { padding: 0.6rem 0.4rem; }
+            .route-subtext { font-size: 0.7rem; }
+            .style-pill { gap: 0.15rem; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -401,7 +424,6 @@
                 <div class="timeline-badge">Timeline: Oct – Dec 2026</div>
             </div>
             
-            <!-- Collapsible Calculation Analysis Accordion component section -->
             <details>
                 <summary>How is this projected?</summary>
                 <div class="explanation-text">
@@ -486,16 +508,15 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 50px; text-align: center;">Rank</th>
-                        <th>Route & Location</th>
-                        <th style="width: 80px;">Grade</th>
-                        <th style="width: 110px;">Type</th> 
-                        <th style="width: 80px; text-align: right;">Date</th>
+                        <th style="width: 18%;">Grade</th>
+                        <th style="width: 54%;">Route & Location</th>
+                        <th style="width: 28%;">Type</th> 
+                        <th style="width: 0px; display: none;">Date</th>
                     </tr>
                 </thead>
                 <tbody id="notable-body">
                     <tr>
-                        <td colspan="5" style="text-align: center; color: #94a3b8;">Processing logs...</td>
+                        <td colspan="3" style="text-align: center; color: #94a3b8;">Processing logs...</td>
                     </tr>
                 </tbody>
             </table>
@@ -506,15 +527,14 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Route Name & Location</th>
-                        <th style="width: 70px;">Grade</th>
-                        <th style="width: 130px;">Log Type</th>
-                        <th style="width: 80px; text-align: center;">Attempts</th> <!-- NEW: Attempts descriptor target column mapping inside logbook -->
-                        <th style="width: 70px; text-align: right;">Date</th>
+                        <th style="width: 18%;">Grade</th>
+                        <th style="width: 54%;">Route Name & Location</th>
+                        <th style="width: 28%;">Log Type</th>
+                        <th style="width: 0px; display: none;">Date</th>
                     </tr>
                 </thead>
                 <tbody id="audit-log-body">
-                    <!-- Pagination parameters populated dynamically inside standard front-end loops -->
+                    <!-- Dynamic client-side rows -->
                 </tbody>
             </table>
             <div class="pagination-bar">
@@ -540,7 +560,7 @@
         if (cleanStyle === 'flash') return `<span class="style-pill">⚡ Flash</span>`;
         if (cleanStyle === 'redpoint' || cleanStyle === 'pinkpoint') return `<span class="style-pill">🔴 Redpoint</span>`;
         if (cleanStyle === 'hangdog') return `<span class="style-pill">🐶 Hangdog</span>`;
-        if (cleanStyle === 'ascent') return `<span class="style-pill">🧗 Ascent</span>`;
+        if (cleanStyle === 'ascent') return `<span class="style-pill">攀 Ascent</span>`;
         return `<span class="style-pill">🧱 ${styleName}</span>`;
     }
 
@@ -555,14 +575,12 @@
         pageItems.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td style="font-weight: 500; color: #334155;">
+                <td style="text-align: center;"><span class="grade-badge">${item.gradeDisplay}</span></td>
+                <td style="font-weight: 600; color: #1e293b;">
                     ${item.routeName}
-                    <span class="route-subtext">${item.locationText}</span>
+                    <span class="route-subtext">${item.locationText} <span style="color:#94a3b8; font-weight:400; font-size:0.75rem; margin-left:2px;">(${item.date})</span></span>
                 </td>
-                <td><span class="grade-badge">${item.gradeDisplay}</span></td>
                 <td>${styleWithIcon(item.styleDisplay)}</td>
-                <td style="text-align: center; font-weight: 600; color: #475569;">${item.attempts}</td>
-                <td style="color: #64748b; text-align: right; font-size: 0.85rem;">${item.date}</td>
             `;
             tbody.appendChild(row);
         });
@@ -606,23 +624,20 @@
             const tbody = document.getElementById('notable-body');
             tbody.innerHTML = '';
             
-            data.topTen.forEach((climb, index) => {
+            data.topTen.forEach((climb) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td style="text-align: center;"><span class="rank-badge">#${index + 1}</span></td>
+                    <td style="text-align: center;"><span class="grade-badge">${climb.gradeDisplay}</span></td>
                     <td style="font-weight: 600; color: #1e293b;">
                         ${climb.routeName}
-                        <span class="route-subtext">${climb.locationText}</span>
+                        <span class="route-subtext">${climb.locationText} <span style="color:#94a3b8; font-weight:400; font-size:0.75rem; margin-left:2px;">(${climb.date})</span></span>
                     </td>
-                    <td><span class="grade-badge">${climb.gradeDisplay}</span></td>
                     <td>${styleWithIcon(climb.style)}</td>
-                    <td style="color: #64748b; text-align: right; font-size: 0.85rem;">${climb.date}</td>
                 `;
                 tbody.appendChild(row);
             });
 
             document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} sends)`;
-            
             document.getElementById('fun-attempt').innerText = data.funStats.hardestAttempt;
             document.getElementById('fun-attempt-loc').innerText = data.funStats.hardestAttemptLocation;
 

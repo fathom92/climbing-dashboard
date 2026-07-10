@@ -9,7 +9,6 @@ async function main() {
     process.exit(1);
   }
 
-  // Requesting a high perPage ceiling to fetch your logbook history in a single request
   const url = `https://www.thecrag.com/api/logbook/ascents?user=${username}&key=${apiKey}&perPage=5000`;
   
   try {
@@ -20,62 +19,110 @@ async function main() {
     const ascents = (root.data && root.data.ascents) || [];
     const currentYear = new Date().getFullYear();
     
-    // Core structural metrics buckets
     let allTimeMeters = 0;
     let allTimeRoutes = 0;
     let currentYearMeters = 0;
     let currentYearRoutes = 0;
     
-    // Array to process top performances
     let qualifyingSends = [];
+    
+    // Fun stats counters
+    const cragCounts = {};
+    const disciplineCounts = {};
+    let hardestScore = 0;
+    let hardestName = 'None';
+    let hardestGrade = 'N/A';
 
     ascents.forEach(ascent => {
       if (!ascent.date || !ascent.route) return;
       
       const ascentYear = new Date(ascent.date).getFullYear();
       
-      // Parse individual route vertical metrics
+      // Vertical calculation
       let heightValue = 0;
       if (ascent.route.height && Array.isArray(ascent.route.height)) {
         heightValue = parseFloat(ascent.route.height[0]);
       }
       if (isNaN(heightValue)) heightValue = 0;
 
-      // Update baseline all-time aggregations
       allTimeMeters += heightValue;
       allTimeRoutes++;
 
-      // Update current dynamic year variables
       if (ascentYear === currentYear) {
         currentYearMeters += heightValue;
         currentYearRoutes++;
       }
 
-      // Filter for top 10 hardest lists (Redpoint, Flash, Onsight)
-      const tickStyle = (ascent.tick && ascent.tick.label || '').toLowerCase();
-      const validStyles = ['redpoint', 'flash', 'onsight'];
+      // Track favorite crags & styles
+      const cragName = ascent.route.ancestors && ascent.route.ancestors.parent ? ascent.route.ancestors.parent.name : null;
+      if (cragName) cragCounts[cragName] = (cragCounts[cragName] || 0) + 1;
       
+      const discipline = ascent.climbedGearStyle || ascent.cprStyle || 'Unknown';
+      disciplineCounts[discipline] = (disciplineCounts[discipline] || 0) + 1;
+
+      // Extract tick styles
+      const tickStyle = (ascent.tick && ascent.tick.label || '').toLowerCase();
+      const validStyles = ['onsight', 'flash', 'redpoint', 'pinkpoint'];
+      
+      // Calculate internal grade score
+      const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade 
+        ? parseFloat(ascent.cpr.base.internalGrade) 
+        : 0;
+
+      // Track absolute hardest single route send
+      if (validStyles.includes(tickStyle) && internalSortGrade > hardestScore) {
+        hardestScore = internalSortGrade;
+        hardestName = ascent.route.name;
+        hardestGrade = ascent.route.grade || 'N/A';
+      }
+
       if (validStyles.includes(tickStyle)) {
-        // Extract internal comparison weights for accurate numerical sorting
-        const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade 
-          ? parseFloat(ascent.cpr.base.internalGrade) 
-          : 0;
-        
+        // Apply priority bonuses: Onsight (30), Flash (20), Redpoint/Pinkpoint (10)
+        let styleBonus = 10;
+        if (tickStyle === 'onsight') styleBonus = 30;
+        if (tickStyle === 'flash') styleBonus = 20;
+
+        // Custom composite score weight
+        const customRankWeight = internalSortGrade + styleBonus;
+
+        // Extract attempts count if logged by the user, default to 1 if clean send
+        const attemptsValue = ascent.attempts || (tickStyle === 'onsight' || tickStyle === 'flash' ? 1 : '—');
+
         qualifyingSends.push({
           routeName: ascent.route.name || 'Unknown Route',
           gradeDisplay: ascent.route.grade || 'N/A',
-          sortWeight: internalSortGrade,
+          sortWeight: customRankWeight,
           style: ascent.tick.name || ascent.tick.label,
-          date: ascent.date.substring(0, 10) // Format to clean YYYY-MM-DD string
+          attempts: attemptsValue,
+          date: ascent.date.substring(0, 10)
         });
       }
     });
 
-    // Sort descending by internal score weight, then grab top 10 items
+    // Sort descending by style + difficulty weight
     qualifyingSends.sort((a, b) => b.sortWeight - a.sortWeight);
     const topTenSends = qualifyingSends.slice(0, 10);
 
-    // Save consolidated structural payload for frontend use
+    // Compute top crag
+    let favCrag = 'None Logged';
+    let maxCragCount = 0;
+    for (const crag in cragCounts) {
+      if (cragCounts[crag] > maxCragCount) {
+        maxCragCount = cragCounts[crag];
+        favCrag = crag;
+      }
+    }
+
+    // Compute top discipline
+    let favDiscipline = 'None Logged';
+    let maxDiscCount = 0;
+    for (const disc in disciplineCounts) {
+      if (disciplineCounts[disc] > maxDiscCount) {
+        maxDiscCount = disciplineCounts[disc];
+        favDiscipline = disc;
+      }
+    }
+
     const resultPayload = {
       lastUpdated: new Date().toISOString(),
       currentYear: currentYear,
@@ -85,14 +132,20 @@ async function main() {
         yearMeters: Math.round(currentYearMeters),
         yearRoutes: currentYearRoutes
       },
-      topTen: topTenSends
+      topTen: topTenSends,
+      funStats: {
+        favoriteCrag: favCrag,
+        favoriteCragCount: maxCragCount,
+        preferredStyle: favDiscipline.charAt(0).toUpperCase() + favDiscipline.slice(1),
+        hardestSend: `${hardestName} (Grade ${hardestGrade})`
+      }
     };
 
     fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-    console.log("Upgraded dashboard payload compiled successfully.");
+    console.log("Upgraded data configurations processed.");
 
   } catch (error) {
-    console.error("Error executing advanced analytics compilation:", error);
+    console.error("Error calculating climbing metrics:", error);
     process.exit(1);
   }
 }

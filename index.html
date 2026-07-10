@@ -38,9 +38,6 @@
             border: 1px solid #e2e8f0;
             font-size: 0.9rem;
         }
-        .status-item strong {
-            color: #2563eb;
-        }
         .grid-main {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -68,9 +65,6 @@
             color: #1e293b;
             margin-bottom: 0.25rem;
         }
-        .card .main-stat strong {
-            color: #2563eb;
-        }
         .card .sub-stat {
             font-size: 0.95rem;
             color: #64748b;
@@ -78,8 +72,28 @@
             padding-top: 0.5rem;
             margin-top: 0.5rem;
         }
-        .card .sub-stat strong {
-            color: #0f172a;
+        .efficiency-container {
+            margin-top: 0.5rem;
+        }
+        .efficiency-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-bottom: 0.2rem;
+        }
+        .bar-bg {
+            background: #e2e8f0;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            background: #10b981;
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease-out;
         }
         .cpr-bubble {
             background: linear-gradient(135deg, #1e293b, #0f172a);
@@ -153,10 +167,6 @@
             color: #64748b;
             margin-top: 0.1rem;
         }
-        .rank-badge {
-            color: #64748b;
-            font-weight: 700;
-        }
         .grade-badge {
             background: #f1f5f9;
             color: #334155;
@@ -164,10 +174,6 @@
             border-radius: 6px;
             font-weight: 700;
             font-size: 0.85rem;
-        }
-        .style-pill {
-            font-size: 0.85rem;
-            font-weight: 500;
         }
         .grid-fun {
             display: grid;
@@ -202,9 +208,6 @@
             border-top: 1px solid #e2e8f0;
             padding-top: 1.25rem;
         }
-        @media (max-width: 600px) {
-            .cpr-row { flex-direction: column; gap: 0.5rem; }
-        }
     </style>
 </head>
 <body>
@@ -228,6 +231,17 @@
             <h2>Routes Logged</h2>
             <div class="main-stat" id="stat-year-routes">0</div>
             <div class="sub-stat">All-Time Total: <strong id="stat-all-routes">0</strong></div>
+            
+            <!-- Dynamic Efficiency Progress Tracker -->
+            <div class="efficiency-container">
+                <div class="efficiency-label">
+                    <span>Send Efficiency</span>
+                    <span id="efficiency-value">0%</span>
+                </div>
+                <div class="bar-bg">
+                    <div class="bar-fill" id="efficiency-bar"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -272,7 +286,7 @@
         </table>
     </div>
 
-    <div class="section-title">Profile Trivia</div>
+    <div class="section-title">Profile Trivia & Projections</div>
     <div class="grid-fun">
         <div class="fun-card" style="border-left-color: #3b82f6;">
             <label>Hardest Send</label>
@@ -282,13 +296,13 @@
             <label>Favorite Crag</label>
             <span id="fun-crag">Loading...</span>
         </div>
-        <div class="fun-card" style="border-left-color: #f59e0b;">
-            <label>Preferred Discipline</label>
-            <span id="fun-style">Loading...</span>
-        </div>
         <div class="fun-card" style="border-left-color: #8b5cf6;">
             <label>Countries Explored</label>
             <span id="fun-countries">Loading...</span>
+        </div>
+        <div class="fun-card" style="border-left-color: #ef4444;">
+            <label>Target Grade 24 Project</label>
+            <span>Oct – Dec 2026 🎯</span>
         </div>
     </div>
 
@@ -313,10 +327,14 @@
             document.getElementById('mood-label').innerText = data.mood;
 
             document.getElementById('stat-year-meters').innerHTML = `<strong>${data.metrics.yearMeters.toLocaleString()}m</strong> <span style="font-size: 1.1rem; font-weight:400; color:#64748b;">climbed in ${data.currentYear}</span>`;
-            document.getElementById('stat-year-routes').innerHTML = `<strong>${data.metrics.yearRoutes.toLocaleString()}</strong> <span style="font-size: 1.1rem; font-weight:400; color:#64748b;">sends in ${data.currentYear}</span>`;
+            document.getElementById('stat-year-routes').innerHTML = `<strong>${data.metrics.yearRoutes.toLocaleString()}</strong> <span style="font-size: 1.1rem; font-weight:400; color:#64748b;">entries in ${data.currentYear}</span>`;
             
             document.getElementById('stat-all-meters').innerText = `${data.metrics.allTimeMeters.toLocaleString()}m`;
             document.getElementById('stat-all-routes').innerText = data.metrics.allTimeRoutes.toLocaleString();
+
+            // Render dynamic efficiency parameters
+            document.getElementById('efficiency-value').innerText = `${data.metrics.allTimeSuccessRate}%`;
+            document.getElementById('efficiency-bar').style.width = `${data.metrics.allTimeSuccessRate}%`;
 
             document.getElementById('cap-onsight').innerText = data.capabilities.onsight;
             document.getElementById('cap-flash').innerText = data.capabilities.flash;
@@ -342,7 +360,6 @@
 
             document.getElementById('fun-hardest').innerText = data.funStats.hardestSend;
             document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} sends)`;
-            document.getElementById('fun-style').innerText = data.funStats.preferredStyle;
             document.getElementById('fun-countries').innerText = `${data.funStats.countriesCount} ${data.funStats.countriesCount === 1 ? 'Country' : 'Countries'}`;
 
             const stamp = new Date(data.lastUpdated).toLocaleDateString(undefined, {

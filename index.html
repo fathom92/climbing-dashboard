@@ -65,6 +65,9 @@
             color: #1e293b;
             margin-bottom: 0.25rem;
         }
+        .card .main-stat strong {
+            color: #2563eb;
+        }
         .card .sub-stat {
             font-size: 0.95rem;
             color: #64748b;
@@ -72,10 +75,13 @@
             padding-top: 0.5rem;
             margin-top: 0.5rem;
         }
-        .efficiency-container {
+        .card .sub-stat strong {
+            color: #0f172a;
+        }
+        .progress-container {
             margin-top: 0.5rem;
         }
-        .efficiency-label {
+        .progress-label {
             display: flex;
             justify-content: space-between;
             font-size: 0.75rem;
@@ -94,6 +100,44 @@
             height: 100%;
             width: 0%;
             transition: width 0.5s ease-out;
+        }
+        .bar-fill.everest {
+            background: #3b82f6;
+        }
+        .grid-fun {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .fun-card {
+            background: #ffffff;
+            padding: 1rem;
+            border-radius: 12px;
+            border-left: 3px solid #10b981;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+        }
+        .fun-card label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        .fun-card span {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .fun-card .sub-desc {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 400;
+            margin-top: 0.1rem;
         }
         .cpr-bubble {
             background: linear-gradient(135deg, #1e293b, #0f172a);
@@ -175,30 +219,9 @@
             font-weight: 700;
             font-size: 0.85rem;
         }
-        .grid-fun {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
-            margin-top: 0.75rem;
-        }
-        .fun-card {
-            background: #ffffff;
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 3px solid #10b981;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.01);
-        }
-        .fun-card label {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: #64748b;
-            margin-bottom: 0.25rem;
-        }
-        .fun-card span {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #0f172a;
+        .style-pill {
+            font-size: 0.85rem;
+            font-weight: 500;
         }
         .footer {
             text-align: center;
@@ -207,6 +230,10 @@
             margin-top: 4rem;
             border-top: 1px solid #e2e8f0;
             padding-top: 1.25rem;
+        }
+        @media (max-width: 600px) {
+            .cpr-row { flex-direction: column; gap: 0.5rem; }
+            .grid-fun { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -226,16 +253,27 @@
             <h2>Vertical Distance</h2>
             <div class="main-stat" id="stat-year-meters">0m</div>
             <div class="sub-stat">All-Time Cumulative: <strong id="stat-all-meters">0m</strong></div>
+            
+            <!-- Everest Benchmark Progress Tracker -->
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Everest Ascent Scaling (8,848m)</span>
+                    <span id="everest-value">0%</span>
+                </div>
+                <div class="bar-bg">
+                    <div class="bar-fill everest" id="everest-bar"></div>
+                </div>
+            </div>
         </div>
         <div class="card">
             <h2>Routes Logged</h2>
             <div class="main-stat" id="stat-year-routes">0</div>
             <div class="sub-stat">All-Time Total: <strong id="stat-all-routes">0</strong></div>
             
-            <!-- Dynamic Efficiency Progress Tracker -->
-            <div class="efficiency-container">
-                <div class="efficiency-label">
-                    <span>Send Efficiency</span>
+            <!-- Send Efficiency Progress Tracker -->
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Send Efficiency (All Ticks)</span>
                     <span id="efficiency-value">0%</span>
                 </div>
                 <div class="bar-bg">
@@ -245,6 +283,34 @@
         </div>
     </div>
 
+    <!-- Re-anchored Profile Trivia Grid right below the main cards -->
+    <div class="grid-fun">
+        <div class="fun-card" style="border-left-color: #10b981;">
+            <label>Favorite Crag</label>
+            <span id="fun-crag">Loading...</span>
+        </div>
+        <div class="fun-card" style="border-left-color: #8b5cf6;">
+            <label>Countries Explored</label>
+            <span id="fun-countries">Loading...</span>
+        </div>
+        <div class="fun-card" style="border-left-color: #f59e0b;">
+            <label>🐶 Hardest Attempt</label>
+            <span id="fun-attempt">Loading...</span>
+            <span class="sub-desc" id="fun-attempt-loc">-</span>
+        </div>
+        <div class="fun-card" style="border-left-color: #3b82f6;">
+            <label>🔥 Grade 23 Conversion</label>
+            <span id="fun-g23-rate">0% Ratio</span>
+            <span class="sub-desc" id="fun-g23-stats">0 sends / 0 total logs</span>
+        </div>
+        <div class="fun-card" style="border-left-color: #ef4444; background-color: #fff5f5; grid-column: span 1;">
+            <label style="color: #b91c1c;">🎯 Automated Target</label>
+            <span style="font-size: 1.1rem; color: #991b1b;">Project Grade <span id="target-grade-num">24</span></span>
+            <span class="sub-desc" style="color: #dc2626; font-weight: 600;">Timeline: Oct – Dec 2026</span>
+        </div>
+    </div>
+
+    <!-- Unified CPR Block Container Component -->
     <div class="cpr-bubble">
         <h2>Climber Performance Rating (CPR)</h2>
         <div class="cpr-row">
@@ -286,26 +352,6 @@
         </table>
     </div>
 
-    <div class="section-title">Profile Trivia & Projections</div>
-    <div class="grid-fun">
-        <div class="fun-card" style="border-left-color: #3b82f6;">
-            <label>Hardest Send</label>
-            <span id="fun-hardest">Loading...</span>
-        </div>
-        <div class="fun-card" style="border-left-color: #10b981;">
-            <label>Favorite Crag</label>
-            <span id="fun-crag">Loading...</span>
-        </div>
-        <div class="fun-card" style="border-left-color: #8b5cf6;">
-            <label>Countries Explored</label>
-            <span id="fun-countries">Loading...</span>
-        </div>
-        <div class="fun-card" style="border-left-color: #ef4444;">
-            <label>Target Grade 24 Project</label>
-            <span>Oct – Dec 2026 🎯</span>
-        </div>
-    </div>
-
     <div class="footer">
         Automated data connection via theCrag API Key • Sync timestamp: <span id="sync-stamp">-</span>
     </div>
@@ -330,15 +376,22 @@
             document.getElementById('stat-year-routes').innerHTML = `<strong>${data.metrics.yearRoutes.toLocaleString()}</strong> <span style="font-size: 1.1rem; font-weight:400; color:#64748b;">entries in ${data.currentYear}</span>`;
             
             document.getElementById('stat-all-meters').innerText = `${data.metrics.allTimeMeters.toLocaleString()}m`;
-            document.getElementById('stat-all-routes').innerText = data.metrics.allTimeRoutes.toLocaleString();
+            document.getElementById('stat-all-routes').innerText = data.metrics.allTimeLogs.toLocaleString();
 
-            // Render dynamic efficiency parameters
+            // Everest Progress Bar
+            document.getElementById('everest-value').innerText = `${data.metrics.everestPercent}%`;
+            document.getElementById('everest-bar').style.width = `${data.metrics.everestPercent}%`;
+
+            // Efficiency Progress Bar
             document.getElementById('efficiency-value').innerText = `${data.metrics.allTimeSuccessRate}%`;
             document.getElementById('efficiency-bar').style.width = `${data.metrics.allTimeSuccessRate}%`;
 
             document.getElementById('cap-onsight').innerText = data.capabilities.onsight;
             document.getElementById('cap-flash').innerText = data.capabilities.flash;
             document.getElementById('cap-redpoint').innerText = data.capabilities.redpoint;
+
+            // Target Grade calculation assignment
+            document.getElementById('target-grade-num').innerText = data.targetGrade;
 
             const tbody = document.getElementById('notable-body');
             tbody.innerHTML = '';
@@ -358,9 +411,16 @@
                 tbody.appendChild(row);
             });
 
-            document.getElementById('fun-hardest').innerText = data.funStats.hardestSend;
             document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} sends)`;
             document.getElementById('fun-countries').innerText = `${data.funStats.countriesCount} ${data.funStats.countriesCount === 1 ? 'Country' : 'Countries'}`;
+            
+            // Hardest Attempt tracking output
+            document.getElementById('fun-attempt').innerText = data.funStats.hardestAttempt;
+            document.getElementById('fun-attempt-loc').innerText = data.funStats.hardestAttemptLocation;
+
+            // Grade 23 Specific metrics translation
+            document.getElementById('fun-g23-rate').innerText = `${data.metrics.grade23Rate}% Success`;
+            document.getElementById('fun-g23-stats').innerText = `${data.metrics.grade23Sends} sends / ${data.metrics.grade23Attempts} total entries`;
 
             const stamp = new Date(data.lastUpdated).toLocaleDateString(undefined, {
                 month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'

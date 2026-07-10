@@ -8,11 +8,8 @@ function extractCragName(urlStub) {
   return rawStub.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
-// Calibrated complex friction engine parsing rain sums, temperature boundaries, wind speeds and humidity
 function calculateFrictionRating(maxTemp, minTemp, humidity, windGust, rainSum) {
-  // CRITICAL OVERRIDE: Rain detection checks first
   if (rainSum > 1.0) return "She wet - find a cave 🌧️ (Wet Rock)";
-  
   if (maxTemp < 10) return "Frost Bitey 🥶 (Numb Fingers)";
   if (maxTemp >= 30) return "Seek Shade ☀️ (Too Hot)";
   
@@ -105,9 +102,12 @@ async function main() {
   });
 
   const breakthroughGrade = hardestSendNum > 0 ? hardestSendNum : 23;
+  const targetProjectGrade = breakthroughGrade + 1;
+  
   let dynamicTotalAttempts = 0;
   let dynamicCleanSends = 0;
   let auditHistoryLogPool = [];
+  let targetedProjectAttemptsPool = []; // UNRESTRICTED: Captures every single matching grade attempt across history
 
   allAscents.forEach(ascent => {
     if (!ascent.date || !ascent.route) return;
@@ -174,6 +174,15 @@ async function main() {
 
     const shortDate = ascentDateObj.toLocaleDateString('en-US', { month: 'short', year: '2-digit' }).replace(',', '');
 
+    // Harvest all targets regardless of how far back they occurred in your log history
+    if (numericalGrade === targetProjectGrade) {
+      targetedProjectAttemptsPool.push({
+        routeName: ascent.route.name || 'Unknown Route',
+        locationText: combinedLocation,
+        date: shortDate
+      });
+    }
+
     if (auditHistoryLogPool.length < 50) {
       auditHistoryLogPool.push({
         routeName: ascent.route.name || 'Unknown Route',
@@ -211,7 +220,6 @@ async function main() {
 
   qualifyingSends.sort((a, b) => b.gradeWeight - a.gradeWeight || b.styleWeight - a.styleWeight);
   const topFiveSends = qualifyingSends.slice(0, 5);
-  const targetProjectGrade = breakthroughGrade + 1;
   
   let daysSinceLastClimb = '—';
   let moodText = 'Unknown 🤷‍♂️';
@@ -248,7 +256,6 @@ async function main() {
   const remainderMeters = allTimeMeters % everestHeight;
   const everestProgressPercent = Math.round((remainderMeters / everestHeight) * 100);
 
-  // Parse advanced daily telemetry variables including rainfall data sums
   let weekendForecastPayload = [];
   try {
     const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=-33.60&longitude=150.29&daily=temperature_2m_max,temperature_2m_min,relative_humidity_2m_max,wind_gusts_10m_max,precipitation_sum&timezone=Australia%2FSydney`;
@@ -305,6 +312,7 @@ async function main() {
     },
     topTen: topFiveSends,
     auditLog: auditHistoryLogPool, 
+    projectAttempts: targetedProjectAttemptsPool, // Directly exposed history pool safely mounted
     pyramid: pyramidData,
     maxPyramidVolume: maxGradeVolume,
     capabilities: {

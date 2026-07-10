@@ -1,10 +1,22 @@
 {
-  "lastUpdated": "2026-07-10T09:17:15.651Z",
+  "lastUpdated": "2026-07-10T09:31:56.182Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Satiated 😊🧗‍♂️",
   "targetGrade": 24,
   "breakthroughGrade": 23,
+  "weekendWeather": [
+    {
+      "dateLabel": "Sat, 11 July",
+      "temp": 12,
+      "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
+    },
+    {
+      "dateLabel": "Sun, 12 July",
+      "temp": 8,
+      "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
+    }
+  ],
   "metrics": {
     "allTimeMeters": 3516,
     "allTimeLogs": 196,

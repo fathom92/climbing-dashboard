@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climbing Vertical Dashboard</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f4f6f9;
+            color: #1a202c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+        .metric {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #2b6cb0;
+            line-height: 1;
+            margin: 1rem 0;
+        }
+        .unit {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #4a5568;
+        }
+        .subtext {
+            color: #4a5568;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 id="year-title">Vertical Tracking</h1>
+        <div class="metric"><span id="meters-value">0</span><span class="unit">m</span></div>
+        <p class="subtext">Scaled across <span id="climbs-value">0</span> successful sends this year.</p>
+        <div class="footer">Last automated update: <span id="date-value">Never</span></div>
+    </div>
+
+    <script>
+        // Fetch generated computed JSON data artifact dynamically from repository asset pipeline
+        fetch('./dashboard_data.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Data file not created yet.');
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('year-title').innerText = `${data.year} Vertical Distance`;
+                document.getElementById('meters-value').innerText = data.totalMeters.toLocaleString();
+                document.getElementById('climbs-value').innerText = data.totalClimbs;
+                
+                const formattedDate = new Date(data.lastUpdated).toLocaleDateString(undefined, {
+                    month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'
+                });
+                document.getElementById('date-value').innerText = formattedDate;
+            })
+            .catch(err => {
+                document.getElementById('meters-value').innerText = "---";
+                document.getElementById('date-value').innerText = "Waiting for initial schedule run...";
+                console.log(err);
+            });
+    </script>
+</body>
+</html>

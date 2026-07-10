@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T13:08:59.931Z",
+  "lastUpdated": "2026-07-10T13:15:56.757Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Satiated 😊🧗‍♂️",
@@ -434,6 +434,28 @@
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
       "date": "Mar 26"
+    }
+  ],
+  "projectAttempts": [
+    {
+      "routeName": "Jaqueline Hyde",
+      "locationText": "Wave Wall, Centennial Glen",
+      "date": "Feb 26"
+    },
+    {
+      "routeName": "Jaqueline Hyde",
+      "locationText": "Wave Wall, Centennial Glen",
+      "date": "Feb 26"
+    },
+    {
+      "routeName": "Last Stand Direct",
+      "locationText": "The First Cave, Mt Alexandra",
+      "date": "Jun 25"
+    },
+    {
+      "routeName": "Holy Leaping Shortarses, Batman",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "date": "Apr 25"
     }
   ],
   "pyramid": {

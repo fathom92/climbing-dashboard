@@ -21,17 +21,31 @@
             margin-bottom: 3rem;
         }
         header h1 {
-            margin: 0;
+            margin: 0 0 1rem 0;
             color: #0f172a;
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 800;
             letter-spacing: -0.025em;
+        }
+        .status-bar {
+            background: #ffffff;
+            display: inline-flex;
+            gap: 2rem;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+        }
+        .status-item strong {
+            color: #2563eb;
         }
         .grid-main {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
+            margin-top: 1rem;
         }
         .card {
             background: white;
@@ -50,15 +64,21 @@
         .card .main-stat {
             font-size: 2.25rem;
             font-weight: 800;
-            color: #2563eb;
+            color: #1e293b;
             margin-bottom: 0.5rem;
         }
+        .card .main-stat strong {
+            color: #2563eb;
+        }
         .card .sub-stat {
-            font-size: 1.1rem;
-            color: #475569;
+            font-size: 1.05rem;
+            color: #64748b;
             border-top: 1px solid #f1f5f9;
             padding-top: 0.75rem;
             margin-top: 0.75rem;
+        }
+        .card .sub-stat strong {
+            color: #0f172a;
         }
         .section-title {
             font-size: 1.5rem;
@@ -88,6 +108,13 @@
             color: #475569;
             font-size: 0.9rem;
         }
+        .route-subtext {
+            display: block;
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 400;
+            margin-top: 0.2rem;
+        }
         .rank-badge {
             background: #eff6ff;
             color: #1d4ed8;
@@ -98,7 +125,7 @@
         }
         .grid-fun {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.5rem;
             margin-top: 1rem;
         }
@@ -136,18 +163,22 @@
 <div class="container">
     <header>
         <h1>Joe's Climbing Highlights</h1>
+        <div class="status-bar">
+            <div class="status-item">Days Since Last Climb: <strong id="days-count">—</strong></div>
+            <div class="status-item">Mood: <span id="mood-label">Initializing...</span></div>
+        </div>
     </header>
 
     <div class="grid-main">
         <div class="card">
-            <h2>Vertical Record</h2>
-            <div class="main-stat" id="stat-year-meters">0m <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">climbed in 2026</span></div>
+            <h2>Vertical Distance</h2>
+            <div class="main-stat" id="stat-year-meters">0m</div>
             <div class="sub-stat">All-Time Cumulative: <strong id="stat-all-meters">0m</strong></div>
         </div>
         <div class="card">
             <h2>Routes Logged</h2>
-            <div class="main-stat" id="stat-year-routes">0 <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">sends in 2026</span></div>
-            <div class="sub-stat">All-Time Routes: <strong id="stat-all-routes">0</strong></div>
+            <div class="main-stat" id="stat-year-routes">0</div>
+            <div class="sub-stat">All-Time Total: <strong id="stat-all-routes">0</strong></div>
         </div>
     </div>
 
@@ -157,34 +188,37 @@
             <thead>
                 <tr>
                     <th style="width: 70px;">Rank</th>
-                    <th>Route Name</th>
+                    <th>Route Name & Location</th>
                     <th>Grade</th>
                     <th>Style</th>
-                    <th>Attempts</th>
                     <th>Date</th>
                 </tr>
             </thead>
             <tbody id="notable-body">
                 <tr>
-                    <td colspan="6" style="text-align: center; color: #94a3b8;">Processing logs...</td>
+                    <td colspan="5" style="text-align: center; color: #94a3b8;">Processing logs...</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <div class="section-title">Fun Profile Trivia</div>
+    <div class="section-title">Profile Trivia</div>
     <div class="grid-fun">
         <div class="fun-card" style="border-left-color: #3b82f6;">
             <label>Hardest Logged Send</label>
             <span id="fun-hardest">Loading...</span>
         </div>
         <div class="fun-card" style="border-left-color: #10b981;">
-            <label>Favorite Crag playground</label>
+            <label>Favorite Crag</label>
             <span id="fun-crag">Loading...</span>
         </div>
         <div class="fun-card" style="border-left-color: #f59e0b;">
             <label>Preferred Discipline</label>
             <span id="fun-style">Loading...</span>
+        </div>
+        <div class="fun-card" style="border-left-color: #8b5cf6;">
+            <label>Countries Explored</label>
+            <span id="fun-countries">Loading...</span>
         </div>
     </div>
 
@@ -197,14 +231,18 @@
     fetch('./dashboard_data.json')
         .then(res => res.json())
         .then(data => {
-            // Dynamic text layout updates
-            document.getElementById('stat-year-meters').innerHTML = `${data.metrics.yearMeters.toLocaleString()}m <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">climbed in ${data.currentYear}</span>`;
-            document.getElementById('stat-year-routes').innerHTML = `${data.metrics.yearRoutes.toLocaleString()} <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">sends in ${data.currentYear}</span>`;
+            // Render Status Banner items
+            document.getElementById('days-count').innerText = data.daysSinceLastClimb;
+            document.getElementById('mood-label').innerText = data.mood;
+
+            // Condensed card rendering logic
+            document.getElementById('stat-year-meters').innerHTML = `<strong>${data.metrics.yearMeters.toLocaleString()}m</strong> <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">climbed in ${data.currentYear}</span>`;
+            document.getElementById('stat-year-routes').innerHTML = `<strong>${data.metrics.yearRoutes.toLocaleString()}</strong> <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">sends in ${data.currentYear}</span>`;
             
             document.getElementById('stat-all-meters').innerText = `${data.metrics.allTimeMeters.toLocaleString()}m`;
             document.getElementById('stat-all-routes').innerText = data.metrics.allTimeRoutes.toLocaleString();
 
-            // Populate table items
+            // Populate table rows
             const tbody = document.getElementById('notable-body');
             tbody.innerHTML = '';
             
@@ -212,19 +250,22 @@
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td><span class="rank-badge">#${index + 1}</span></td>
-                    <td style="font-weight: 600; color: #2563eb;">${climb.routeName}</td>
+                    <td style="font-weight: 600; color: #2563eb;">
+                        ${climb.routeName}
+                        <span class="route-subtext">${climb.cragName}</span>
+                    </td>
                     <td><strong>${climb.gradeDisplay}</strong></td>
                     <td>${climb.style}</td>
-                    <td>${climb.attempts}</td>
-                    <td style="color: #64748b; font-size: 0.9rem;">${climb.date}</td>
+                    <td style="color: #64748b; font-size: 0.9rem; font-transform: capitalize;">${climb.date}</td>
                 `;
                 tbody.appendChild(row);
             });
 
-            // Extra Stats Cards Mapping
+            // Populate Trivia Elements
             document.getElementById('fun-hardest').innerText = data.funStats.hardestSend;
-            document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} visits)`;
+            document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} sends)`;
             document.getElementById('fun-style').innerText = data.funStats.preferredStyle;
+            document.getElementById('fun-countries').innerText = `${data.funStats.countriesCount} ${data.funStats.countriesCount === 1 ? 'Country' : 'Countries'}`;
 
             const stamp = new Date(data.lastUpdated).toLocaleDateString(undefined, {
                 month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'

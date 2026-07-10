@@ -191,7 +191,7 @@ async function main() {
     return b.styleWeight - a.styleWeight;
   });
   
-  const topTenSends = qualifyingSends.slice(0, 10);
+  const topTenSends = qualifyingSends.slice(0, 5);
   const targetProjectGrade = breakthroughGrade + 1;
   
   let daysSinceLastClimb = '—';

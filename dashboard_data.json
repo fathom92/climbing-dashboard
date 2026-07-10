@@ -1,8 +1,9 @@
 {
-  "lastUpdated": "2026-07-10T08:06:31.168Z",
+  "lastUpdated": "2026-07-10T08:16:18.994Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Okay 🫡",
+  "targetGrade": 24,
   "capabilities": {
     "onsight": "23",
     "flash": "21",
@@ -10,13 +11,14 @@
   },
   "metrics": {
     "allTimeMeters": 3516,
-    "allTimeRoutes": 196,
-    "allTimeSuccesses": 148,
+    "allTimeLogs": 196,
     "allTimeSuccessRate": 76,
+    "everestPercent": 40,
     "yearMeters": 1428,
     "yearRoutes": 74,
-    "yearSuccesses": 56,
-    "yearSuccessRate": 76
+    "grade23Rate": 23,
+    "grade23Sends": 3,
+    "grade23Attempts": 13
   },
   "topTen": [
     {
@@ -113,8 +115,8 @@
   "funStats": {
     "favoriteCrag": "Medlow Bath",
     "favoriteCragCount": 31,
-    "preferredStyle": "Sport",
-    "hardestSend": "Master Plan (Grade 23)",
+    "hardestAttempt": "Smoked Mussels (Grade 26)",
+    "hardestAttemptLocation": "Wave Wall, Centennial Glen",
     "countriesCount": 1
   }
 }

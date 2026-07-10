@@ -50,13 +50,21 @@ async function main() {
   
   let qualifyingSends = [];
   const cragCounts = {};
-  const disciplineCounts = {};
   const uniqueCountries = new Set();
   
-  let hardestScore = 0;
-  let hardestName = 'None';
-  let hardestGrade = 'N/A';
+  let hardestSendWeight = 0;
+  let hardestSendNum = 0;
   let mostRecentAscentDate = null;
+
+  // Grade 23 calculation buckets
+  let grade23TotalAttempts = 0;
+  let grade23CleanSends = 0;
+
+  // Hardest attempt tracking variables
+  let hardestAttemptWeight = 0;
+  let hardestAttemptRouteName = 'None';
+  let hardestAttemptCragName = 'N/A';
+  let hardestAttemptGradeLabel = 'N/A';
 
   const peakCapability = {
     onsight: { score: 0, label: 'N/A' },
@@ -83,7 +91,7 @@ async function main() {
     }
     if (isNaN(heightValue)) heightValue = 0;
 
-    // Tally absolute volume metrics
+    // Sum overall career efforts across all types
     allTimeMeters += heightValue;
     allTimeLogs++;
 
@@ -92,12 +100,9 @@ async function main() {
       currentYearLogs++;
     }
 
-    // Tally structural success metrics
     if (successfulStyles.includes(tickStyle)) {
       allTimeSuccesses++;
-      if (ascentYear === currentYear) {
-        currentYearSuccesses++;
-      }
+      if (ascentYear === currentYear) currentYearSuccesses++;
     }
 
     const cragLocationName = extractCragName(ascent.route.urlAncestorStub);
@@ -107,9 +112,6 @@ async function main() {
     if (cragLocationName) {
       cragCounts[cragLocationName] = (cragCounts[cragLocationName] || 0) + 1;
     }
-    
-    const discipline = ascent.climbedGearStyle || ascent.cprStyle || 'Unknown';
-    disciplineCounts[discipline] = (disciplineCounts[discipline] || 0) + 1;
 
     if (ascent.route.ancestors && ascent.route.ancestors.country) {
       uniqueCountries.add(ascent.route.ancestors.country);
@@ -120,11 +122,29 @@ async function main() {
     const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade 
       ? parseFloat(ascent.cpr.base.internalGrade) 
       : 0;
+      
+    const numericalGrade = ascent.route.grade ? parseInt(ascent.route.grade) : 0;
 
-    if (successfulStyles.includes(tickStyle) && internalSortGrade > hardestScore) {
-      hardestScore = internalSortGrade;
-      hardestName = ascent.route.name;
-      hardestGrade = ascent.route.grade || 'N/A';
+    // Track Grade 23 specific conversion stats
+    if (numericalGrade === 23) {
+      grade23TotalAttempts++;
+      if (successfulStyles.includes(tickStyle)) {
+        grade23CleanSends++;
+      }
+    }
+
+    // Track hardest logged send profile
+    if (successfulStyles.includes(tickStyle) && internalSortGrade > hardestSendWeight) {
+      hardestSendWeight = internalSortGrade;
+      hardestSendNum = numericalGrade;
+    }
+
+    // Track hardest overall attempt (any style that isn't a clean send)
+    if (!successfulStyles.includes(tickStyle) && internalSortGrade > hardestAttemptWeight) {
+      hardestAttemptWeight = internalSortGrade;
+      hardestAttemptRouteName = ascent.route.name || 'Unknown Route';
+      hardestAttemptCragName = combinedLocation;
+      hardestAttemptGradeLabel = ascent.route.grade || 'N/A';
     }
 
     if (successfulStyles.includes(tickStyle)) {
@@ -164,6 +184,9 @@ async function main() {
   
   const topTenSends = qualifyingSends.slice(0, 10);
 
+  // Define dynamic target destination metrics based on career high numbers
+  const targetProjectGrade = hardestSendNum > 0 ? hardestSendNum + 1 : 24;
+  
   let daysSinceLastClimb = '—';
   let moodText = 'Unknown 🤷‍♂️';
 
@@ -187,23 +210,19 @@ async function main() {
     }
   }
 
-  let favDiscipline = 'None Logged';
-  let maxDiscCount = 0;
-  for (const disc in disciplineCounts) {
-    if (disciplineCounts[disc] > maxDiscCount) {
-      maxDiscCount = disciplineCounts[disc];
-      favDiscipline = disc;
-    }
-  }
-
   const allTimeSuccessRate = allTimeLogs > 0 ? Math.round((allTimeSuccesses / allTimeLogs) * 100) : 0;
-  const yearSuccessRate = currentYearLogs > 0 ? Math.round((currentYearSuccesses / currentYearLogs) * 100) : 0;
+  const grade23SuccessRate = grade23TotalAttempts > 0 ? Math.round((grade23CleanSends / grade23TotalAttempts) * 100) : 0;
+  
+  // Everest target conversion comparison calculations
+  const everestHeight = 8848;
+  const everestProgress = Math.min(Math.round((allTimeMeters / everestHeight) * 100), 100);
 
   const resultPayload = {
     lastUpdated: new Date().toISOString(),
     currentYear: currentYear,
     daysSinceLastClimb: daysSinceLastClimb,
     mood: moodText,
+    targetGrade: targetProjectGrade,
     capabilities: {
       onsight: peakCapability.onsight.label,
       flash: peakCapability.flash.label,
@@ -211,26 +230,27 @@ async function main() {
     },
     metrics: {
       allTimeMeters: Math.round(allTimeMeters),
-      allTimeRoutes: allTimeLogs,
-      allTimeSuccesses: allTimeSuccesses,
+      allTimeLogs: allTimeLogs,
       allTimeSuccessRate: allTimeSuccessRate,
+      everestPercent: everestProgress,
       yearMeters: Math.round(currentYearMeters),
       yearRoutes: currentYearLogs,
-      yearSuccesses: currentYearSuccesses,
-      yearSuccessRate: yearSuccessRate
+      grade23Rate: grade23SuccessRate,
+      grade23Sends: grade23CleanSends,
+      grade23Attempts: grade23TotalAttempts
     },
     topTen: topTenSends,
     funStats: {
       favoriteCrag: favCrag,
       favoriteCragCount: maxCragCount,
-      preferredStyle: favDiscipline.charAt(0).toUpperCase() + favDiscipline.slice(1),
-      hardestSend: `${hardestName} (Grade ${hardestGrade})`,
+      hardestAttempt: `${hardestAttemptRouteName} (Grade ${hardestAttemptGradeLabel})`,
+      hardestAttemptLocation: hardestAttemptCragName,
       countriesCount: uniqueCountries.size === 0 ? 1 : uniqueCountries.size
     }
   };
 
   fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-  console.log("Analytics engines fully calibrated.");
+  console.log("Upgraded structural telemetry assets compiled.");
 }
 
 main();

@@ -1,6 +1,8 @@
 {
-  "lastUpdated": "2026-07-10T07:28:17.059Z",
+  "lastUpdated": "2026-07-10T07:38:49.937Z",
   "currentYear": 2026,
+  "daysSinceLastClimb": 5,
+  "mood": "Okay 🫡",
   "metrics": {
     "allTimeMeters": 3516,
     "allTimeRoutes": 196,
@@ -10,89 +12,100 @@
   "topTen": [
     {
       "routeName": "The Incredible Hulk",
+      "cragName": "The Sunbath",
       "gradeDisplay": "23",
-      "sortWeight": 305.1,
+      "gradeWeight": 275.1,
+      "styleWeight": 3,
       "style": "Onsight",
-      "attempts": 1,
-      "date": "2026-07-05"
-    },
-    {
-      "routeName": "Hang onto Yourself",
-      "gradeDisplay": "22",
-      "sortWeight": 288.7,
-      "style": "Onsight",
-      "attempts": 1,
-      "date": "2026-03-29"
-    },
-    {
-      "routeName": "Rocky Road",
-      "gradeDisplay": "22",
-      "sortWeight": 288.7,
-      "style": "Onsight",
-      "attempts": 1,
-      "date": "2026-04-25"
+      "date": "Jul 26"
     },
     {
       "routeName": "Master Plan",
+      "cragName": "Masterplan Area",
       "gradeDisplay": "23",
-      "sortWeight": 285.1,
+      "gradeWeight": 275.1,
+      "styleWeight": 1,
       "style": "Red point",
-      "attempts": "—",
-      "date": "2025-12-28"
+      "date": "Dec 25"
     },
     {
       "routeName": "Acceptably Cosmic",
+      "cragName": "Main Wall",
       "gradeDisplay": "23",
-      "sortWeight": 285.1,
+      "gradeWeight": 275.1,
+      "styleWeight": 1,
       "style": "Red point",
-      "attempts": "—",
-      "date": "2026-01-04"
+      "date": "Jan 26"
+    },
+    {
+      "routeName": "Hang onto Yourself",
+      "cragName": "Little Triggers Wall",
+      "gradeDisplay": "22",
+      "gradeWeight": 258.7,
+      "styleWeight": 3,
+      "style": "Onsight",
+      "date": "Mar 26"
+    },
+    {
+      "routeName": "Rocky Road",
+      "cragName": "Arrivals (Lower)",
+      "gradeDisplay": "22",
+      "gradeWeight": 258.7,
+      "styleWeight": 3,
+      "style": "Onsight",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Room With a View",
+      "cragName": "Main Cliff",
+      "gradeDisplay": "22",
+      "gradeWeight": 258.7,
+      "styleWeight": 1,
+      "style": "Red point",
+      "date": "Mar 26"
+    },
+    {
+      "routeName": "Wok Hay",
+      "cragName": "The Sunbath",
+      "gradeDisplay": "22",
+      "gradeWeight": 258.7,
+      "styleWeight": 1,
+      "style": "Red point",
+      "date": "Apr 26"
+    },
+    {
+      "routeName": "Three Hour Commute",
+      "cragName": "Arrivals (Lower)",
+      "gradeDisplay": "22",
+      "gradeWeight": 258.7,
+      "styleWeight": 1,
+      "style": "Red point",
+      "date": "Apr 26"
     },
     {
       "routeName": "Tree Beard",
+      "cragName": "Historic Wells",
       "gradeDisplay": "21",
-      "sortWeight": 271.7,
+      "gradeWeight": 241.7,
+      "styleWeight": 3,
       "style": "Onsight",
-      "attempts": 1,
-      "date": "2025-12-21"
+      "date": "Dec 25"
     },
     {
       "routeName": "Spoke to the Mountain, Listened to the Sea Extension",
+      "cragName": "Banksy Wall",
       "gradeDisplay": "21",
-      "sortWeight": 271.7,
+      "gradeWeight": 241.7,
+      "styleWeight": 3,
       "style": "Onsight",
-      "attempts": 1,
-      "date": "2026-01-31"
-    },
-    {
-      "routeName": "Duck Tits",
-      "gradeDisplay": "21",
-      "sortWeight": 271.7,
-      "style": "Onsight",
-      "attempts": 1,
-      "date": "2026-04-19"
-    },
-    {
-      "routeName": "Who the Fuck is Keith",
-      "gradeDisplay": "21",
-      "sortWeight": 271.7,
-      "style": "Onsight",
-      "attempts": 1,
-      "date": "2026-04-25"
-    },
-    {
-      "routeName": "Jingle Bells",
-      "gradeDisplay": "21",
-      "sortWeight": 271.7,
-      "style": "Onsight",
-      "attempts": 1,
-      "date": "2026-04-26"
+      "date": "Jan 26"
     }
   ],
   "funStats": {
     "favoriteCrag": "The Sunbath",
     "favoriteCragCount": 31,
     "preferredStyle": "Sport",
-    "hardestSend": "Master Plan (Grade 23)"
+    "hardestSend": "Master Plan (Grade 23)",
+    "countriesCount": 1
   }
 }

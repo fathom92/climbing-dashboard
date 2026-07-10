@@ -3,90 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Climbing Vertical Dashboard</title>
+    <title>Climbing Analytics Dashboard</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f4f6f9;
-            color: #1a202c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background-color: #f7fafc;
+            color: #2d3748;
             margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        h1 {
+            margin: 0;
+            color: #1a202c;
+            font-size: 2.25rem;
+        }
+        .subtitle {
+            color: #718096;
+            margin: 0.5rem 0 0 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }
         .card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
             text-align: center;
-            max-width: 400px;
-            width: 100%;
         }
-        h1 {
-            font-size: 1.25rem;
+        .card h2 {
+            font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #718096;
-            margin-bottom: 0.5rem;
+            color: #4a5568;
+            margin: 0 0 0.5rem 0;
         }
-        .metric {
-            font-size: 5rem;
+        .card .value {
+            font-size: 2.5rem;
             font-weight: 800;
             color: #2b6cb0;
-            line-height: 1;
-            margin: 1rem 0;
+            line-height: 1.2;
         }
-        .unit {
-            font-size: 1.5rem;
+        .card .unit {
+            font-size: 1.25rem;
             font-weight: 500;
             color: #4a5568;
         }
-        .subtext {
+        .section-title {
+            font-size: 1.5rem;
+            color: #1a202c;
+            margin: 0 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            overflow-hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
             color: #4a5568;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .rank-badge {
+            background: #e2e8f0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.85rem;
         }
         .footer {
-            font-size: 0.75rem;
+            text-align: center;
+            font-size: 0.85rem;
             color: #a0aec0;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 1rem;
+            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1 id="year-title">Vertical Tracking</h1>
-        <div class="metric"><span id="meters-value">0</span><span class="unit">m</span></div>
-        <p class="subtext">Scaled across <span id="climbs-value">0</span> successful sends this year.</p>
-        <div class="footer">Last automated update: <span id="date-value">Never</span></div>
+<div class="container">
+    <header>
+        <h1 id="main-title">Climbing Logbook Profile</h1>
+        <p class="subtitle">Personal Ticklist Metrics Analysis</p>
+    </header>
+
+    <div class="grid">
+        <div class="card">
+            <h2 id="title-year-m">Vertical This Year</h2>
+            <div class="value" id="year-meters">0<span class="unit">m</span></div>
+        </div>
+        <div class="card">
+            <h2>Total All-Time Vertical</h2>
+            <div class="value" id="all-time-meters">0<span class="unit">m</span></div>
+        </div>
+        <div class="card">
+            <h2 id="title-year-r">Routes This Year</h2>
+            <div class="value" id="year-routes">0</div>
+        </div>
+        <div class="card">
+            <h2>Total Routes Logged</h2>
+            <div class="value" id="all-time-routes">0</div>
+        </div>
     </div>
 
-    <script>
-        // Fetch generated computed JSON data artifact dynamically from repository asset pipeline
-        fetch('./dashboard_data.json')
-            .then(response => {
-                if (!response.ok) throw new Error('Data file not created yet.');
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('year-title').innerText = `${data.year} Vertical Distance`;
-                document.getElementById('meters-value').innerText = data.totalMeters.toLocaleString();
-                document.getElementById('climbs-value').innerText = data.totalClimbs;
-                
-                const formattedDate = new Date(data.lastUpdated).toLocaleDateString(undefined, {
-                    month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'
+    <h3 class="section-title">Top 10 Performance Sends (Hardest First)</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 80px;">Rank</th>
+                    <th>Route Name</th>
+                    <th>Grade</th>
+                    <th>Style</th>
+                    <th>Date Secure</th>
+                </tr>
+            </thead>
+            <tbody id="top-ten-body">
+                <tr>
+                    <td colspan="5" style="text-align: center; color: #a0aec0;">Syncing layout elements...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        Data Sync Automated Update Pipeline: <span id="sync-stamp">Initializing</span>
+    </div>
+</div>
+
+<script>
+    fetch('./dashboard_data.json')
+        .then(res => {
+            if (!res.ok) throw new Error("Data asset pipeline compiling.");
+            return res.json();
+        })
+        .then(data => {
+            // Update textual descriptors with parsed dates
+            document.getElementById('main-title').innerText = `${data.currentYear} Climbing Analytics`;
+            document.getElementById('title-year-m').innerText = `Vertical In ${data.currentYear}`;
+            document.getElementById('title-year-r').innerText = `Routes In ${data.currentYear}`;
+
+            // Render absolute metrics values
+            document.getElementById('year-meters').innerHTML = `${data.metrics.yearMeters.toLocaleString()}<span class="unit">m</span>`;
+            document.getElementById('all-time-meters').innerHTML = `${data.metrics.allTimeMeters.toLocaleString()}<span class="unit">m</span>`;
+            document.getElementById('year-routes').innerText = data.metrics.yearRoutes.toLocaleString();
+            document.getElementById('all-time-routes').innerText = data.metrics.allTimeRoutes.toLocaleString();
+
+            // Populate the data rows for the top ten table
+            const tbody = document.getElementById('top-ten-body');
+            tbody.innerHTML = ''; // Flush placeholder entry
+
+            if (data.topTen.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #a0aec0;">No qualifying sends recorded.</td></tr>`;
+            } else {
+                data.topTen.forEach((climb, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><span class="rank-badge">#${index + 1}</span></td>
+                        <td style="font-weight: 600; color: #2b6cb0;">${climb.routeName}</td>
+                        <td><strong>${climb.gradeDisplay}</strong></td>
+                        <td>${climb.style}</td>
+                        <td style="color: #718096; font-size: 0.9rem;">${climb.date}</td>
+                    `;
+                    tbody.appendChild(row);
                 });
-                document.getElementById('date-value').innerText = formattedDate;
-            })
-            .catch(err => {
-                document.getElementById('meters-value').innerText = "---";
-                document.getElementById('date-value').innerText = "Waiting for initial schedule run...";
-                console.log(err);
+            }
+
+            const stamp = new Date(data.lastUpdated).toLocaleDateString(undefined, {
+                month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'
             });
-    </script>
+            document.getElementById('sync-stamp').innerText = stamp;
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById('sync-stamp').innerText = "Pending data file build configuration...";
+        });
+</script>
 </body>
 </html>

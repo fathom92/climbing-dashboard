@@ -1,6 +1,82 @@
 {
-  "lastUpdated": "2026-07-10T07:01:10.344Z",
-  "year": 2026,
-  "totalMeters": 0,
-  "totalClimbs": 0
+  "lastUpdated": "2026-07-10T07:09:00.365Z",
+  "currentYear": 2026,
+  "metrics": {
+    "allTimeMeters": 3516,
+    "allTimeRoutes": 196,
+    "yearMeters": 1428,
+    "yearRoutes": 74
+  },
+  "topTen": [
+    {
+      "routeName": "Master Plan",
+      "gradeDisplay": "23",
+      "sortWeight": 275.1,
+      "style": "Red point",
+      "date": "2025-12-28"
+    },
+    {
+      "routeName": "Acceptably Cosmic",
+      "gradeDisplay": "23",
+      "sortWeight": 275.1,
+      "style": "Red point",
+      "date": "2026-01-04"
+    },
+    {
+      "routeName": "The Incredible Hulk",
+      "gradeDisplay": "23",
+      "sortWeight": 275.1,
+      "style": "Onsight",
+      "date": "2026-07-05"
+    },
+    {
+      "routeName": "Room With a View",
+      "gradeDisplay": "22",
+      "sortWeight": 258.7,
+      "style": "Red point",
+      "date": "2026-03-15"
+    },
+    {
+      "routeName": "Hang onto Yourself",
+      "gradeDisplay": "22",
+      "sortWeight": 258.7,
+      "style": "Onsight",
+      "date": "2026-03-29"
+    },
+    {
+      "routeName": "Wok Hay",
+      "gradeDisplay": "22",
+      "sortWeight": 258.7,
+      "style": "Red point",
+      "date": "2026-04-11"
+    },
+    {
+      "routeName": "Rocky Road",
+      "gradeDisplay": "22",
+      "sortWeight": 258.7,
+      "style": "Onsight",
+      "date": "2026-04-25"
+    },
+    {
+      "routeName": "Three Hour Commute",
+      "gradeDisplay": "22",
+      "sortWeight": 258.7,
+      "style": "Red point",
+      "date": "2026-04-26"
+    },
+    {
+      "routeName": "Dr Do Little",
+      "gradeDisplay": "21",
+      "sortWeight": 241.7,
+      "style": "Red point",
+      "date": "2025-04-12"
+    },
+    {
+      "routeName": "Sound and Vision",
+      "gradeDisplay": "21",
+      "sortWeight": 241.7,
+      "style": "Flash",
+      "date": "2025-04-12"
+    }
+  ]
 }

@@ -3,77 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Climbing Analytics Dashboard</title>
+    <title>Joe's Climbing Highlights</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f7fafc;
-            color: #2d3748;
+            background-color: #f8fafc;
+            color: #1e293b;
             margin: 0;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
         }
         .container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
         }
         header {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
-        h1 {
+        header h1 {
             margin: 0;
-            color: #1a202c;
-            font-size: 2.25rem;
+            color: #0f172a;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
         }
-        .subtitle {
-            color: #718096;
-            margin: 0.5rem 0 0 0;
-        }
-        .grid {
+        .grid-main {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
         .card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             border: 1px solid #e2e8f0;
-            text-align: center;
         }
         .card h2 {
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #4a5568;
-            margin: 0 0 0.5rem 0;
+            color: #64748b;
+            margin: 0 0 1rem 0;
         }
-        .card .value {
-            font-size: 2.5rem;
+        .card .main-stat {
+            font-size: 2.25rem;
             font-weight: 800;
-            color: #2b6cb0;
-            line-height: 1.2;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
         }
-        .card .unit {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: #4a5568;
+        .card .sub-stat {
+            font-size: 1.1rem;
+            color: #475569;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 0.75rem;
+            margin-top: 0.75rem;
         }
         .section-title {
             font-size: 1.5rem;
-            color: #1a202c;
-            margin: 0 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
+            color: #0f172a;
+            margin: 3rem 0 1rem 0;
+            font-weight: 700;
         }
         .table-container {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             border: 1px solid #e2e8f0;
-            overflow-hidden;
+            overflow: hidden;
         }
         table {
             width: 100%;
@@ -81,29 +79,55 @@
             text-align: left;
         }
         th, td {
-            padding: 1rem;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
         }
         th {
             background-color: #f8fafc;
             font-weight: 600;
-            color: #4a5568;
-        }
-        tr:last-child td {
-            border-bottom: none;
+            color: #475569;
+            font-size: 0.9rem;
         }
         .rank-badge {
-            background: #e2e8f0;
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            font-weight: bold;
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-weight: 700;
             font-size: 0.85rem;
+        }
+        .grid-fun {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .fun-card {
+            background: #ffffff;
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid #10b981;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .fun-card label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+        .fun-card span {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
         }
         .footer {
             text-align: center;
-            font-size: 0.85rem;
-            color: #a0aec0;
-            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 5rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
         }
     </style>
 </head>
@@ -111,101 +135,103 @@
 
 <div class="container">
     <header>
-        <h1 id="main-title">Climbing Logbook Profile</h1>
-        <p class="subtitle">Personal Ticklist Metrics Analysis</p>
+        <h1>Joe's Climbing Highlights</h1>
     </header>
 
-    <div class="grid">
+    <div class="grid-main">
         <div class="card">
-            <h2 id="title-year-m">Vertical This Year</h2>
-            <div class="value" id="year-meters">0<span class="unit">m</span></div>
+            <h2>Vertical Record</h2>
+            <div class="main-stat" id="stat-year-meters">0m <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">climbed in 2026</span></div>
+            <div class="sub-stat">All-Time Cumulative: <strong id="stat-all-meters">0m</strong></div>
         </div>
         <div class="card">
-            <h2>Total All-Time Vertical</h2>
-            <div class="value" id="all-time-meters">0<span class="unit">m</span></div>
-        </div>
-        <div class="card">
-            <h2 id="title-year-r">Routes This Year</h2>
-            <div class="value" id="year-routes">0</div>
-        </div>
-        <div class="card">
-            <h2>Total Routes Logged</h2>
-            <div class="value" id="all-time-routes">0</div>
+            <h2>Routes Logged</h2>
+            <div class="main-stat" id="stat-year-routes">0 <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">sends in 2026</span></div>
+            <div class="sub-stat">All-Time Routes: <strong id="stat-all-routes">0</strong></div>
         </div>
     </div>
 
-    <h3 class="section-title">Top 10 Performance Sends (Hardest First)</h3>
+    <div class="section-title">Notable Ascents</div>
     <div class="table-container">
         <table>
             <thead>
                 <tr>
-                    <th style="width: 80px;">Rank</th>
+                    <th style="width: 70px;">Rank</th>
                     <th>Route Name</th>
                     <th>Grade</th>
                     <th>Style</th>
-                    <th>Date Secure</th>
+                    <th>Attempts</th>
+                    <th>Date</th>
                 </tr>
             </thead>
-            <tbody id="top-ten-body">
+            <tbody id="notable-body">
                 <tr>
-                    <td colspan="5" style="text-align: center; color: #a0aec0;">Syncing layout elements...</td>
+                    <td colspan="6" style="text-align: center; color: #94a3b8;">Processing logs...</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
+    <div class="section-title">Fun Profile Trivia</div>
+    <div class="grid-fun">
+        <div class="fun-card" style="border-left-color: #3b82f6;">
+            <label>Hardest Logged Send</label>
+            <span id="fun-hardest">Loading...</span>
+        </div>
+        <div class="fun-card" style="border-left-color: #10b981;">
+            <label>Favorite Crag playground</label>
+            <span id="fun-crag">Loading...</span>
+        </div>
+        <div class="fun-card" style="border-left-color: #f59e0b;">
+            <label>Preferred Discipline</label>
+            <span id="fun-style">Loading...</span>
+        </div>
+    </div>
+
     <div class="footer">
-        Data Sync Automated Update Pipeline: <span id="sync-stamp">Initializing</span>
+        Automated data connection via theCrag API Key • Sync timestamp: <span id="sync-stamp">-</span>
     </div>
 </div>
 
 <script>
     fetch('./dashboard_data.json')
-        .then(res => {
-            if (!res.ok) throw new Error("Data asset pipeline compiling.");
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
-            // Update textual descriptors with parsed dates
-            document.getElementById('main-title').innerText = `${data.currentYear} Climbing Analytics`;
-            document.getElementById('title-year-m').innerText = `Vertical In ${data.currentYear}`;
-            document.getElementById('title-year-r').innerText = `Routes In ${data.currentYear}`;
+            // Dynamic text layout updates
+            document.getElementById('stat-year-meters').innerHTML = `${data.metrics.yearMeters.toLocaleString()}m <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">climbed in ${data.currentYear}</span>`;
+            document.getElementById('stat-year-routes').innerHTML = `${data.metrics.yearRoutes.toLocaleString()} <span style="font-size: 1.25rem; font-weight:400; color:#64748b;">sends in ${data.currentYear}</span>`;
+            
+            document.getElementById('stat-all-meters').innerText = `${data.metrics.allTimeMeters.toLocaleString()}m`;
+            document.getElementById('stat-all-routes').innerText = data.metrics.allTimeRoutes.toLocaleString();
 
-            // Render absolute metrics values
-            document.getElementById('year-meters').innerHTML = `${data.metrics.yearMeters.toLocaleString()}<span class="unit">m</span>`;
-            document.getElementById('all-time-meters').innerHTML = `${data.metrics.allTimeMeters.toLocaleString()}<span class="unit">m</span>`;
-            document.getElementById('year-routes').innerText = data.metrics.yearRoutes.toLocaleString();
-            document.getElementById('all-time-routes').innerText = data.metrics.allTimeRoutes.toLocaleString();
+            // Populate table items
+            const tbody = document.getElementById('notable-body');
+            tbody.innerHTML = '';
+            
+            data.topTen.forEach((climb, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><span class="rank-badge">#${index + 1}</span></td>
+                    <td style="font-weight: 600; color: #2563eb;">${climb.routeName}</td>
+                    <td><strong>${climb.gradeDisplay}</strong></td>
+                    <td>${climb.style}</td>
+                    <td>${climb.attempts}</td>
+                    <td style="color: #64748b; font-size: 0.9rem;">${climb.date}</td>
+                `;
+                tbody.appendChild(row);
+            });
 
-            // Populate the data rows for the top ten table
-            const tbody = document.getElementById('top-ten-body');
-            tbody.innerHTML = ''; // Flush placeholder entry
-
-            if (data.topTen.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #a0aec0;">No qualifying sends recorded.</td></tr>`;
-            } else {
-                data.topTen.forEach((climb, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td><span class="rank-badge">#${index + 1}</span></td>
-                        <td style="font-weight: 600; color: #2b6cb0;">${climb.routeName}</td>
-                        <td><strong>${climb.gradeDisplay}</strong></td>
-                        <td>${climb.style}</td>
-                        <td style="color: #718096; font-size: 0.9rem;">${climb.date}</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-            }
+            // Extra Stats Cards Mapping
+            document.getElementById('fun-hardest').innerText = data.funStats.hardestSend;
+            document.getElementById('fun-crag').innerText = `${data.funStats.favoriteCrag} (${data.funStats.favoriteCragCount} visits)`;
+            document.getElementById('fun-style').innerText = data.funStats.preferredStyle;
 
             const stamp = new Date(data.lastUpdated).toLocaleDateString(undefined, {
                 month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'
             });
             document.getElementById('sync-stamp').innerText = stamp;
         })
-        .catch(err => {
-            console.error(err);
-            document.getElementById('sync-stamp').innerText = "Pending data file build configuration...";
-        });
+        .catch(err => console.error(err));
 </script>
 </body>
 </html>

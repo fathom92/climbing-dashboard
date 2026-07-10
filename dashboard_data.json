@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T07:19:54.492Z",
+  "lastUpdated": "2026-07-10T07:28:17.059Z",
   "currentYear": 2026,
   "metrics": {
     "allTimeMeters": 3516,
@@ -9,74 +9,90 @@
   },
   "topTen": [
     {
+      "routeName": "The Incredible Hulk",
+      "gradeDisplay": "23",
+      "sortWeight": 305.1,
+      "style": "Onsight",
+      "attempts": 1,
+      "date": "2026-07-05"
+    },
+    {
+      "routeName": "Hang onto Yourself",
+      "gradeDisplay": "22",
+      "sortWeight": 288.7,
+      "style": "Onsight",
+      "attempts": 1,
+      "date": "2026-03-29"
+    },
+    {
+      "routeName": "Rocky Road",
+      "gradeDisplay": "22",
+      "sortWeight": 288.7,
+      "style": "Onsight",
+      "attempts": 1,
+      "date": "2026-04-25"
+    },
+    {
       "routeName": "Master Plan",
       "gradeDisplay": "23",
-      "sortWeight": 275.1,
+      "sortWeight": 285.1,
       "style": "Red point",
+      "attempts": "—",
       "date": "2025-12-28"
     },
     {
       "routeName": "Acceptably Cosmic",
       "gradeDisplay": "23",
-      "sortWeight": 275.1,
+      "sortWeight": 285.1,
       "style": "Red point",
+      "attempts": "—",
       "date": "2026-01-04"
     },
     {
-      "routeName": "The Incredible Hulk",
-      "gradeDisplay": "23",
-      "sortWeight": 275.1,
+      "routeName": "Tree Beard",
+      "gradeDisplay": "21",
+      "sortWeight": 271.7,
       "style": "Onsight",
-      "date": "2026-07-05"
+      "attempts": 1,
+      "date": "2025-12-21"
     },
     {
-      "routeName": "Room With a View",
-      "gradeDisplay": "22",
-      "sortWeight": 258.7,
-      "style": "Red point",
-      "date": "2026-03-15"
-    },
-    {
-      "routeName": "Hang onto Yourself",
-      "gradeDisplay": "22",
-      "sortWeight": 258.7,
+      "routeName": "Spoke to the Mountain, Listened to the Sea Extension",
+      "gradeDisplay": "21",
+      "sortWeight": 271.7,
       "style": "Onsight",
-      "date": "2026-03-29"
+      "attempts": 1,
+      "date": "2026-01-31"
     },
     {
-      "routeName": "Wok Hay",
-      "gradeDisplay": "22",
-      "sortWeight": 258.7,
-      "style": "Red point",
-      "date": "2026-04-11"
-    },
-    {
-      "routeName": "Rocky Road",
-      "gradeDisplay": "22",
-      "sortWeight": 258.7,
+      "routeName": "Duck Tits",
+      "gradeDisplay": "21",
+      "sortWeight": 271.7,
       "style": "Onsight",
+      "attempts": 1,
+      "date": "2026-04-19"
+    },
+    {
+      "routeName": "Who the Fuck is Keith",
+      "gradeDisplay": "21",
+      "sortWeight": 271.7,
+      "style": "Onsight",
+      "attempts": 1,
       "date": "2026-04-25"
     },
     {
-      "routeName": "Three Hour Commute",
-      "gradeDisplay": "22",
-      "sortWeight": 258.7,
-      "style": "Red point",
+      "routeName": "Jingle Bells",
+      "gradeDisplay": "21",
+      "sortWeight": 271.7,
+      "style": "Onsight",
+      "attempts": 1,
       "date": "2026-04-26"
-    },
-    {
-      "routeName": "Dr Do Little",
-      "gradeDisplay": "21",
-      "sortWeight": 241.7,
-      "style": "Red point",
-      "date": "2025-04-12"
-    },
-    {
-      "routeName": "Sound and Vision",
-      "gradeDisplay": "21",
-      "sortWeight": 241.7,
-      "style": "Flash",
-      "date": "2025-04-12"
     }
-  ]
+  ],
+  "funStats": {
+    "favoriteCrag": "The Sunbath",
+    "favoriteCragCount": 31,
+    "preferredStyle": "Sport",
+    "hardestSend": "Master Plan (Grade 23)"
+  }
 }

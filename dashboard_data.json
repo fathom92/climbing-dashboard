@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T08:48:31.239Z",
+  "lastUpdated": "2026-07-10T09:02:48.524Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Satiated 😊🧗‍♂️",
@@ -62,51 +62,6 @@
       "styleWeight": 3,
       "style": "Onsight",
       "date": "Mar 26"
-    },
-    {
-      "routeName": "Three Hour Commute",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
-      "gradeDisplay": "22",
-      "gradeWeight": 258.7,
-      "styleWeight": 1,
-      "style": "Red point",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Wok Hay",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "22",
-      "gradeWeight": 258.7,
-      "styleWeight": 1,
-      "style": "Red point",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Room With a View",
-      "locationText": "Main Cliff, Logan Brae",
-      "gradeDisplay": "22",
-      "gradeWeight": 258.7,
-      "styleWeight": 1,
-      "style": "Red point",
-      "date": "Mar 26"
-    },
-    {
-      "routeName": "Chasing Amy",
-      "locationText": "Chasing Amy Wall, Porters Pass",
-      "gradeDisplay": "21",
-      "gradeWeight": 241.7,
-      "styleWeight": 3,
-      "style": "Onsight",
-      "date": "Jun 26"
-    },
-    {
-      "routeName": "Cherry",
-      "locationText": "Alfords Point Main Area, Sutherland",
-      "gradeDisplay": "21",
-      "gradeWeight": 241.7,
-      "styleWeight": 3,
-      "style": "Onsight",
-      "date": "Jun 26"
     }
   ],
   "auditLog": [

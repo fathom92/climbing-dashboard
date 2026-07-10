@@ -14,7 +14,6 @@
             padding: 0;
         }
         
-        /* Interactive Parallax Mountain Header */
         .hero-banner {
             background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
             color: white;
@@ -30,7 +29,7 @@
             font-weight: 800;
             letter-spacing: -0.03em;
             position: relative;
- z-index: 10;
+            z-index: 10;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .status-bar {
@@ -50,7 +49,6 @@
             color: #60a5fa;
         }
         
-        /* Layered mountain parallax vectors */
         .mountain-layer {
             position: absolute;
             bottom: -2px;
@@ -148,27 +146,35 @@
             font-size: 0.825rem;
             color: #7f1d1d;
             line-height: 1.4;
-            margin-top: 0.5rem;
-            background: rgba(255,255,255,0.4);
-            padding: 0.75rem;
-            border-radius: 8px;
+            margin-top: 0.25rem;
         }
         
-        /* Mini project list styling in accordion box */
+        /* New Standalone Project Attempts Container Layout */
+        .project-attempts-section {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            border: 1px solid rgba(239, 104, 104, 0.25);
+        }
         .project-attempts-title {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.8rem;
             text-transform: uppercase;
-            color: #991b1b;
-            margin: 1rem 0 0.5rem 0;
-            letter-spacing: 0.02em;
+            color: #b91c1c;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
         }
         .project-attempt-item {
-            font-size: 0.8rem;
-            padding: 0.4rem 0.5rem;
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
             border-bottom: 1px solid rgba(239, 104, 104, 0.15);
             display: flex;
             justify-content: space-between;
+            align-items: center;
             color: #7f1d1d;
         }
         .project-attempt-item:last-child {
@@ -519,7 +525,6 @@
             <div class="status-item">Days Since Last Climb: <strong id="days-count">—</strong></div>
             <div class="status-item">Mood: <span id="mood-label">-</span></div>
         </div>
-        <!-- Parallax vector layers -->
         <svg class="mountain-layer mountain-back" id="m-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="none">
             <path fill="#ffffff" d="M0,200 L180,110 L340,160 L490,75 L680,130 L840,55 L1060,145 L1240,90 L1440,165 L1440,200 Z"></path>
         </svg>
@@ -539,15 +544,18 @@
                 <div class="timeline-badge">Timeline: Oct – Dec 2026</div>
             </div>
             
+            <!-- REPOSITIONED: Project Grade Attempts Section sits first as requested -->
+            <div class="project-attempts-section">
+                <div class="project-attempts-title">📋 Project Grade <span id="target-attempts-grade-label">24</span> Attempts</div>
+                <div id="project-attempts-box">
+                    <div style="font-size:0.8rem; color: rgba(127, 29, 29, 0.6); padding: 2px 0;">Scanning history for attempts...</div>
+                </div>
+            </div>
+            
             <details>
-                <summary>How is this projected?</summary>
+                <summary>How is this calculated?</summary>
                 <div class="explanation-text">
                     This forecasting model calculates the log-linear progression of your highest successful sends alongside your regular quarterly log volume. Based on your current breakthrough trend lines and peak redpoint timeline entries, the algorithm maps out the exact statistical curve required to bridge the gap to your next grade level.
-                    
-                    <div class="project-attempts-title">Your Grade <span id="target-attempts-grade-label">24</span> Working Logs:</div>
-                    <div id="project-attempts-box">
-                        <div style="font-size:0.775rem; color: #a1a1a1; padding: 5px 0;">No active attempts logged at this grade level yet.</div>
-                    </div>
                 </div>
             </details>
         </div>
@@ -689,7 +697,6 @@
     let auditCurrentPage = 1;
     const recordsPerPage = 10;
 
-    // Native Javascript Parallax Translation Engine Handler
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         document.getElementById('m-back').style.transform = `translate3d(0, ${scrolled * 0.25}px, -1px) scale(2)`;
@@ -789,21 +796,17 @@
             document.getElementById('fun-g23-rate').innerText = `${data.metrics.dynamicRate}% Ratio`;
             document.getElementById('fun-g23-stats').innerText = `${data.metrics.dynamicSends} sends / ${data.metrics.dynamicAttempts} total entries`;
 
-            // Dynamic grouping loop for project target attempts inside dropdown box
+            // Read unrestricted whole-history project loop array directly from script output
             const attemptBox = document.getElementById('project-attempts-box');
-            const targetGradeString = String(data.targetGrade);
-            const rawLogPool = data.auditLog || [];
+            const historicalProjectLogs = data.projectAttempts || [];
             
-            // Filter and tally identical attempts
             const attemptSummaryMap = {};
-            rawLogPool.forEach(log => {
-                if (log.gradeDisplay === targetGradeString) {
-                    const uniqueKey = `${log.routeName} [split] ${log.locationText}`;
-                    if (!attemptSummaryMap[uniqueKey]) {
-                        attemptSummaryMap[uniqueKey] = { name: log.routeName, loc: log.locationText, latestDate: log.date, tally: 0 };
-                    }
-                    attemptSummaryMap[uniqueKey].tally++;
+            historicalProjectLogs.forEach(log => {
+                const uniqueKey = `${log.routeName} [split] ${log.locationText}`;
+                if (!attemptSummaryMap[uniqueKey]) {
+                    attemptSummaryMap[uniqueKey] = { name: log.routeName, loc: log.locationText, latestDate: log.date, tally: 0 };
                 }
+                attemptSummaryMap[uniqueKey].tally++;
             });
 
             const summaryKeys = Object.keys(attemptSummaryMap);
@@ -824,6 +827,8 @@
                     `;
                     attemptBox.appendChild(rowDiv);
                 });
+            } else {
+                attemptBox.innerHTML = `<div style="font-size:0.8rem; color: rgba(127, 29, 29, 0.6); padding: 2px 0;">No history matching this grade level found yet.</div>`;
             }
 
             const wGrid = document.getElementById('weather-grid-anchor');

@@ -8,11 +8,22 @@ function extractCragName(urlStub) {
   return rawStub.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
-// Custom calculation engine mapping dewpoints + heat to rank crisp friction conditions
-function calculateFrictionRating(temp, humidity) {
-  if (temp < 12 && humidity < 50) return "Crisp Overlord 🥶 (Perfect Friction)";
-  if (temp <= 18 && humidity < 60) return "Prime Sending 🧗‍♂️ (Great Friction)";
-  if (temp > 24 || humidity > 75) return "Greasy Slopers 🥵 (Poor Friction)";
+// Calibrated complex friction engine parsing rain sums, temperature boundaries, wind speeds and humidity
+function calculateFrictionRating(maxTemp, minTemp, humidity, windGust, rainSum) {
+  // CRITICAL OVERRIDE: Rain detection checks first
+  if (rainSum > 1.0) return "She wet - find a cave 🌧️ (Wet Rock)";
+  
+  if (maxTemp < 10) return "Frost Bitey 🥶 (Numb Fingers)";
+  if (maxTemp >= 30) return "Seek Shade ☀️ (Too Hot)";
+  
+  if (humidity >= 65 && humidity <= 90) {
+    if (maxTemp >= 12 && maxTemp <= 25) return "Okay Send Connies 🌤️ (Passable)";
+  }
+  
+  if (maxTemp < 12 && humidity < 60) return "Crisp Overlord 🧊 (Perfect Friction)";
+  if (maxTemp <= 18 && humidity <= 70) return "Prime Sending 🧗‍♂️ (Great Friction)";
+  if (maxTemp > 20 && humidity > 70) return "Greasy Slopers 🥵 (Poor Friction)";
+  if (humidity > 90) return "Damp/Mist Risk 🌧️ (High Humidity)";
   return "Fair 🌤️ (Standard Friction)";
 }
 
@@ -25,7 +36,6 @@ async function main() {
     process.exit(1);
   }
 
-  // 1. HARVEST OUTDOOR CLIMBING LOGS FROM THECRAG
   let allAscents = [];
   let currentPage = 1;
   let keepFetching = true;
@@ -238,32 +248,39 @@ async function main() {
   const remainderMeters = allTimeMeters % everestHeight;
   const everestProgressPercent = Math.round((remainderMeters / everestHeight) * 100);
 
-  // 2. HARVEST GEOGRAPHIC WEATHER PARAMETERS FOR MEDLOW BATH (-33.60, 150.29)
+  // Parse advanced daily telemetry variables including rainfall data sums
   let weekendForecastPayload = [];
   try {
-    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=-33.60&longitude=150.29&daily=temperature_2m_max,relative_humidity_2m_max&timezone=Australia%2FSydney`;
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=-33.60&longitude=150.29&daily=temperature_2m_max,temperature_2m_min,relative_humidity_2m_max,wind_gusts_10m_max,precipitation_sum&timezone=Australia%2FSydney`;
     const weatherRes = await fetch(weatherUrl);
     const weatherData = await weatherRes.json();
     
     if (weatherData && weatherData.daily) {
       weatherData.daily.time.forEach((timeStr, idx) => {
         const dateObj = new Date(timeStr);
-        const dayNum = dateObj.getDay(); // 6 = Saturday, 0 = Sunday
+        const dayNum = dateObj.getDay(); 
         if (dayNum === 6 || dayNum === 0) {
           const maxTemp = weatherData.daily.temperature_2m_max[idx];
+          const minTemp = weatherData.daily.temperature_2m_min[idx];
           const maxHumid = weatherData.daily.relative_humidity_2m_max[idx];
+          const maxGust = weatherData.daily.wind_gusts_10m_max[idx];
+          const rainSum = weatherData.daily.precipitation_sum[idx];
           const friendlyDate = dateObj.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' });
           
           weekendForecastPayload.push({
             dateLabel: friendlyDate,
-            temp: Math.round(maxTemp),
-            frictionText: calculateFrictionRating(maxTemp, maxHumid)
+            maxT: Math.round(maxTemp),
+            minT: Math.round(minTemp),
+            humidity: Math.round(maxHumid),
+            gust: Math.round(maxGust),
+            rain: rainSum.toFixed(1),
+            frictionText: calculateFrictionRating(maxTemp, minTemp, maxHumid, maxGust, rainSum)
           });
         }
       });
     }
   } catch (err) {
-    console.error("Weather loop error:", err);
+    console.error("Weather collection engine exception:", err);
   }
 
   const resultPayload = {
@@ -304,7 +321,6 @@ async function main() {
   };
 
   fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-  console.log("Telemetry systems update complete.");
 }
 
 main();

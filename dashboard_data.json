@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T07:58:13.929Z",
+  "lastUpdated": "2026-07-10T08:06:31.168Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Okay 🫡",
@@ -11,8 +11,12 @@
   "metrics": {
     "allTimeMeters": 3516,
     "allTimeRoutes": 196,
+    "allTimeSuccesses": 148,
+    "allTimeSuccessRate": 76,
     "yearMeters": 1428,
-    "yearRoutes": 74
+    "yearRoutes": 74,
+    "yearSuccesses": 56,
+    "yearSuccessRate": 76
   },
   "topTen": [
     {

@@ -1,5 +1,19 @@
 const fs = require('fs');
 
+// Helper function to extract a clean crag name from the URL stub path
+function extractCragName(urlStub) {
+  if (!urlStub) return 'Unknown Crag';
+  const parts = urlStub.split('/');
+  if (parts.length === 0) return 'Unknown Crag';
+  // Grab the last element (e.g., 'blaxland-gully')
+  const rawStub = parts[parts.length - 1];
+  // Convert hyphens to spaces and capitalize words cleanly
+  return rawStub
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 async function main() {
   const username = process.env.THECRAG_USERNAME;
   const apiKey = process.env.THECRAG_API_KEY;
@@ -15,7 +29,6 @@ async function main() {
 
   console.log("Starting multi-page API harvest...");
 
-  // Dynamically loop through pages until the full logbook is loaded
   while (keepFetching) {
     const url = `https://www.thecrag.com/api/logbook/ascents?user=${username}&key=${apiKey}&perPage=100&page=${currentPage}`;
     
@@ -30,7 +43,6 @@ async function main() {
         keepFetching = false;
       } else {
         allAscents = allAscents.concat(pageAscents);
-        console.log(`Retrieved page ${currentPage} (${pageAscents.length} items collected)`);
         currentPage++;
       }
     } catch (error) {
@@ -38,8 +50,6 @@ async function main() {
       process.exit(1);
     }
   }
-
-  console.log(`Total harvested ascents: ${allAscents.length}`);
 
   const currentYear = new Date().getFullYear();
   let allTimeMeters = 0;
@@ -56,6 +66,12 @@ async function main() {
   let hardestName = 'None';
   let hardestGrade = 'N/A';
   let mostRecentAscentDate = null;
+
+  const peakCapability = {
+    onsight: { score: 0, label: 'N/A' },
+    flash: { score: 0, label: 'N/A' },
+    redpoint: { score: 0, label: 'N/A' }
+  };
 
   allAscents.forEach(ascent => {
     if (!ascent.date || !ascent.route) return;
@@ -81,8 +97,18 @@ async function main() {
       currentYearRoutes++;
     }
 
-    const cragName = ascent.route.ancestors && ascent.route.ancestors.parent ? ascent.route.ancestors.parent.name : 'Unknown Crag';
-    if (cragName) cragCounts[cragName] = (cragCounts[cragName] || 0) + 1;
+    // Resolve structural wall location vs general overarching Crag location
+    const wallName = ascent.route.ancestors && ascent.route.ancestors.parent ? ascent.route.ancestors.parent.name : '';
+    const cragLocationName = extractCragName(ascent.route.urlAncestorStub);
+    
+    // Combine them cleanly for display (e.g., "Mezzaluna Area, Blaxland Gully")
+    const combinedLocation = wallName && wallName !== cragLocationName 
+      ? `${wallName}, ${cragLocationName}` 
+      : cragLocationName;
+
+    if (cragLocationName) {
+      cragCounts[cragLocationName] = (cragCounts[cragLocationName] || 0) + 1;
+    }
     
     const discipline = ascent.climbedGearStyle || ascent.cprStyle || 'Unknown';
     disciplineCounts[discipline] = (disciplineCounts[discipline] || 0) + 1;
@@ -111,23 +137,33 @@ async function main() {
       if (tickStyle === 'flash') styleTier = 2;
       if (tickStyle === 'onsight') styleTier = 3;
 
-      const formattedDate = ascentDateObj.toLocaleDateString('en-US', {
+      let capKey = tickStyle;
+      if (tickStyle === 'pinkpoint') capKey = 'redpoint';
+
+      if (internalSortGrade > peakCapability[capKey].score) {
+        peakCapability[capKey].score = internalSortGrade;
+        peakCapability[capKey].label = ascent.route.grade || 'N/A';
+      }
+
+      // Convert exact date to custom Month-YY string formatting (e.g. "Jun 26")
+      const shortDate = ascentDateObj.toLocaleDateString('en-US', {
         month: 'short',
         year: '2-digit'
       }).replace(',', '');
 
       qualifyingSends.push({
         routeName: ascent.route.name || 'Unknown Route',
-        cragName: cragName,
+        locationText: combinedLocation,
         gradeDisplay: ascent.route.grade || 'N/A',
         gradeWeight: internalSortGrade,
         styleWeight: styleTier,
         style: ascent.tick.name || ascent.tick.label,
-        date: formattedDate
+        date: shortDate
       });
     }
   });
 
+  // Strict sorting: Grade difficulty takes full priority, style tier is secondary tie-breaker
   qualifyingSends.sort((a, b) => {
     if (b.gradeWeight !== a.gradeWeight) return b.gradeWeight - a.gradeWeight;
     return b.styleWeight - a.styleWeight;
@@ -174,6 +210,11 @@ async function main() {
     currentYear: currentYear,
     daysSinceLastClimb: daysSinceLastClimb,
     mood: moodText,
+    capabilities: {
+      onsight: peakCapability.onsight.label,
+      flash: peakCapability.flash.label,
+      redpoint: peakCapability.redpoint.label
+    },
     metrics: {
       allTimeMeters: Math.round(allTimeMeters),
       allTimeRoutes: allTimeRoutes,
@@ -191,7 +232,7 @@ async function main() {
   };
 
   fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-  console.log("Full paginated calculations completed successfully.");
+  console.log("Geographic data tree parsing successful.");
 }
 
 main();

@@ -68,6 +68,12 @@ async function main() {
     redpoint: { score: 0, label: 'N/A' }
   };
 
+  // Initialise Grade Pyramid data structure for Grades 10 through 26
+  const pyramidData = {};
+  for (let g = 10; g <= 26; g++) {
+    pyramidData[g] = { onsight: 0, flash: 0, redpoint: 0, other: 0, total: 0 };
+  }
+
   allAscents.forEach(ascent => {
     if (!ascent.route || !ascent.tick) return;
     const tickStyle = (ascent.tick.label || '').toLowerCase();
@@ -130,6 +136,20 @@ async function main() {
     const internalSortGrade = ascent.cpr && ascent.cpr.base && ascent.cpr.base.internalGrade ? parseFloat(ascent.cpr.base.internalGrade) : 0;
     const numericalGrade = ascent.route.grade ? parseInt(ascent.route.grade) : 0;
 
+    // Allocate data to the Pyramid structure if within tracked bounds
+    if (numericalGrade >= 10 && numericalGrade <= 26) {
+      pyramidData[numericalGrade].total++;
+      if (tickStyle === 'onsight') {
+        pyramidData[numericalGrade].onsight++;
+      } else if (tickStyle === 'flash') {
+        pyramidData[numericalGrade].flash++;
+      } else if (tickStyle === 'redpoint' || tickStyle === 'pinkpoint') {
+        pyramidData[numericalGrade].redpoint++;
+      } else {
+        pyramidData[numericalGrade].other++;
+      }
+    }
+
     if (numericalGrade === breakthroughGrade) {
       dynamicTotalAttempts++;
       if (successfulStyles.includes(tickStyle)) dynamicCleanSends++;
@@ -147,16 +167,12 @@ async function main() {
       year: '2-digit'
     }).replace(',', '');
 
-    // Extract logged attempt iterations cleanly, fall back to 1 for quick execution ticks
-    const explicitAttempts = ascent.attempts || (successfulStyles.includes(tickStyle) ? 1 : '—');
-
     if (auditHistoryLogPool.length < 50) {
       auditHistoryLogPool.push({
         routeName: ascent.route.name || 'Unknown Route',
         locationText: combinedLocation,
         gradeDisplay: ascent.route.grade || 'N/A',
         styleDisplay: ascent.tick.name || ascent.tick.label || 'Attempt',
-        attempts: explicitAttempts,
         date: shortDate
       });
     }
@@ -191,7 +207,7 @@ async function main() {
     return b.styleWeight - a.styleWeight;
   });
   
-  const topTenSends = qualifyingSends.slice(0, 5);
+  const topFiveSends = qualifyingSends.slice(0, 5);
   const targetProjectGrade = breakthroughGrade + 1;
   
   let daysSinceLastClimb = '—';
@@ -214,6 +230,14 @@ async function main() {
     if (cragCounts[crag] > maxCragCount) {
       maxCragCount = cragCounts[crag];
       favCrag = crag;
+    }
+  }
+
+  // Find maximum overall grade volume to calculate relative percentage bar widths
+  let maxGradeVolume = 0;
+  for (const g in pyramidData) {
+    if (pyramidData[g].total > maxGradeVolume) {
+      maxGradeVolume = pyramidData[g].total;
     }
   }
 
@@ -244,8 +268,10 @@ async function main() {
       dynamicSends: dynamicCleanSends,
       dynamicAttempts: dynamicTotalAttempts
     },
-    topTen: topTenSends,
+    topTen: topFiveSends,
     auditLog: auditHistoryLogPool, 
+    pyramid: pyramidData,
+    maxPyramidVolume: maxGradeVolume,
     capabilities: {
       onsight: peakCapability.onsight.label,
       flash: peakCapability.flash.label,
@@ -260,7 +286,7 @@ async function main() {
   };
 
   fs.writeFileSync('dashboard_data.json', JSON.stringify(resultPayload, null, 2));
-  console.log("Audit log attempts configuration deployed.");
+  console.log("Australian English multi-tier data sets written successfully.");
 }
 
 main();

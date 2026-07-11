@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11T02:04:15.025Z",
+  "lastUpdated": "2026-07-11T05:53:58.592Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 0,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -26,13 +26,13 @@
     }
   ],
   "metrics": {
-    "allTimeMeters": 3529,
-    "allTimeLogs": 197,
+    "allTimeMeters": 3559,
+    "allTimeLogs": 199,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
     "everestPercent": 40,
-    "yearMeters": 1441,
-    "yearRoutes": 75,
+    "yearMeters": 1471,
+    "yearRoutes": 77,
     "dynamicRate": 23,
     "dynamicSends": 3,
     "dynamicAttempts": 13
@@ -90,6 +90,20 @@
       "locationText": "Bullet Hole Wall, Hornsby And The North",
       "gradeDisplay": "18",
       "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Looks Poxable",
+      "locationText": "Bullet Hole Wall, Hornsby And The North",
+      "gradeDisplay": "21",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Scott's Edge",
+      "locationText": "Bullet Hole Wall, Hornsby And The North",
+      "gradeDisplay": "22",
+      "styleDisplay": "Red point",
       "date": "Jul 26"
     },
     {
@@ -420,20 +434,6 @@
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
       "date": "Mar 26"
-    },
-    {
-      "routeName": "Major Tom",
-      "locationText": "Jean Genie Area, Bardens Gully",
-      "gradeDisplay": "23",
-      "styleDisplay": "Hang dog",
-      "date": "Mar 26"
-    },
-    {
-      "routeName": "Scheme of Things",
-      "locationText": "Jean Genie Area, Bardens Gully",
-      "gradeDisplay": "23",
-      "styleDisplay": "Hang dog",
-      "date": "Mar 26"
     }
   ],
   "projectAttempts": [
@@ -537,18 +537,18 @@
       "total": 34
     },
     "21": {
-      "onsight": 7,
+      "onsight": 8,
       "flash": 2,
       "redpoint": 10,
       "other": 8,
-      "total": 27
+      "total": 28
     },
     "22": {
       "onsight": 2,
       "flash": 0,
-      "redpoint": 3,
+      "redpoint": 4,
       "other": 2,
-      "total": 7
+      "total": 8
     },
     "23": {
       "onsight": 1,

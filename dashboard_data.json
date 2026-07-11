@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-07-10T19:08:57.903Z",
+  "lastUpdated": "2026-07-11T02:04:15.025Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 5,
-  "mood": "Satiated 😊🧗‍♂️",
+  "daysSinceLastClimb": 0,
+  "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
@@ -10,29 +10,29 @@
       "dateLabel": "Sat, 11 July",
       "maxT": 12,
       "minT": -1,
-      "humidity": 98,
-      "gust": 42,
+      "humidity": 100,
+      "gust": 44,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sun, 12 July",
-      "maxT": 8,
-      "minT": 3,
-      "humidity": 96,
-      "gust": 64,
-      "rain": "1.2",
-      "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
+      "maxT": 9,
+      "minT": 4,
+      "humidity": 93,
+      "gust": 74,
+      "rain": "0.7",
+      "frictionText": "Frost Bitey 🥶 (Numb Fingers)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3516,
-    "allTimeLogs": 196,
+    "allTimeMeters": 3529,
+    "allTimeLogs": 197,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
     "everestPercent": 40,
-    "yearMeters": 1428,
-    "yearRoutes": 74,
+    "yearMeters": 1441,
+    "yearRoutes": 75,
     "dynamicRate": 23,
     "dynamicSends": 3,
     "dynamicAttempts": 13
@@ -85,6 +85,13 @@
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Mental Fatigue",
+      "locationText": "Bullet Hole Wall, Hornsby And The North",
+      "gradeDisplay": "18",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
     {
       "routeName": "Radioactive Man",
       "locationText": "The Sunbath, Medlow Bath",
@@ -427,13 +434,6 @@
       "gradeDisplay": "23",
       "styleDisplay": "Hang dog",
       "date": "Mar 26"
-    },
-    {
-      "routeName": "Empty Chairs",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "19",
-      "styleDisplay": "Onsight",
-      "date": "Mar 26"
     }
   ],
   "projectAttempts": [
@@ -516,11 +516,11 @@
       "total": 13
     },
     "18": {
-      "onsight": 15,
+      "onsight": 16,
       "flash": 7,
       "redpoint": 1,
       "other": 1,
-      "total": 24
+      "total": 25
     },
     "19": {
       "onsight": 20,

@@ -1,31 +1,49 @@
-name: Daily Climbing Metrics Sync
+name: Hourly Climbing Metrics Sync
 
 on:
   schedule:
-    - cron: '0 14 * * *' # Wakes up automatically at midnight local time AEST (14:00 UTC)
-  workflow_dispatch: # Allows you to manually click a button to force update whenever you want
+    # Runs precisely at the top of every hour, 24 times a day
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # Keeps your manual "Run workflow" button active inside the Actions panel
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  sync-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository Code
         uses: actions/checkout@v4
 
-      - name: Set up Environment Node Environment
+      - name: Initialise Node.js Runtime Environment
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Fetch and Compute Metrics
+      - name: Install Runtime Dependencies
+        run: |
+          npm init -y
+          npm install node-fetch
+
+      - name: Execute Live Analytics Calculations Engine
         env:
           THECRAG_USERNAME: ${{ secrets.THECRAG_USERNAME }}
           THECRAG_API_KEY: ${{ secrets.THECRAG_API_KEY }}
         run: node fetch_data.js
 
-      - name: Commit Updated Dashboard Data Back To Repo
+      - name: Commit and Push Updated Data Artifacts
         run: |
-          git config --global user.name 'GitHub Actions Automation'
-          git config --global user.email 'actions@github.com'
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add dashboard_data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated daily stats refresh" && git push)
+          
+          # Only commit if data payloads have actually drifted or changed
+          if ! git diff --cached --quiet; then
+            git commit -m "Automated Hourly Telemetry Refresh [skip ci]"
+            git push origin main
+          else
+            echo "No data drift detected during this hour window. Skipping push."
+          fi

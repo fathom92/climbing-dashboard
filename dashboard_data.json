@@ -1,28 +1,28 @@
 {
-  "lastUpdated": "2026-07-11T23:36:02.097Z",
+  "lastUpdated": "2026-07-12T07:52:10.461Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 0,
+  "daysSinceLastClimb": 1,
   "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
       "dateLabel": "Sun, 12 July",
-      "maxT": 8,
+      "maxT": 7,
       "minT": 3,
-      "humidity": 93,
-      "gust": 67,
-      "rain": "0.9",
+      "humidity": 95,
+      "gust": 68,
+      "rain": "1.0",
       "frictionText": "Frost Bitey 🥶 (Numb Fingers)"
     },
     {
       "dateLabel": "Sat, 18 July",
-      "maxT": 9,
-      "minT": 6,
+      "maxT": 11,
+      "minT": 5,
       "humidity": 100,
-      "gust": 41,
-      "rain": "4.0",
-      "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
+      "gust": 24,
+      "rain": "0.6",
+      "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }
   ],
   "metrics": {

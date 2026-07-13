@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-13T11:45:04.762Z",
+  "lastUpdated": "2026-07-13T18:22:39.084Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 2,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -8,20 +8,20 @@
   "weekendWeather": [
     {
       "dateLabel": "Sat, 18 July",
-      "maxT": 10,
-      "minT": 6,
+      "maxT": 11,
+      "minT": 7,
       "humidity": 100,
-      "gust": 33,
-      "rain": "4.3",
+      "gust": 36,
+      "rain": "4.9",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     },
     {
       "dateLabel": "Sun, 19 July",
-      "maxT": 9,
-      "minT": 7,
+      "maxT": 11,
+      "minT": 6,
       "humidity": 100,
-      "gust": 30,
-      "rain": "4.3",
+      "gust": 38,
+      "rain": "3.2",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     }
   ],

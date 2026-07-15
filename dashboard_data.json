@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T17:51:21.964Z",
+  "lastUpdated": "2026-07-15T21:40:21.120Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 4,
   "mood": "Satiated 😊🧗‍♂️",
@@ -9,18 +9,18 @@
     {
       "dateLabel": "Sat, 18 July",
       "maxT": 13,
-      "minT": 6,
+      "minT": 5,
       "humidity": 100,
-      "gust": 28,
+      "gust": 26,
       "rain": "0.2",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sun, 19 July",
-      "maxT": 12,
-      "minT": 6,
+      "maxT": 13,
+      "minT": 3,
       "humidity": 100,
-      "gust": 30,
+      "gust": 25,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }

@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-07-19T00:14:57.611Z",
+  "lastUpdated": "2026-07-19T08:57:31.871Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 8,
-  "mood": "Itching to get back on the wall 🦎🧗",
+  "daysSinceLastClimb": 0,
+  "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
       "dateLabel": "Sun, 19 July",
       "maxT": 12,
-      "minT": 5,
+      "minT": 4,
       "humidity": 100,
       "gust": 36,
       "rain": "0.2",
@@ -17,25 +17,25 @@
     },
     {
       "dateLabel": "Sat, 25 July",
-      "maxT": 12,
-      "minT": -1,
+      "maxT": 10,
+      "minT": -3,
       "humidity": 100,
-      "gust": 24,
+      "gust": 30,
       "rain": "0.0",
-      "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
+      "frictionText": "Frost Bitey 🥶 (Numb Fingers)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3571,
-    "allTimeLogs": 200,
+    "allTimeMeters": 3605,
+    "allTimeLogs": 203,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
-    "everestPercent": 40,
-    "yearMeters": 1483,
-    "yearRoutes": 78,
-    "dynamicRate": 23,
-    "dynamicSends": 3,
-    "dynamicAttempts": 13
+    "everestPercent": 41,
+    "yearMeters": 1517,
+    "yearRoutes": 81,
+    "dynamicRate": 29,
+    "dynamicSends": 4,
+    "dynamicAttempts": 14
   },
   "topTen": [
     {
@@ -45,6 +45,15 @@
       "gradeWeight": 275.1,
       "styleWeight": 3,
       "style": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Pulling On the Porcelain",
+      "locationText": "The Grease Cave, Thompsons Point",
+      "gradeDisplay": "23",
+      "gradeWeight": 275.1,
+      "styleWeight": 1,
+      "style": "Red point",
       "date": "Jul 26"
     },
     {
@@ -73,18 +82,30 @@
       "styleWeight": 3,
       "style": "Onsight",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Hang onto Yourself",
-      "locationText": "Little Triggers Wall, The Main Wall",
-      "gradeDisplay": "22",
-      "gradeWeight": 258.7,
-      "styleWeight": 3,
-      "style": "Onsight",
-      "date": "Mar 26"
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Murdoch the Horse Fucker",
+      "locationText": "The Pocketed Wall, Thompsons Point",
+      "gradeDisplay": "22",
+      "styleDisplay": "Flash",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Killer Boas",
+      "locationText": "The Very Nice Wall, Thompsons Point",
+      "gradeDisplay": "22",
+      "styleDisplay": "Red point",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Pulling On the Porcelain",
+      "locationText": "The Grease Cave, Thompsons Point",
+      "gradeDisplay": "23",
+      "styleDisplay": "Red point",
+      "date": "Jul 26"
+    },
     {
       "routeName": "Mental Fatigue",
       "locationText": "Bullet Hole Wall, Hornsby And The North",
@@ -413,27 +434,6 @@
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Alive 'n' Kicking",
-      "locationText": "Historic Wells",
-      "gradeDisplay": "23",
-      "styleDisplay": "Hang dog",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Hang onto Yourself",
-      "locationText": "Little Triggers Wall, The Main Wall",
-      "gradeDisplay": "22",
-      "styleDisplay": "Onsight",
-      "date": "Mar 26"
-    },
-    {
-      "routeName": "Mike and Lorna go to Town",
-      "locationText": "Little Triggers Wall, The Main Wall",
-      "gradeDisplay": "19",
-      "styleDisplay": "Red point",
-      "date": "Mar 26"
     }
   ],
   "projectAttempts": [
@@ -545,17 +545,17 @@
     },
     "22": {
       "onsight": 2,
-      "flash": 0,
-      "redpoint": 4,
+      "flash": 1,
+      "redpoint": 5,
       "other": 2,
-      "total": 8
+      "total": 10
     },
     "23": {
       "onsight": 1,
       "flash": 0,
-      "redpoint": 2,
+      "redpoint": 3,
       "other": 10,
-      "total": 13
+      "total": 14
     },
     "24": {
       "onsight": 0,
@@ -582,7 +582,7 @@
   "maxPyramidVolume": 35,
   "capabilities": {
     "onsight": "23",
-    "flash": "21",
+    "flash": "22",
     "redpoint": "23"
   },
   "funStats": {

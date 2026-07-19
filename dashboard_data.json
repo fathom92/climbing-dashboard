@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-18T21:09:31.345Z",
+  "lastUpdated": "2026-07-19T00:14:57.611Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 7,
+  "daysSinceLastClimb": 8,
   "mood": "Itching to get back on the wall 🦎🧗",
   "targetGrade": 24,
   "breakthroughGrade": 23,
@@ -18,9 +18,9 @@
     {
       "dateLabel": "Sat, 25 July",
       "maxT": 12,
-      "minT": -3,
+      "minT": -1,
       "humidity": 100,
-      "gust": 21,
+      "gust": 24,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }

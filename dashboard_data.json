@@ -1,38 +1,38 @@
 {
-  "lastUpdated": "2026-07-24T21:50:12.678Z",
+  "lastUpdated": "2026-07-25T06:37:27.443Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 5,
-  "mood": "Satiated 😊🧗‍♂️",
+  "daysSinceLastClimb": 0,
+  "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
       "dateLabel": "Sat, 25 July",
       "maxT": 14,
-      "minT": -1,
+      "minT": -2,
       "humidity": 96,
-      "gust": 36,
+      "gust": 35,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sun, 26 July",
       "maxT": 13,
-      "minT": 1,
+      "minT": 3,
       "humidity": 97,
-      "gust": 23,
+      "gust": 30,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3605,
-    "allTimeLogs": 203,
+    "allTimeMeters": 3650,
+    "allTimeLogs": 205,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
     "everestPercent": 41,
-    "yearMeters": 1517,
-    "yearRoutes": 81,
+    "yearMeters": 1562,
+    "yearRoutes": 83,
     "dynamicRate": 29,
     "dynamicSends": 4,
     "dynamicAttempts": 14
@@ -85,6 +85,20 @@
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Hermione",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "gradeDisplay": "17",
+      "styleDisplay": "Red point",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Change Junkies",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "gradeDisplay": "20",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
     {
       "routeName": "Murdoch the Horse Fucker",
       "locationText": "The Pocketed Wall, Thompsons Point",
@@ -420,20 +434,6 @@
       "gradeDisplay": "20",
       "styleDisplay": "Onsight",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Bless Its Pointed Little Head",
-      "locationText": "Historic Wells",
-      "gradeDisplay": "21",
-      "styleDisplay": "Hang dog",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Use the Fork Luke",
-      "locationText": "Historic Wells",
-      "gradeDisplay": "19",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
     }
   ],
   "projectAttempts": [
@@ -511,9 +511,9 @@
     "17": {
       "onsight": 7,
       "flash": 5,
-      "redpoint": 1,
+      "redpoint": 2,
       "other": 0,
-      "total": 13
+      "total": 14
     },
     "18": {
       "onsight": 16,
@@ -530,11 +530,11 @@
       "total": 32
     },
     "20": {
-      "onsight": 11,
+      "onsight": 12,
       "flash": 1,
       "redpoint": 9,
       "other": 14,
-      "total": 35
+      "total": 36
     },
     "21": {
       "onsight": 8,
@@ -579,7 +579,7 @@
       "total": 1
     }
   },
-  "maxPyramidVolume": 35,
+  "maxPyramidVolume": 36,
   "capabilities": {
     "onsight": "23",
     "flash": "22",

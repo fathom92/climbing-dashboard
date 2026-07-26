@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-26T09:03:03.572Z",
+  "lastUpdated": "2026-07-26T12:46:53.712Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 1,
+  "daysSinceLastClimb": 0,
   "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
@@ -17,22 +17,22 @@
     },
     {
       "dateLabel": "Sat, 1 Aug",
-      "maxT": 12,
+      "maxT": 11,
       "minT": 1,
-      "humidity": 100,
-      "gust": 40,
-      "rain": "0.0",
+      "humidity": 98,
+      "gust": 35,
+      "rain": "0.6",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3650,
-    "allTimeLogs": 205,
+    "allTimeMeters": 3685,
+    "allTimeLogs": 207,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
-    "everestPercent": 41,
-    "yearMeters": 1562,
-    "yearRoutes": 83,
+    "everestPercent": 42,
+    "yearMeters": 1597,
+    "yearRoutes": 85,
     "dynamicRate": 29,
     "dynamicSends": 4,
     "dynamicAttempts": 14
@@ -85,6 +85,20 @@
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Pekin Duck",
+      "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
+      "gradeDisplay": "20",
+      "styleDisplay": "Onsight",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Lucky Duck",
+      "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
+      "gradeDisplay": "22",
+      "styleDisplay": "Red point",
+      "date": "Jul 26"
+    },
     {
       "routeName": "Hermione",
       "locationText": "Little Triggers Wall, The Main Wall",
@@ -420,20 +434,6 @@
       "gradeDisplay": "18",
       "styleDisplay": "Onsight",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Murmel Snooze",
-      "locationText": "Mezzaluna Area, Blaxland Gully",
-      "gradeDisplay": "20",
-      "styleDisplay": "Red point",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Funkytown",
-      "locationText": "Historic Wells",
-      "gradeDisplay": "20",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
     }
   ],
   "projectAttempts": [
@@ -530,11 +530,11 @@
       "total": 32
     },
     "20": {
-      "onsight": 12,
+      "onsight": 13,
       "flash": 1,
       "redpoint": 9,
       "other": 14,
-      "total": 36
+      "total": 37
     },
     "21": {
       "onsight": 8,
@@ -546,9 +546,9 @@
     "22": {
       "onsight": 2,
       "flash": 1,
-      "redpoint": 5,
+      "redpoint": 6,
       "other": 2,
-      "total": 10
+      "total": 11
     },
     "23": {
       "onsight": 1,
@@ -579,7 +579,7 @@
       "total": 1
     }
   },
-  "maxPyramidVolume": 36,
+  "maxPyramidVolume": 37,
   "capabilities": {
     "onsight": "23",
     "flash": "22",

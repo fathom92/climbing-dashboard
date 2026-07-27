@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-26T20:35:46.647Z",
+  "lastUpdated": "2026-07-27T10:52:49.334Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 0,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -8,34 +8,34 @@
   "weekendWeather": [
     {
       "dateLabel": "Sat, 1 Aug",
-      "maxT": 10,
-      "minT": 2,
+      "maxT": 11,
+      "minT": 1,
       "humidity": 100,
-      "gust": 35,
-      "rain": "0.0",
-      "frictionText": "Frost Bitey 🥶 (Numb Fingers)"
+      "gust": 26,
+      "rain": "0.3",
+      "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sun, 2 Aug",
       "maxT": 12,
-      "minT": 1,
+      "minT": 0,
       "humidity": 100,
-      "gust": 38,
+      "gust": 35,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3685,
-    "allTimeLogs": 207,
+    "allTimeMeters": 3782,
+    "allTimeLogs": 213,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
-    "everestPercent": 42,
-    "yearMeters": 1597,
-    "yearRoutes": 85,
-    "dynamicRate": 29,
+    "everestPercent": 43,
+    "yearMeters": 1694,
+    "yearRoutes": 91,
+    "dynamicRate": 25,
     "dynamicSends": 4,
-    "dynamicAttempts": 14
+    "dynamicAttempts": 16
   },
   "topTen": [
     {
@@ -85,6 +85,48 @@
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Johnny's Jalopies",
+      "locationText": "Jimmy Cliff, Celebrity Crag",
+      "gradeDisplay": "18",
+      "styleDisplay": "Red point",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Jimmy Valmer",
+      "locationText": "Jimmy Cliff, Celebrity Crag",
+      "gradeDisplay": "19",
+      "styleDisplay": "Red point",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Anal Leakage",
+      "locationText": "Jimmy Cliff, Celebrity Crag",
+      "gradeDisplay": "19",
+      "styleDisplay": "Red point",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Rudolf the Bloody Reindeer",
+      "locationText": "Jimmy Cliff, Celebrity Crag",
+      "gradeDisplay": "23",
+      "styleDisplay": "Hang dog",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Master Plan",
+      "locationText": "Masterplan Area, Mount York",
+      "gradeDisplay": "23",
+      "styleDisplay": "Hang dog",
+      "date": "Jul 26"
+    },
+    {
+      "routeName": "Marooned",
+      "locationText": "Masterplan Area, Mount York",
+      "gradeDisplay": "20",
+      "styleDisplay": "Hang dog",
+      "date": "Jul 26"
+    },
     {
       "routeName": "Pekin Duck",
       "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
@@ -392,48 +434,6 @@
       "gradeDisplay": "12",
       "styleDisplay": "Flash",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Pasado Mañana Extension",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "15",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Unknown 2",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "20",
-      "styleDisplay": "Red point",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Megalong Goodhas",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "13",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Wok Hay",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "22",
-      "styleDisplay": "Red point",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Viper",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "21",
-      "styleDisplay": "Red point",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "High Society",
-      "locationText": "Mezzaluna Area, Blaxland Gully",
-      "gradeDisplay": "18",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
     }
   ],
   "projectAttempts": [
@@ -518,23 +518,23 @@
     "18": {
       "onsight": 16,
       "flash": 7,
-      "redpoint": 1,
+      "redpoint": 2,
       "other": 1,
-      "total": 25
+      "total": 26
     },
     "19": {
       "onsight": 20,
       "flash": 3,
-      "redpoint": 5,
+      "redpoint": 7,
       "other": 4,
-      "total": 32
+      "total": 34
     },
     "20": {
       "onsight": 13,
       "flash": 1,
       "redpoint": 9,
-      "other": 14,
-      "total": 37
+      "other": 15,
+      "total": 38
     },
     "21": {
       "onsight": 8,
@@ -554,8 +554,8 @@
       "onsight": 1,
       "flash": 0,
       "redpoint": 3,
-      "other": 10,
-      "total": 14
+      "other": 12,
+      "total": 16
     },
     "24": {
       "onsight": 0,
@@ -579,7 +579,7 @@
       "total": 1
     }
   },
-  "maxPyramidVolume": 37,
+  "maxPyramidVolume": 38,
   "capabilities": {
     "onsight": "23",
     "flash": "22",

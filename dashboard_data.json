@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-23T11:40:26.240Z",
+  "lastUpdated": "2026-08-23T13:06:29.180Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 27,
   "mood": "Itching to get back on the wall 🦎🧗",
@@ -17,11 +17,11 @@
     },
     {
       "dateLabel": "Sat, 29 Aug",
-      "maxT": 14,
-      "minT": 7,
+      "maxT": 17,
+      "minT": 2,
       "humidity": 100,
-      "gust": 26,
-      "rain": "0.2",
+      "gust": 28,
+      "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }
   ],

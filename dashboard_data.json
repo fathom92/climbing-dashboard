@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-06T06:03:19.812Z",
+  "lastUpdated": "2026-09-06T11:06:17.271Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 0,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -9,30 +9,30 @@
     {
       "dateLabel": "Sun, 6 Sept",
       "maxT": 16,
-      "minT": 5,
-      "humidity": 96,
+      "minT": 6,
+      "humidity": 91,
       "gust": 76,
       "rain": "0.2",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sat, 12 Sept",
-      "maxT": 17,
-      "minT": 4,
+      "maxT": 18,
+      "minT": 3,
       "humidity": 100,
-      "gust": 39,
+      "gust": 41,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3795,
-    "allTimeLogs": 214,
+    "allTimeMeters": 3835,
+    "allTimeLogs": 217,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
     "everestPercent": 43,
-    "yearMeters": 1707,
-    "yearRoutes": 92,
+    "yearMeters": 1747,
+    "yearRoutes": 95,
     "dynamicRate": 25,
     "dynamicSends": 4,
     "dynamicAttempts": 16
@@ -89,6 +89,27 @@
       "routeName": "Little Wank Club",
       "locationText": "Main Street, Wollongong",
       "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Scrotie MacBoogerballs",
+      "locationText": "Main Street, Wollongong",
+      "gradeDisplay": "20",
+      "styleDisplay": "Red point",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "The Big Wank Club",
+      "locationText": "Main Street, Wollongong",
+      "gradeDisplay": "20",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "MooserWirt",
+      "locationText": "Main Street, Wollongong",
+      "gradeDisplay": "18",
       "styleDisplay": "Onsight",
       "date": "Sep 26"
     },
@@ -413,27 +434,6 @@
       "gradeDisplay": "20",
       "styleDisplay": "Onsight",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Duck Tits",
-      "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
-      "gradeDisplay": "21",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Holelipstick Hippy",
-      "locationText": "The Blowhole, Blow Hole",
-      "gradeDisplay": "25",
-      "styleDisplay": "Hang dog",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Poultry in Motion",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "19",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
     }
   ],
   "projectAttempts": [
@@ -516,11 +516,11 @@
       "total": 15
     },
     "18": {
-      "onsight": 16,
+      "onsight": 17,
       "flash": 7,
       "redpoint": 2,
       "other": 1,
-      "total": 26
+      "total": 27
     },
     "19": {
       "onsight": 20,
@@ -530,11 +530,11 @@
       "total": 34
     },
     "20": {
-      "onsight": 13,
+      "onsight": 14,
       "flash": 1,
-      "redpoint": 9,
+      "redpoint": 10,
       "other": 15,
-      "total": 38
+      "total": 40
     },
     "21": {
       "onsight": 8,
@@ -579,7 +579,7 @@
       "total": 1
     }
   },
-  "maxPyramidVolume": 38,
+  "maxPyramidVolume": 40,
   "capabilities": {
     "onsight": "23",
     "flash": "22",

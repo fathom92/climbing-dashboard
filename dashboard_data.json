@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-09-05T23:02:21.579Z",
+  "lastUpdated": "2026-09-06T01:04:58.108Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 40,
+  "daysSinceLastClimb": 41,
   "mood": "Must be dead 💀⚰️",
   "targetGrade": 24,
   "breakthroughGrade": 23,
@@ -10,15 +10,15 @@
       "dateLabel": "Sun, 6 Sept",
       "maxT": 16,
       "minT": 5,
-      "humidity": 93,
-      "gust": 77,
+      "humidity": 96,
+      "gust": 76,
       "rain": "0.2",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sat, 12 Sept",
       "maxT": 17,
-      "minT": 2,
+      "minT": 4,
       "humidity": 100,
       "gust": 39,
       "rain": "0.0",

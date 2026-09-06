@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-09-06T01:04:58.108Z",
+  "lastUpdated": "2026-09-06T06:03:19.812Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 41,
-  "mood": "Must be dead 💀⚰️",
+  "daysSinceLastClimb": 0,
+  "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
@@ -26,13 +26,13 @@
     }
   ],
   "metrics": {
-    "allTimeMeters": 3782,
-    "allTimeLogs": 213,
+    "allTimeMeters": 3795,
+    "allTimeLogs": 214,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
     "everestPercent": 43,
-    "yearMeters": 1694,
-    "yearRoutes": 91,
+    "yearMeters": 1707,
+    "yearRoutes": 92,
     "dynamicRate": 25,
     "dynamicSends": 4,
     "dynamicAttempts": 16
@@ -85,6 +85,13 @@
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Little Wank Club",
+      "locationText": "Main Street, Wollongong",
+      "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
     {
       "routeName": "Johnny's Jalopies",
       "locationText": "Jimmy Cliff, Celebrity Crag",
@@ -427,13 +434,6 @@
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Until Death Do Us Part",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "12",
-      "styleDisplay": "Flash",
-      "date": "Apr 26"
     }
   ],
   "projectAttempts": [
@@ -509,11 +509,11 @@
       "total": 10
     },
     "17": {
-      "onsight": 7,
+      "onsight": 8,
       "flash": 5,
       "redpoint": 2,
       "other": 0,
-      "total": 14
+      "total": 15
     },
     "18": {
       "onsight": 16,

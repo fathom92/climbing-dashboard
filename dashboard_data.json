@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-08T09:49:38.494Z",
+  "lastUpdated": "2026-09-08T14:38:25.040Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 2,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -9,18 +9,18 @@
     {
       "dateLabel": "Sat, 12 Sept",
       "maxT": 18,
-      "minT": 6,
+      "minT": 5,
       "humidity": 100,
-      "gust": 29,
+      "gust": 32,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sun, 13 Sept",
-      "maxT": 18,
+      "maxT": 19,
       "minT": 4,
-      "humidity": 96,
-      "gust": 42,
+      "humidity": 98,
+      "gust": 39,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     }

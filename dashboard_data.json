@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-09-08T21:55:47.628Z",
+  "lastUpdated": "2026-09-09T00:21:06.840Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 2,
-  "mood": "Ecstatic! 🧗‍♂️🔥",
+  "daysSinceLastClimb": 3,
+  "mood": "Satiated 😊🧗‍♂️",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
@@ -12,7 +12,7 @@
       "minT": 5,
       "humidity": 100,
       "gust": 31,
-      "rain": "0.2",
+      "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-13T06:18:27.338Z",
+  "lastUpdated": "2026-09-13T12:04:22.764Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 0,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -11,28 +11,28 @@
       "maxT": 19,
       "minT": 4,
       "humidity": 97,
-      "gust": 34,
+      "gust": 35,
       "rain": "0.0",
       "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
     },
     {
       "dateLabel": "Sat, 19 Sept",
-      "maxT": 22,
-      "minT": 3,
-      "humidity": 88,
-      "gust": 40,
+      "maxT": 21,
+      "minT": 2,
+      "humidity": 93,
+      "gust": 39,
       "rain": "0.0",
-      "frictionText": "Okay Send Connies 🌤️ (Passable)"
+      "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3949,
-    "allTimeLogs": 225,
+    "allTimeMeters": 3986,
+    "allTimeLogs": 228,
     "allTimeSuccessRate": 77,
     "everestLap": 1,
     "everestPercent": 45,
-    "yearMeters": 1861,
-    "yearRoutes": 103,
+    "yearMeters": 1898,
+    "yearRoutes": 106,
     "dynamicRate": 25,
     "dynamicSends": 4,
     "dynamicAttempts": 16
@@ -139,6 +139,27 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "9",
       "styleDisplay": "Red point",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Kedumba Sisters",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "11",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Kaboomba Brothers",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "4",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "One's Enough, Two's Too Many",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "22",
+      "styleDisplay": "Hang dog",
       "date": "Sep 26"
     },
     {
@@ -413,27 +434,6 @@
       "gradeDisplay": "16",
       "styleDisplay": "Onsight",
       "date": "May 26"
-    },
-    {
-      "routeName": "Whale Watchers",
-      "locationText": "Whale of a Time Wall, Wollongong",
-      "gradeDisplay": "17",
-      "styleDisplay": "Onsight",
-      "date": "May 26"
-    },
-    {
-      "routeName": "Anthracite",
-      "locationText": "Kenny's Wall, Wollongong",
-      "gradeDisplay": "20",
-      "styleDisplay": "Onsight",
-      "date": "May 26"
-    },
-    {
-      "routeName": "Jingle Bells",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
-      "gradeDisplay": "21",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
     }
   ],
   "projectAttempts": [
@@ -467,11 +467,11 @@
       "total": 4
     },
     "11": {
-      "onsight": 3,
+      "onsight": 4,
       "flash": 0,
       "redpoint": 0,
       "other": 0,
-      "total": 3
+      "total": 4
     },
     "12": {
       "onsight": 1,
@@ -547,8 +547,8 @@
       "onsight": 2,
       "flash": 1,
       "redpoint": 6,
-      "other": 2,
-      "total": 11
+      "other": 3,
+      "total": 12
     },
     "23": {
       "onsight": 1,
@@ -587,7 +587,7 @@
   },
   "funStats": {
     "favoriteCrag": "Medlow Bath",
-    "favoriteCragCount": 39,
+    "favoriteCragCount": 42,
     "hardestAttempt": "Smoked Mussels (Grade 26)",
     "hardestAttemptLocation": "Wave Wall, Centennial Glen"
   }

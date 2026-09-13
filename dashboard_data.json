@@ -1,14 +1,14 @@
 {
-  "lastUpdated": "2026-09-12T22:23:42.781Z",
+  "lastUpdated": "2026-09-13T01:09:20.904Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 6,
-  "mood": "Satiated 😊🧗‍♂️",
+  "daysSinceLastClimb": 0,
+  "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
       "dateLabel": "Sun, 13 Sept",
-      "maxT": 20,
+      "maxT": 19,
       "minT": 4,
       "humidity": 97,
       "gust": 34,
@@ -18,21 +18,21 @@
     {
       "dateLabel": "Sat, 19 Sept",
       "maxT": 22,
-      "minT": 2,
-      "humidity": 97,
+      "minT": 3,
+      "humidity": 88,
       "gust": 40,
       "rain": "0.0",
-      "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
+      "frictionText": "Okay Send Connies 🌤️ (Passable)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3835,
-    "allTimeLogs": 217,
+    "allTimeMeters": 3850,
+    "allTimeLogs": 218,
     "allTimeSuccessRate": 76,
     "everestLap": 1,
-    "everestPercent": 43,
-    "yearMeters": 1747,
-    "yearRoutes": 95,
+    "everestPercent": 44,
+    "yearMeters": 1762,
+    "yearRoutes": 96,
     "dynamicRate": 25,
     "dynamicSends": 4,
     "dynamicAttempts": 16
@@ -85,6 +85,13 @@
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Old Salt",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "18",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
     {
       "routeName": "Little Wank Club",
       "locationText": "Main Street, Wollongong",
@@ -427,13 +434,6 @@
       "gradeDisplay": "20",
       "styleDisplay": "Onsight",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Duckling",
-      "locationText": "Duck Wall, Duck Wall Upstream Of Sunny Side",
-      "gradeDisplay": "20",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
     }
   ],
   "projectAttempts": [
@@ -516,11 +516,11 @@
       "total": 15
     },
     "18": {
-      "onsight": 17,
+      "onsight": 18,
       "flash": 7,
       "redpoint": 2,
       "other": 1,
-      "total": 27
+      "total": 28
     },
     "19": {
       "onsight": 20,
@@ -587,7 +587,7 @@
   },
   "funStats": {
     "favoriteCrag": "Medlow Bath",
-    "favoriteCragCount": 31,
+    "favoriteCragCount": 32,
     "hardestAttempt": "Smoked Mussels (Grade 26)",
     "hardestAttemptLocation": "Wave Wall, Centennial Glen"
   }

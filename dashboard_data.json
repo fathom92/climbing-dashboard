@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-13T12:04:22.764Z",
+  "lastUpdated": "2026-09-13T16:27:34.716Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 0,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -7,20 +7,20 @@
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
-      "dateLabel": "Sun, 13 Sept",
-      "maxT": 19,
-      "minT": 4,
-      "humidity": 97,
-      "gust": 35,
-      "rain": "0.0",
-      "frictionText": "Damp/Mist Risk 🌧️ (High Humidity)"
-    },
-    {
       "dateLabel": "Sat, 19 Sept",
-      "maxT": 21,
-      "minT": 2,
+      "maxT": 22,
+      "minT": 3,
       "humidity": 93,
       "gust": 39,
+      "rain": "0.0",
+      "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
+    },
+    {
+      "dateLabel": "Sun, 20 Sept",
+      "maxT": 22,
+      "minT": 4,
+      "humidity": 93,
+      "gust": 52,
       "rain": "0.0",
       "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
     }

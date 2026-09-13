@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-13T01:09:20.904Z",
+  "lastUpdated": "2026-09-13T06:18:27.338Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 0,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -26,13 +26,13 @@
     }
   ],
   "metrics": {
-    "allTimeMeters": 3850,
-    "allTimeLogs": 218,
-    "allTimeSuccessRate": 76,
+    "allTimeMeters": 3949,
+    "allTimeLogs": 225,
+    "allTimeSuccessRate": 77,
     "everestLap": 1,
-    "everestPercent": 44,
-    "yearMeters": 1762,
-    "yearRoutes": 96,
+    "everestPercent": 45,
+    "yearMeters": 1861,
+    "yearRoutes": 103,
     "dynamicRate": 25,
     "dynamicSends": 4,
     "dynamicAttempts": 16
@@ -90,6 +90,55 @@
       "locationText": "The Sunbath, Medlow Bath",
       "gradeDisplay": "18",
       "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Mainly Fine",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Cardinal Fang",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "I Only Eat Plankton",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Pitang Pitang",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "15",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Ole Biscuit Barrel",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "14",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Go Back To Switzerland",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "11",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Roger the Cabin Boy",
+      "locationText": "The Sunbath, Medlow Bath",
+      "gradeDisplay": "9",
+      "styleDisplay": "Red point",
       "date": "Sep 26"
     },
     {
@@ -385,55 +434,6 @@
       "gradeDisplay": "21",
       "styleDisplay": "Onsight",
       "date": "Apr 26"
-    },
-    {
-      "routeName": "Three Hour Commute",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
-      "gradeDisplay": "22",
-      "styleDisplay": "Red point",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Rocky Road",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
-      "gradeDisplay": "22",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Who the Fuck is Keith",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
-      "gradeDisplay": "21",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Jigger Jeff",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
-      "gradeDisplay": "23",
-      "styleDisplay": "Hang dog",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Belayer's Root",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
-      "gradeDisplay": "19",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Cock Blocker",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
-      "gradeDisplay": "21",
-      "styleDisplay": "Red point",
-      "date": "Apr 26"
-    },
-    {
-      "routeName": "Araldite",
-      "locationText": "The Blowhole, Blow Hole",
-      "gradeDisplay": "20",
-      "styleDisplay": "Onsight",
-      "date": "Apr 26"
     }
   ],
   "projectAttempts": [
@@ -467,11 +467,11 @@
       "total": 4
     },
     "11": {
-      "onsight": 2,
+      "onsight": 3,
       "flash": 0,
       "redpoint": 0,
       "other": 0,
-      "total": 2
+      "total": 3
     },
     "12": {
       "onsight": 1,
@@ -488,18 +488,18 @@
       "total": 3
     },
     "14": {
-      "onsight": 1,
+      "onsight": 2,
       "flash": 2,
       "redpoint": 0,
       "other": 1,
-      "total": 4
+      "total": 5
     },
     "15": {
-      "onsight": 6,
+      "onsight": 7,
       "flash": 1,
       "redpoint": 4,
       "other": 0,
-      "total": 11
+      "total": 12
     },
     "16": {
       "onsight": 5,
@@ -509,11 +509,11 @@
       "total": 10
     },
     "17": {
-      "onsight": 8,
+      "onsight": 11,
       "flash": 5,
       "redpoint": 2,
       "other": 0,
-      "total": 15
+      "total": 18
     },
     "18": {
       "onsight": 18,
@@ -587,7 +587,7 @@
   },
   "funStats": {
     "favoriteCrag": "Medlow Bath",
-    "favoriteCragCount": 32,
+    "favoriteCragCount": 39,
     "hardestAttempt": "Smoked Mussels (Grade 26)",
     "hardestAttemptLocation": "Wave Wall, Centennial Glen"
   }

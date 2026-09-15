@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15T07:52:36.409Z",
+  "lastUpdated": "2026-09-15T13:40:13.785Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 2,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -8,10 +8,10 @@
   "weekendWeather": [
     {
       "dateLabel": "Sat, 19 Sept",
-      "maxT": 22,
+      "maxT": 21,
       "minT": 4,
-      "humidity": 87,
-      "gust": 39,
+      "humidity": 90,
+      "gust": 43,
       "rain": "0.0",
       "frictionText": "Okay Send Connies 🌤️ (Passable)"
     },
@@ -19,7 +19,7 @@
       "dateLabel": "Sun, 20 Sept",
       "maxT": 23,
       "minT": 6,
-      "humidity": 88,
+      "humidity": 85,
       "gust": 48,
       "rain": "0.0",
       "frictionText": "Okay Send Connies 🌤️ (Passable)"

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-18T11:27:59.443Z",
+  "lastUpdated": "2026-09-18T16:32:51.623Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 5,
   "mood": "Satiated 😊🧗‍♂️",
@@ -10,14 +10,14 @@
       "dateLabel": "Sat, 19 Sept",
       "maxT": 21,
       "minT": 6,
-      "humidity": 77,
-      "gust": 47,
+      "humidity": 76,
+      "gust": 48,
       "rain": "0.0",
       "frictionText": "Okay Send Connies 🌤️ (Passable)"
     },
     {
       "dateLabel": "Sun, 20 Sept",
-      "maxT": 22,
+      "maxT": 23,
       "minT": 7,
       "humidity": 68,
       "gust": 52,

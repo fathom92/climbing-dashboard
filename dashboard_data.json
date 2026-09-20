@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-09-19T23:14:22.796Z",
+  "lastUpdated": "2026-09-20T01:18:10.922Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 6,
-  "mood": "Satiated 😊🧗‍♂️",
+  "daysSinceLastClimb": 7,
+  "mood": "Itching to get back on the wall 🦎🧗",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
@@ -11,15 +11,15 @@
       "maxT": 22,
       "minT": 7,
       "humidity": 70,
-      "gust": 54,
+      "gust": 53,
       "rain": "0.0",
       "frictionText": "Okay Send Connies 🌤️ (Passable)"
     },
     {
       "dateLabel": "Sat, 26 Sept",
       "maxT": 23,
-      "minT": 7,
-      "humidity": 100,
+      "minT": 8,
+      "humidity": 99,
       "gust": 49,
       "rain": "0.7",
       "frictionText": "Greasy Slopers 🥵 (Poor Friction)"

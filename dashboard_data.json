@@ -1,38 +1,38 @@
 {
-  "lastUpdated": "2026-09-26T01:41:07.261Z",
+  "lastUpdated": "2026-09-26T07:51:07.459Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 13,
-  "mood": "Itching to get back on the wall 🦎🧗",
+  "daysSinceLastClimb": 0,
+  "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
       "dateLabel": "Sat, 26 Sept",
-      "maxT": 24,
+      "maxT": 25,
       "minT": 10,
-      "humidity": 100,
-      "gust": 49,
+      "humidity": 98,
+      "gust": 46,
       "rain": "0.1",
       "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
     },
     {
       "dateLabel": "Sun, 27 Sept",
-      "maxT": 10,
-      "minT": 6,
+      "maxT": 11,
+      "minT": 7,
       "humidity": 100,
-      "gust": 38,
+      "gust": 36,
       "rain": "8.1",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 3986,
-    "allTimeLogs": 228,
+    "allTimeMeters": 4047,
+    "allTimeLogs": 231,
     "allTimeSuccessRate": 77,
     "everestLap": 1,
-    "everestPercent": 45,
-    "yearMeters": 1898,
-    "yearRoutes": 106,
+    "everestPercent": 46,
+    "yearMeters": 1959,
+    "yearRoutes": 109,
     "dynamicRate": 25,
     "dynamicSends": 4,
     "dynamicAttempts": 16
@@ -75,16 +75,37 @@
       "date": "Dec 25"
     },
     {
-      "routeName": "Rocky Road",
-      "locationText": "Arrivals (Lower), Western Tier Shady Side Lower",
+      "routeName": "Lady Grinning Soul",
+      "locationText": "Little Triggers Wall, The Main Wall",
       "gradeDisplay": "22",
       "gradeWeight": 258.7,
       "styleWeight": 3,
       "style": "Onsight",
-      "date": "Apr 26"
+      "date": "Sep 26"
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Lady Stardust",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "gradeDisplay": "21",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Solvin Puzzle",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "gradeDisplay": "17",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
+    {
+      "routeName": "Lady Grinning Soul",
+      "locationText": "Little Triggers Wall, The Main Wall",
+      "gradeDisplay": "22",
+      "styleDisplay": "Onsight",
+      "date": "Sep 26"
+    },
     {
       "routeName": "Old Salt",
       "locationText": "The Sunbath, Medlow Bath",
@@ -413,27 +434,6 @@
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
       "date": "May 26"
-    },
-    {
-      "routeName": "Captain Pugwash",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "13",
-      "styleDisplay": "Onsight",
-      "date": "May 26"
-    },
-    {
-      "routeName": "Three Sheets to the Wind",
-      "locationText": "The Sunbath, Medlow Bath",
-      "gradeDisplay": "10",
-      "styleDisplay": "Onsight",
-      "date": "May 26"
-    },
-    {
-      "routeName": "Whale of a Time",
-      "locationText": "Whale of a Time Wall, Wollongong",
-      "gradeDisplay": "16",
-      "styleDisplay": "Onsight",
-      "date": "May 26"
     }
   ],
   "projectAttempts": [
@@ -509,11 +509,11 @@
       "total": 10
     },
     "17": {
-      "onsight": 11,
+      "onsight": 12,
       "flash": 5,
       "redpoint": 2,
       "other": 0,
-      "total": 18
+      "total": 19
     },
     "18": {
       "onsight": 18,
@@ -537,18 +537,18 @@
       "total": 40
     },
     "21": {
-      "onsight": 8,
+      "onsight": 9,
       "flash": 2,
       "redpoint": 10,
       "other": 8,
-      "total": 28
+      "total": 29
     },
     "22": {
-      "onsight": 2,
+      "onsight": 3,
       "flash": 1,
       "redpoint": 6,
       "other": 3,
-      "total": 12
+      "total": 13
     },
     "23": {
       "onsight": 1,

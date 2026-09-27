@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-27T08:21:01.969Z",
+  "lastUpdated": "2026-09-27T14:07:03.806Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 1,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -7,21 +7,21 @@
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
-      "dateLabel": "Sun, 27 Sept",
-      "maxT": 11,
-      "minT": 7,
-      "humidity": 100,
-      "gust": 35,
-      "rain": "7.7",
-      "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
-    },
-    {
       "dateLabel": "Sat, 3 Oct",
-      "maxT": 13,
+      "maxT": 12,
       "minT": 9,
       "humidity": 100,
       "gust": 36,
-      "rain": "6.0",
+      "rain": "8.3",
+      "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
+    },
+    {
+      "dateLabel": "Sun, 4 Oct",
+      "maxT": 12,
+      "minT": 9,
+      "humidity": 100,
+      "gust": 31,
+      "rain": "8.3",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     }
   ],

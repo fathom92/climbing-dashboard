@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-08T02:03:55.324Z",
+  "lastUpdated": "2026-10-08T09:09:00.822Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 12,
   "mood": "Itching to get back on the wall 🦎🧗",
@@ -9,18 +9,18 @@
     {
       "dateLabel": "Sat, 10 Oct",
       "maxT": 22,
-      "minT": 11,
-      "humidity": 86,
-      "gust": 64,
-      "rain": "0.7",
-      "frictionText": "Okay Send Connies 🌤️ (Passable)"
+      "minT": 10,
+      "humidity": 94,
+      "gust": 65,
+      "rain": "1.5",
+      "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     },
     {
       "dateLabel": "Sun, 11 Oct",
-      "maxT": 24,
+      "maxT": 25,
       "minT": 8,
       "humidity": 99,
-      "gust": 51,
+      "gust": 49,
       "rain": "0.0",
       "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
     }

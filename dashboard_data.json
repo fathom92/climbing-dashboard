@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-10T00:59:50.549Z",
+  "lastUpdated": "2026-10-10T07:16:44.614Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 14,
   "mood": "Itching to get back on the wall 🦎🧗",
@@ -8,10 +8,10 @@
   "weekendWeather": [
     {
       "dateLabel": "Sat, 10 Oct",
-      "maxT": 20,
+      "maxT": 21,
       "minT": 10,
-      "humidity": 96,
-      "gust": 73,
+      "humidity": 98,
+      "gust": 78,
       "rain": "2.9",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     },
@@ -19,8 +19,8 @@
       "dateLabel": "Sun, 11 Oct",
       "maxT": 24,
       "minT": 6,
-      "humidity": 97,
-      "gust": 45,
+      "humidity": 92,
+      "gust": 43,
       "rain": "0.0",
       "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
     }

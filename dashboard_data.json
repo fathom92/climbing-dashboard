@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-10-18T23:22:17.398Z",
+  "lastUpdated": "2026-10-19T01:26:55.509Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 22,
+  "daysSinceLastClimb": 23,
   "mood": "Itching to get back on the wall 🦎🧗",
   "targetGrade": 24,
   "breakthroughGrade": 23,
@@ -9,10 +9,10 @@
     {
       "dateLabel": "Sat, 24 Oct",
       "maxT": 24,
-      "minT": 11,
+      "minT": 10,
       "humidity": 100,
-      "gust": 44,
-      "rain": "1.2",
+      "gust": 30,
+      "rain": "1.6",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     },
     {
@@ -21,7 +21,7 @@
       "minT": 12,
       "humidity": 99,
       "gust": 43,
-      "rain": "18.0",
+      "rain": "23.9",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     }
   ],

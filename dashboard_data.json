@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-10-23T22:21:28.040Z",
+  "lastUpdated": "2026-10-24T00:50:54.608Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 27,
-  "mood": "Itching to get back on the wall 🦎🧗",
+  "daysSinceLastClimb": 0,
+  "mood": "Ecstatic! 🧗‍♂️🔥",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
       "dateLabel": "Sat, 24 Oct",
       "maxT": 24,
-      "minT": 10,
+      "minT": 11,
       "humidity": 100,
-      "gust": 35,
-      "rain": "2.9",
+      "gust": 32,
+      "rain": "2.8",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     },
     {
@@ -20,19 +20,19 @@
       "maxT": 25,
       "minT": 14,
       "humidity": 98,
-      "gust": 66,
-      "rain": "5.2",
+      "gust": 70,
+      "rain": "2.8",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     }
   ],
   "metrics": {
-    "allTimeMeters": 4047,
-    "allTimeLogs": 231,
+    "allTimeMeters": 4062,
+    "allTimeLogs": 232,
     "allTimeSuccessRate": 77,
     "everestLap": 1,
     "everestPercent": 46,
-    "yearMeters": 1959,
-    "yearRoutes": 109,
+    "yearMeters": 1974,
+    "yearRoutes": 110,
     "dynamicRate": 25,
     "dynamicSends": 4,
     "dynamicAttempts": 16
@@ -85,6 +85,13 @@
     }
   ],
   "auditLog": [
+    {
+      "routeName": "Gumbo",
+      "locationText": "Black Site, Dalpura Head",
+      "gradeDisplay": "19",
+      "styleDisplay": "Onsight",
+      "date": "Oct 26"
+    },
     {
       "routeName": "Lady Stardust",
       "locationText": "Little Triggers Wall, The Main Wall",
@@ -427,13 +434,6 @@
       "gradeDisplay": "21",
       "styleDisplay": "Red point",
       "date": "May 26"
-    },
-    {
-      "routeName": "Brother Sun",
-      "locationText": "Alfords Point Main Area, Sutherland",
-      "gradeDisplay": "21",
-      "styleDisplay": "Red point",
-      "date": "May 26"
     }
   ],
   "projectAttempts": [
@@ -523,11 +523,11 @@
       "total": 28
     },
     "19": {
-      "onsight": 20,
+      "onsight": 21,
       "flash": 3,
       "redpoint": 7,
       "other": 4,
-      "total": 34
+      "total": 35
     },
     "20": {
       "onsight": 14,

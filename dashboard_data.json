@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-24T00:50:54.608Z",
+  "lastUpdated": "2026-10-24T06:00:17.627Z",
   "currentYear": 2026,
   "daysSinceLastClimb": 0,
   "mood": "Ecstatic! 🧗‍♂️🔥",
@@ -26,13 +26,13 @@
     }
   ],
   "metrics": {
-    "allTimeMeters": 4062,
-    "allTimeLogs": 232,
-    "allTimeSuccessRate": 77,
+    "allTimeMeters": 4091,
+    "allTimeLogs": 234,
+    "allTimeSuccessRate": 76,
     "everestLap": 1,
     "everestPercent": 46,
-    "yearMeters": 1974,
-    "yearRoutes": 110,
+    "yearMeters": 2003,
+    "yearRoutes": 112,
     "dynamicRate": 25,
     "dynamicSends": 4,
     "dynamicAttempts": 16
@@ -90,6 +90,20 @@
       "locationText": "Black Site, Dalpura Head",
       "gradeDisplay": "19",
       "styleDisplay": "Onsight",
+      "date": "Oct 26"
+    },
+    {
+      "routeName": "Spook Flake",
+      "locationText": "Black Site, Dalpura Head",
+      "gradeDisplay": "22",
+      "styleDisplay": "Hang dog",
+      "date": "Oct 26"
+    },
+    {
+      "routeName": "Sneaky Snorkeler",
+      "locationText": "Black Site, Dalpura Head",
+      "gradeDisplay": "22",
+      "styleDisplay": "Hang dog",
       "date": "Oct 26"
     },
     {
@@ -420,20 +434,6 @@
       "gradeDisplay": "18",
       "styleDisplay": "Red point",
       "date": "May 26"
-    },
-    {
-      "routeName": "Runnel Wall",
-      "locationText": "Alfords Point Main Area, Sutherland",
-      "gradeDisplay": "10",
-      "styleDisplay": "Onsight",
-      "date": "May 26"
-    },
-    {
-      "routeName": "Sister Moon",
-      "locationText": "Alfords Point Main Area, Sutherland",
-      "gradeDisplay": "21",
-      "styleDisplay": "Red point",
-      "date": "May 26"
     }
   ],
   "projectAttempts": [
@@ -547,8 +547,8 @@
       "onsight": 3,
       "flash": 1,
       "redpoint": 6,
-      "other": 3,
-      "total": 13
+      "other": 5,
+      "total": 15
     },
     "23": {
       "onsight": 1,

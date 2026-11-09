@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-11-08T23:48:36.827Z",
+  "lastUpdated": "2026-11-09T06:52:40.985Z",
   "currentYear": 2026,
-  "daysSinceLastClimb": 15,
+  "daysSinceLastClimb": 16,
   "mood": "Itching to get back on the wall 🦎🧗",
   "targetGrade": 24,
   "breakthroughGrade": 23,
   "weekendWeather": [
     {
       "dateLabel": "Sat, 14 Nov",
-      "maxT": 27,
+      "maxT": 28,
       "minT": 14,
-      "humidity": 100,
-      "gust": 52,
-      "rain": "0.6",
+      "humidity": 99,
+      "gust": 55,
+      "rain": "0.9",
       "frictionText": "Greasy Slopers 🥵 (Poor Friction)"
     },
     {
@@ -20,8 +20,8 @@
       "maxT": 19,
       "minT": 11,
       "humidity": 100,
-      "gust": 30,
-      "rain": "30.6",
+      "gust": 41,
+      "rain": "30.9",
       "frictionText": "She wet - find a cave 🌧️ (Wet Rock)"
     }
   ],
